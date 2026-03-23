@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { JsonLd } from "@/components/json-ld";
 import { RichText } from "@/components/rich-text";
 import { SiteShell } from "@/components/site-shell";
 import { getDynamicSlugs, getPageBySlug, getPostBySlug } from "@/lib/directus";
-import { buildMetadata, formatPublishedDate } from "@/lib/seo";
+import { buildMetadata, formatPublishedDate, siteUrl } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export const revalidate = 300;
+export const dynamic = "force-static";
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const entries = await getDynamicSlugs();
@@ -30,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SlugFrPage({ params }: Props) {
   const { slug } = await params;
+  const baseUrl = siteUrl();
 
   const page = await getPageBySlug("fr", slug);
   if (page) {
@@ -41,6 +45,15 @@ export default async function SlugFrPage({ params }: Props) {
 
     return (
       <SiteShell locale="fr" pathname={`/fr/${slug}`} localeLinks={localeLinks}>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            inLanguage: "fr",
+            name: page.title,
+            url: `${baseUrl}/fr/${slug}`,
+          }}
+        />
         <h1 className="mb-6 text-5xl">{page.title}</h1>
         <RichText html={page.bodyRichtext} />
       </SiteShell>
@@ -59,6 +72,22 @@ export default async function SlugFrPage({ params }: Props) {
   return (
     <SiteShell locale="fr" pathname={`/fr/${slug}`} localeLinks={localeLinks}>
       <article>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            author: {
+              "@type": "Person",
+              name: post.authorName,
+            },
+            mainEntityOfPage: `${baseUrl}/fr/${slug}`,
+            inLanguage: "fr",
+          }}
+        />
         <p className="text-xs uppercase tracking-wide text-zinc-500">{formatPublishedDate(post.publishedAt, "fr")}</p>
         <h1 className="mt-2 text-5xl">{post.title}</h1>
         <p className="mt-3 text-sm text-zinc-600">{post.excerpt}</p>

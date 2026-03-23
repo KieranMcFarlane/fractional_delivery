@@ -1,11 +1,9 @@
-# Fractional Delivery (Next.js + Directus)
+# Fractional Delivery (Next.js + i18n)
 
-Next.js App Router migration with:
-- SEO-friendly server rendering (SSG + ISR)
+Next.js App Router site with:
 - EN/FR localized routes (`/` and `/fr/*`)
-- Directus content integration (`pages`, `posts`, `site_settings`)
+- Static local content (no CMS dependency)
 - Dynamic `sitemap.xml` and `robots.txt`
-- Revalidation webhook endpoint for publish updates
 
 ## Routes
 
@@ -17,10 +15,7 @@ Next.js App Router migration with:
 
 Copy `.env.example` to `.env.local` and set:
 
-- `DIRECTUS_URL`
 - `NEXT_PUBLIC_SITE_URL`
-- `REVALIDATE_SECRET`
-- `DIRECTUS_ADMIN_TOKEN` (only required for bootstrap/seed scripts)
 
 ## Local Development
 
@@ -29,34 +24,12 @@ npm install
 npm run dev
 ```
 
-## Directus Setup
-
-Bootstrap collections/fields:
+## Build
 
 ```bash
-npm run directus:bootstrap
+npm run build
+npm start
 ```
-
-Seed initial EN/FR content:
-
-```bash
-npm run directus:seed
-```
-
-Seed data is in `directus/seed-data.json`.
-
-## Revalidation Webhook
-
-POST `/api/revalidate` with:
-
-```json
-{
-  "secret": "REVALIDATE_SECRET",
-  "path": "/blog"
-}
-```
-
-Configure Directus flow/webhook on content publish events to call this endpoint.
 
 ## Tests
 

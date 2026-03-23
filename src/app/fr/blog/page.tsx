@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
+import { JsonLd } from "@/components/json-ld";
 import { PostCard } from "@/components/post-card";
 import { SiteShell } from "@/components/site-shell";
 import { getPosts } from "@/lib/directus";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, siteUrl } from "@/lib/seo";
 
 export const revalidate = 300;
 
@@ -21,9 +22,19 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function BlogFrPage() {
   const posts = await getPosts("fr");
+  const baseUrl = siteUrl();
 
   return (
     <SiteShell locale="fr" pathname="/fr/blog" localeLinks={{ en: "/blog", fr: "/fr/blog" }}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Notes de Terrain",
+          url: `${baseUrl}/fr/blog`,
+          inLanguage: "fr",
+        }}
+      />
       <section className="mb-8">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">Ressources</p>
         <h1 className="mt-3 text-5xl">Notes de Terrain</h1>

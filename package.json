@@ -3,18 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "directus:bootstrap": "node scripts/directus-bootstrap.mjs",
-    "directus:seed": "node scripts/directus-seed.mjs"
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
-    "@directus/sdk": "^21.2.0",
     "next": "16.2.1",
     "react": "19.2.4",
     "react-dom": "19.2.4"

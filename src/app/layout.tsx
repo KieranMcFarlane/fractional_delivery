@@ -15,11 +15,23 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  applicationName: "Fractional Delivery",
   title: {
     default: "Fractional Delivery",
     template: "%s | Fractional Delivery",
   },
   description: "Delivery operations consulting for scaling AI and digital teams.",
+  openGraph: {
+    type: "website",
+    siteName: "Fractional Delivery",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
