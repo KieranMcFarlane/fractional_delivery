@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | Fractional Delivery</title>
+  <meta name="description" content="Terms of Service for fractionaldelivery.com">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration for Shadcn + Custom Theme -->
+  <script>
+    tailwind.config = {
+      darkMode: ["class"],
+      theme: {
+        container: {
+          center: true,
+          padding: "2rem",
+          screens: {
+            "2xl": "1400px",
+          },
+        },
+        extend: {
+          fontFamily: {
+            sans: ['"DM Sans"', "sans-serif"],
+            serif: ['"Instrument Serif"', "serif"],
+          },
+          colors: {
+            border: "hsl(var(--border))",
+            input: "hsl(var(--input))",
+            ring: "hsl(var(--ring))",
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+            primary: {
+              DEFAULT: "hsl(var(--primary))",
+              foreground: "hsl(var(--primary-foreground))",
+            },
+            muted: {
+              DEFAULT: "hsl(var(--muted))",
+              foreground: "hsl(var(--muted-foreground))",
+            },
+            card: {
+              DEFAULT: "hsl(var(--card))",
+              foreground: "hsl(var(--card-foreground))",
+            },
+            brand: {
+              blue: "#3971B8",
+              orange: "#EF7255",
+            }
+          },
+          borderRadius: {
+            lg: "var(--radius)",
+            md: "calc(var(--radius) - 2px)",
+            sm: "calc(var(--radius) - 4px)",
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Shadcn Base CSS & Custom Styles -->
+  <style type="text/tailwindcss">
+    @layer base {
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --primary: 11 82.6% 63.5%; /* Brand Orange */
+        --primary-foreground: 210 40% 98%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 11 82.6% 63.5%;
+        --radius: 0.5rem;
+      }
+    }
+
+    @layer base {
+      * {
+        @apply border-border;
+      }
+      body {
+        @apply bg-background text-foreground font-sans antialiased;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        @apply font-serif;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header
+    class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div class="container flex h-16 max-w-screen-2xl items-center justify-between">
+        <div class="flex items-center gap-2 group">
+          <div class="relative flex items-center">
+            <svg viewBox="0 0 100 85" class="h-10 w-auto shrink-0" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="70" font-family="'Instrument Serif', serif" font-size="85" fill="#1a1a1a">F</text>
+              <text x="21" y="70" font-family="'Instrument Serif', serif" font-size="85" fill="#1a1a1a">D</text>
+              <circle cx="21" cy="70" r="5" fill="#bc7353" />
+            </svg>
+          </div>
+          <a href="index.html" class="font-sans font-semibold text-lg tracking-tight hover:text-brand-blue transition-colors">Fractional Delivery</a>
+        </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="index.html#how-i-help" class="transition-colors hover:text-foreground/80 text-foreground/60">How I help</a>
+        <a href="index.html#services" class="transition-colors hover:text-foreground/80 text-foreground/60">How I work</a>
+        <a href="index.html#who-i-help" class="transition-colors hover:text-foreground/80 text-foreground/60">Who I work with</a>
+        <a href="index.html#faq" class="transition-colors hover:text-foreground/80 text-foreground/60">FAQ</a>
+        <a href="blog.html" class="transition-colors hover:text-foreground/80 text-foreground/60">Insights</a>
+        <div class="ml-4 flex items-center gap-2 text-xs font-bold tracking-widest border-l pl-4 border-border/60">
+          <span class="text-foreground">EN</span>
+          <span class="text-muted-foreground/30">|</span>
+          <a href="fr/terms-of-service.html" class="lang-switch">FR</a>
+        </div>
+      </nav>
+
+      <div class="hidden md:flex items-center">
+        <!-- Button (Shadcn style) -->
+        <a href="index.html#discovery-call"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+          Get in Touch
+        </a>
+      </div>
+
+      <!-- Mobile Nav Trigger -->
+      <button
+        class="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+        id="mobile-menu-btn">
+        <i data-lucide="menu"></i>
+        <span class="sr-only">Toggle Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu (Hidden by default) -->
+  <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden p-4 pt-20">
+    <div class="bg-card w-full rounded-xl border p-4 shadow-lg flex flex-col gap-4">
+      <button class="absolute top-4 right-4 p-2 rounded-md hover:bg-accent text-foreground" id="close-menu-btn">
+        <i data-lucide="x"></i>
+      </button>
+      <nav class="flex flex-col gap-4 text-lg font-medium">
+        <a href="index.html#how-i-help" class="mobile-link text-foreground/70 hover:text-foreground">How I help</a>
+        <a href="index.html#services" class="mobile-link text-foreground/70 hover:text-foreground">How I work</a>
+        <a href="index.html#who-i-help" class="mobile-link text-foreground/70 hover:text-foreground">Who I work with</a>
+        <a href="index.html#faq" class="mobile-link text-foreground/70 hover:text-foreground">FAQ</a>
+        <a href="blog.html" class="mobile-link text-foreground/70 hover:text-foreground">Insights</a>
+        <div class="flex items-center gap-4 mt-4 pt-4 border-t border-border/40">
+          <span class="text-sm font-bold text-foreground">EN</span>
+          <a href="fr/terms-of-service.html" class="lang-switch">Français</a>
+        </div>
+        <a href="index.html#discovery-call"
+          class="mobile-link inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 mt-4">
+          Get in Touch
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="flex-1 container py-16 md:py-24 max-w-3xl border-x bg-card shadow-sm">
+    <h1 class="text-4xl md:text-5xl font-serif mb-2">Terms of Use</h1>
+    <p class="text-muted-foreground mb-8">Last updated: March 2026</p>
+
+    <div class="prose prose-slate prose-headings:font-serif prose-h2:text-3xl max-w-none text-foreground leading-relaxed space-y-6">
+      <p>These Terms of Use govern your access to and use of <strong>fractionaldelivery.com</strong> (the “Website”). By using this Website, you agree to these Terms.</p>
+      <p>If you do not agree with these Terms, please do not use the Website.</p>
+      <hr class="my-8 border-t border-border" />
+
+      <h2 class="mt-8 mb-4">1. About This Website</h2>
+      <p>Fractional Delivery provides <strong>digital delivery consulting services</strong>. The Website is intended to provide information about these services and allow potential clients to make contact.</p>
+
+      <h2 class="mt-8 mb-4">2. No Professional Engagement</h2>
+      <p>Information on this Website is provided for <strong>general informational purposes only</strong>.</p>
+      <p>Use of the Website or contacting Fractional Delivery through the Website <strong>does not create a consulting or client relationship</strong>.</p>
+      <p>Any consulting engagement will only be formed through a separate written agreement.</p>
+
+      <h2 class="mt-8 mb-4">3. Intellectual Property</h2>
+      <p>All content on this Website, including text, graphics, branding, and design, is the property of Fractional Delivery unless otherwise stated.</p>
+      <p>You may not reproduce, distribute, or modify any content without prior written permission.</p>
+
+      <h2 class="mt-8 mb-4">4. Acceptable Use</h2>
+      <p>You agree not to use the Website:</p>
+      <ul class="list-disc pl-6 marker:text-primary">
+        <li>For unlawful purposes</li>
+        <li>To attempt unauthorised access to the Website or its systems</li>
+        <li>To interfere with the operation or security of the Website</li>
+      </ul>
+
+      <h2 class="mt-8 mb-4">5. Third-Party Links</h2>
+      <p>The Website may contain links to third-party websites. We are not responsible for the content, policies, or practices of those websites.</p>
+
+      <h2 class="mt-8 mb-4">6. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, Fractional Delivery shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of this Website.</p>
+
+      <h2 class="mt-8 mb-4">7. Website Availability</h2>
+      <p>We make reasonable efforts to ensure the Website is available and accurate but do not guarantee uninterrupted access or error-free content.</p>
+
+      <h2 class="mt-8 mb-4">8. Governing Law</h2>
+      <p>These Terms are governed by the laws of <strong>England and Wales</strong>.</p>
+
+      <h2 class="mt-8 mb-4">9. Contact</h2>
+      <p>If you have any questions regarding these Terms, please contact:</p>
+      <ul class="list-none pl-0">
+        <li><strong>Email:</strong> camille@fractionaldelivery.com</li>
+        <li><strong>Website:</strong> fractionaldelivery.com</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t bg-muted/40 text-muted-foreground py-12">
+    <div class="container flex flex-col md:flex-row justify-between items-start md:items-center gap-8 text-sm text-center md:text-left">
+      <div class="flex-1 max-w-sm mx-auto md:mx-0">
+        <div class="font-sans font-semibold text-lg tracking-tight text-foreground mb-1">Camille Wilhelm McFarlane</div>
+        <p>Delivery & Operations Lead</p>
+        <p>Leamington Spa, UK</p>
+      </div>
+      
+      <div class="flex flex-col md:items-end gap-2 text-right w-full md:w-auto">
+        <a href="mailto:camille@fractionaldelivery.com" class="hover:text-primary transition-colors flex items-center justify-center md:justify-end gap-2 mb-2">
+          <i data-lucide="mail" class="w-4 h-4"></i> camille@fractionaldelivery.com
+        </a>
+        <a href="https://linkedin.com/in/camillemcfarlane" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors flex items-center justify-center md:justify-end gap-2 mb-6">
+          <i data-lucide="linkedin" class="w-4 h-4"></i> linkedin.com/in/camillemcfarlane
+        </a>
+        
+        <div class="flex gap-4 text-xs items-center justify-center md:justify-end">
+          <a href="privacy-policy.html" class="hover:text-foreground transition-colors">Privacy Policy</a>
+          <a href="terms-of-service.html" class="hover:text-foreground transition-colors">Terms of Service</a>
+        </div>
+        <p class="text-xs mt-1">&copy; 2026 Fractional Delivery. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile menu toggle logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
+      }
+    }
+
+    if (mobileMenuBtn && closeMenuBtn) {
+      mobileMenuBtn.addEventListener('click', toggleMenu);
+      closeMenuBtn.addEventListener('click', toggleMenu);
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+      });
+    }
+  </script>
+  <script src="i18n.js"></script>
+</body>
+</html>

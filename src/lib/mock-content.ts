@@ -1,219 +1,278 @@
+import fs from "node:fs";
+import path from "node:path";
+
 import type { DynamicEntry, Locale, LocalizedPage, LocalizedPost, SiteSettings } from "@/lib/types";
 
-type ByLocale<T> = Record<Locale, T>;
-
-const settings: ByLocale<SiteSettings> = {
-  en: {
-    brandName: "Fractional Delivery",
-    contactEmail: "camille@fractionaldelivery.com",
-    linkedinUrl: "https://linkedin.com/in/camillemcfarlane",
-    ctaLabel: "Get in Touch",
-    ctaHref: "/#contact",
-    navItems: [
-      { label: "How I help", href: "/#how-i-help" },
-      { label: "How I work", href: "/#services" },
-      { label: "Who I work with", href: "/#who-i-help" },
-      { label: "Insights", href: "/blog" },
-    ],
-    footerText: "Delivery strategy and operations support for scaling teams.",
-    legalLinks: [
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms of Service", href: "/terms-of-service" },
-    ],
-  },
-  fr: {
-    brandName: "Fractional Delivery",
-    contactEmail: "camille@fractionaldelivery.com",
-    linkedinUrl: "https://linkedin.com/in/camillemcfarlane",
-    ctaLabel: "Me contacter",
-    ctaHref: "/fr#contact",
-    navItems: [
-      { label: "Expertise", href: "/fr#how-i-help" },
-      { label: "Méthode", href: "/fr#services" },
-      { label: "Clients", href: "/fr#who-i-help" },
-      { label: "Ressources", href: "/fr/blog" },
-    ],
-    footerText: "Conseil en opérations et delivery pour équipes en croissance.",
-    legalLinks: [
-      { label: "Confidentialité", href: "/fr/privacy-policy" },
-      { label: "Conditions", href: "/fr/terms-of-service" },
-    ],
-  },
+type SourceFile = {
+  en: string;
+  fr?: string;
 };
 
-const pages: LocalizedPage[] = [
-  {
-    locale: "en",
-    slug: "home",
-    type: "home",
-    title: "Delivery Operations Consultant",
-    seoTitle: "Delivery Operations Consultant | Camille Wilhelm McFarlane",
-    seoDescription:
-      "Helping digital, AI and tech teams scale delivery through operational structure and delivery intelligence.",
-    bodyRichtext: `<section class="space-y-6"><p class="text-xs tracking-[0.2em] uppercase text-orange-600">Delivery & Operations Lead</p><h1 class="font-serif text-5xl leading-tight">Scale delivery without chaos.</h1><p class="text-lg text-zinc-700">I help leadership teams rebuild delivery operating systems when growth starts to break flow, clarity, and momentum.</p></section><section class="grid gap-4 md:grid-cols-3 pt-8"><article class="rounded-xl border p-6"><h2 class="font-semibold">Delivery Diagnostic</h2><p class="text-sm text-zinc-600 mt-2">Find bottlenecks, hidden risk, and structural drag.</p></article><article class="rounded-xl border p-6"><h2 class="font-semibold">Fractional Leadership</h2><p class="text-sm text-zinc-600 mt-2">Senior delivery leadership without full-time overhead.</p></article><article class="rounded-xl border p-6"><h2 class="font-semibold">Operating Models</h2><p class="text-sm text-zinc-600 mt-2">Build a model that scales with your next stage.</p></article></section>`,
+const sourceMap = {
+  home: { en: "index.html", fr: "index_1.html" },
+  blog: { en: "blog.html", fr: "blog_1.html" },
+  privacy: { en: "privacy-policy.html" },
+  terms: { en: "terms-of-service.html" },
+  postStatus: {
+    en: "status-updates-to-delivery-intelligence.html",
+    fr: "status-updates-to-delivery-intelligence_1.html",
   },
-  {
-    locale: "fr",
-    slug: "home",
-    type: "home",
-    title: "Consultante en Opérations de Livraison",
-    seoTitle: "Consultante en Opérations de Livraison | Camille Wilhelm McFarlane",
-    seoDescription:
-      "Aider les équipes digitales, IA et tech à passer à l'échelle grâce à une structure opérationnelle et à l'intelligence de livraison.",
-    bodyRichtext: `<section class="space-y-6"><p class="text-xs tracking-[0.2em] uppercase text-orange-600">Responsable Delivery & Opérations</p><h1 class="font-serif text-5xl leading-tight">Scaler sans chaos.</h1><p class="text-lg text-zinc-700">J'accompagne les équipes dirigeantes pour remettre de la clarté, du rythme et de la prévisibilité dans la delivery.</p></section><section class="grid gap-4 md:grid-cols-3 pt-8"><article class="rounded-xl border p-6"><h2 class="font-semibold">Diagnostic Delivery</h2><p class="text-sm text-zinc-600 mt-2">Identifier les points de blocage et les risques cachés.</p></article><article class="rounded-xl border p-6"><h2 class="font-semibold">Leadership Fractionné</h2><p class="text-sm text-zinc-600 mt-2">Leadership delivery senior sans recrutement à plein temps.</p></article><article class="rounded-xl border p-6"><h2 class="font-semibold">Modèle Opérationnel</h2><p class="text-sm text-zinc-600 mt-2">Un système de delivery conçu pour votre phase de croissance.</p></article></section>`,
+  postRethink: {
+    en: "rethink-delivery-job-ai.html",
+    fr: "rethink-delivery-job-ai_1.html",
   },
-  {
-    locale: "en",
-    slug: "privacy-policy",
-    type: "legal",
-    title: "Privacy Policy",
-    seoTitle: "Privacy Policy | Fractional Delivery",
-    seoDescription: "Privacy Policy for fractionaldelivery.com",
-    bodyRichtext: "<h1 class='font-serif text-4xl mb-6'>Privacy Policy</h1><p>This website stores only essential analytics and contact form data.</p>",
+  postSigns: {
+    en: "5-signs-delivery-model-is-breaking.html",
+    fr: "5-signs-delivery-model-is-breaking_1.html",
   },
-  {
-    locale: "fr",
-    slug: "privacy-policy",
-    type: "legal",
-    title: "Politique de confidentialité",
-    seoTitle: "Confidentialité | Fractional Delivery",
-    seoDescription: "Politique de confidentialité de fractionaldelivery.com",
-    bodyRichtext: "<h1 class='font-serif text-4xl mb-6'>Politique de confidentialité</h1><p>Ce site ne collecte que les données essentielles d'analyse et de contact.</p>",
-  },
-  {
-    locale: "en",
-    slug: "terms-of-service",
-    type: "legal",
-    title: "Terms of Service",
-    seoTitle: "Terms of Service | Fractional Delivery",
-    seoDescription: "Terms of Service for fractionaldelivery.com",
-    bodyRichtext: "<h1 class='font-serif text-4xl mb-6'>Terms of Service</h1><p>By using this website, you accept the terms and applicable UK law.</p>",
-  },
-  {
-    locale: "fr",
-    slug: "terms-of-service",
-    type: "legal",
-    title: "Conditions d'utilisation",
-    seoTitle: "Conditions | Fractional Delivery",
-    seoDescription: "Conditions d'utilisation de fractionaldelivery.com",
-    bodyRichtext: "<h1 class='font-serif text-4xl mb-6'>Conditions d'utilisation</h1><p>En utilisant ce site, vous acceptez les conditions d'utilisation applicables.</p>",
-  },
-];
+} satisfies Record<string, SourceFile>;
 
-const posts: LocalizedPost[] = [
-  {
-    locale: "en",
-    slug: "status-updates-to-delivery-intelligence",
-    title: "From status updates to delivery intelligence",
-    excerpt:
-      "If your weekly update still starts with completed, in progress and blocked tasks, you are narrating delivery, not managing it.",
-    seoTitle: "From status updates to delivery intelligence - Fractional Delivery",
-    seoDescription:
-      "Stop narrating delivery and start managing it with delivery intelligence.",
-    contentRichtext:
-      "<p>Delivery intelligence starts when signals are designed before reporting rituals are defined.</p>",
+const SITE_DIR = path.join(process.cwd(), "content", "html");
+
+function fileForLocale(file: SourceFile, locale: Locale): string {
+  return locale === "fr" ? file.fr ?? file.en : file.en;
+}
+
+function readHtml(fileName: string): string {
+  return fs.readFileSync(path.join(SITE_DIR, fileName), "utf8").replace(/\u0001/g, "");
+}
+
+function getTagContent(html: string, tagName: string): string {
+  const match = html.match(new RegExp(`<${tagName}[^>]*>([\\s\\S]*?)<\\/${tagName}>`, "i"));
+  return match?.[1]?.trim() ?? "";
+}
+
+function getMetaDescription(html: string): string {
+  const match = html.match(/<meta\s+name="description"\s+content="([^"]*)"/i);
+  return match?.[1] ?? "";
+}
+
+function removeScripts(html: string): string {
+  return html.replace(/<script[\s\S]*?<\/script>/gi, "");
+}
+
+const hugeIconMap: Record<string, string> = {
+  menu: "menu-01",
+  x: "cancel-01",
+  "arrow-left": "arrow-left-02",
+  "arrow-right": "arrow-right-02",
+  calendar: "calendar-03",
+  linkedin: "linkedin-02",
+  mail: "mail-02",
+  user: "user-03",
+  "book-open": "book-open-01",
+  "calendar-x": "calendar-remove-01",
+  check: "tick-01",
+  "chevron-down": "arrow-down-01",
+  clock: "clock-01",
+  cpu: "chip-02",
+  "git-branch": "git-branch",
+  globe: "globe-02",
+  languages: "language-square",
+  layers: "layers-01",
+  "map-pin": "location-01",
+  monitor: "computer",
+  rocket: "rocket-01",
+  "shield-check": "shield-01",
+  target: "target-01",
+  "trending-down": "chart-down",
+  "trending-up": "chart-up",
+  users: "user-group",
+  zap: "flash",
+  "zap-off": "flash-off",
+  "check-circle-2": "checkmark-circle-01",
+};
+
+function replaceLucideTagsWithHugeIcons(html: string): string {
+  return html.replace(/<i([^>]*?)data-lucide="([^"]+)"([^>]*)><\/i>/gi, (_full, before, iconName, after) => {
+    const classMatch = `${before} ${after}`.match(/class="([^"]*)"/i);
+    const className = classMatch?.[1] ?? "w-4 h-4";
+    const hugeIcon = hugeIconMap[iconName] ?? "circle";
+    const src = `https://cdn.hugeicons.com/icons/${hugeIcon}-stroke-rounded.svg`;
+    return `<img src="${src}" alt="" aria-hidden="true" class="${className}" loading="lazy" decoding="async" />`;
+  });
+}
+
+function extractMainOrBody(html: string): string {
+  const mainMatch = html.match(/<main[\s\S]*?<\/main>/i);
+  if (mainMatch?.[0]) return replaceLucideTagsWithHugeIcons(removeScripts(mainMatch[0]));
+
+  const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+  return replaceLucideTagsWithHugeIcons(removeScripts(bodyMatch?.[1] ?? html));
+}
+
+function normalizeLocalAssetPath(value: string): string {
+  if (/^(https?:\/\/|mailto:|tel:|#|data:)/i.test(value)) return value;
+
+  if (value.startsWith("../")) {
+    return `/${value.replace(/^(\.\.\/)+/, "")}`;
+  }
+
+  if (value.startsWith("./")) {
+    return `/${value.replace(/^(\.\/)+/, "")}`;
+  }
+
+  if (value.startsWith("/")) return value;
+
+  return `/${value}`;
+}
+
+function mapHtmlHref(href: string, currentLocale: Locale): string {
+  if (/^(https?:\/\/|mailto:|tel:|#|javascript:)/i.test(href)) return href;
+
+  const [pathPart, hashPart] = href.split("#");
+  const [rawPath, queryPart] = pathPart.split("?");
+
+  let relative = rawPath;
+  const hasParentPrefix = relative.startsWith("../");
+
+  if (relative.startsWith("../")) relative = relative.replace(/^(\.\.\/)+/, "");
+  if (relative.startsWith("./")) relative = relative.replace(/^(\.\/)+/, "");
+
+  let targetLocale: Locale = currentLocale;
+
+  if (relative.startsWith("fr/") || relative.endsWith("_1.html")) {
+    targetLocale = "fr";
+  } else if (hasParentPrefix) {
+    targetLocale = "en";
+  }
+
+  relative = relative.replace(/^fr\//, "").replace(/_1\.html$/, ".html");
+
+  let pathname = relative;
+  if (relative === "index.html") pathname = "/";
+  else if (relative === "blog.html") pathname = "/blog";
+  else if (relative.endsWith(".html")) pathname = `/${relative.replace(/\.html$/, "")}`;
+  else pathname = normalizeLocalAssetPath(relative);
+
+  const withLocale = targetLocale === "fr" && pathname.startsWith("/") ? `/fr${pathname === "/" ? "" : pathname}` : pathname;
+  const withQuery = queryPart ? `${withLocale}?${queryPart}` : withLocale;
+  return hashPart ? `${withQuery}#${hashPart}` : withQuery;
+}
+
+function rewriteInternalLinks(html: string, locale: Locale): string {
+  const rewiredHref = html.replace(/href="([^"]*)"/g, (_full, href: string) => {
+    return `href="${mapHtmlHref(href, locale)}"`;
+  });
+
+  return rewiredHref.replace(/src="([^"]*)"/g, (_full, src: string) => `src="${normalizeLocalAssetPath(src)}"`);
+}
+
+function pageFromFile(locale: Locale, slug: string, type: "home" | "legal" | "generic", file: SourceFile): LocalizedPage {
+  const html = readHtml(fileForLocale(file, locale));
+  const title = getTagContent(html, "title");
+  const body = rewriteInternalLinks(extractMainOrBody(html), locale);
+  const description = getMetaDescription(html);
+
+  return {
+    locale,
+    slug,
+    type,
+    title,
+    seoTitle: title,
+    seoDescription: description,
+    bodyRichtext: body,
+  };
+}
+
+function postFromFile(locale: Locale, slug: string, file: SourceFile): LocalizedPost {
+  const html = readHtml(fileForLocale(file, locale));
+  const title = getTagContent(html, "title");
+  const description = getMetaDescription(html);
+  const body = rewriteInternalLinks(extractMainOrBody(html), locale);
+
+  return {
+    locale,
+    slug,
+    title,
+    excerpt: description,
+    seoTitle: title,
+    seoDescription: description,
+    contentRichtext: body,
     publishedAt: "2026-03-18T00:00:00.000Z",
     authorName: "Camille Wilhelm McFarlane",
-  },
-  {
-    locale: "fr",
-    slug: "status-updates-to-delivery-intelligence",
-    title: "Du reporting au pilotage de delivery",
-    excerpt:
-      "Si votre point hebdomadaire commence encore par les tâches terminées, vous racontez la delivery au lieu de la piloter.",
-    seoTitle: "Du reporting au pilotage de delivery - Fractional Delivery",
-    seoDescription:
-      "Passez d'un reporting rétrospectif à un pilotage proactif de la delivery.",
-    contentRichtext:
-      "<p>Le pilotage de delivery commence quand les signaux précèdent les statuts hebdomadaires.</p>",
-    publishedAt: "2026-03-18T00:00:00.000Z",
-    authorName: "Camille Wilhelm McFarlane",
-  },
-  {
-    locale: "en",
-    slug: "rethink-delivery-job-ai",
-    title: "Your job title hasn't changed. Your job has.",
-    excerpt:
-      "AI is changing delivery leadership from status chasing to system design.",
-    seoTitle: "Your job title hasn't changed. Your job has. - Fractional Delivery",
-    seoDescription: "How AI is transforming delivery leadership roles.",
-    contentRichtext: "<p>The role shift is subtle until governance and decision loops break all at once.</p>",
-    publishedAt: "2026-03-18T00:00:00.000Z",
-    authorName: "Camille Wilhelm McFarlane",
-  },
-  {
-    locale: "fr",
-    slug: "rethink-delivery-job-ai",
-    title: "Votre page de poste n'a pas changé. Votre rôle, si.",
-    excerpt:
-      "L'IA transforme la gestion de delivery: moins de suivi de statut, plus de design de système.",
-    seoTitle: "Votre page de poste n'a pas changé. Votre rôle, si. - Fractional Delivery",
-    seoDescription: "Comment l'IA transforme le rôle des responsables delivery.",
-    contentRichtext: "<p>Le changement de rôle devient visible quand les anciens rituels ne produisent plus d'alignement.</p>",
-    publishedAt: "2026-03-18T00:00:00.000Z",
-    authorName: "Camille Wilhelm McFarlane",
-  },
-  {
-    locale: "en",
-    slug: "5-signs-delivery-model-is-breaking",
-    title: "5 Signs Your Delivery Model Is Breaking As You Grow",
-    excerpt:
-      "Growth can hide structural delivery debt until velocity collapses.",
-    seoTitle: "5 Signs Your Delivery Model Is Breaking As You Grow - Fractional Delivery",
-    seoDescription:
-      "Key indicators that your delivery model is breaking under scale pressure.",
-    contentRichtext:
-      "<p>When headcount grows faster than coordination design, output quality and pace both decline.</p>",
-    publishedAt: "2026-03-18T00:00:00.000Z",
-    authorName: "Camille Wilhelm McFarlane",
-  },
-  {
-    locale: "fr",
-    slug: "5-signs-delivery-model-is-breaking",
-    title: "5 signes que votre modèle de delivery craque sous la croissance",
-    excerpt:
-      "La croissance révèle vite les limites d'un modèle de delivery non adapté.",
-    seoTitle: "5 signes que votre modèle de delivery craque sous la croissance - Fractional Delivery",
-    seoDescription:
-      "Les signaux d'un modèle de delivery qui ne tient plus l'échelle.",
-    contentRichtext:
-      "<p>Quand les effectifs augmentent sans architecture de coordination, la vélocité s'érode.</p>",
-    publishedAt: "2026-03-18T00:00:00.000Z",
-    authorName: "Camille Wilhelm McFarlane",
-  },
-];
+  };
+}
+
+function localizedLabel(locale: Locale, enLabel: string, frLabel: string): string {
+  return locale === "fr" ? frLabel : enLabel;
+}
 
 export const mockContent = {
   getSettings(locale: Locale): SiteSettings {
-    return settings[locale];
+    return {
+      brandName: "Fractional Delivery",
+      contactEmail: "camille@fractionaldelivery.com",
+      linkedinUrl: "https://linkedin.com/in/camillemcfarlane",
+      ctaLabel: localizedLabel(locale, "Get in Touch", "Me contacter"),
+      ctaHref: locale === "fr" ? "/fr#discovery-call" : "/#discovery-call",
+      navItems: [
+        {
+          label: localizedLabel(locale, "How I help", "Expertise"),
+          href: locale === "fr" ? "/fr#how-i-help" : "/#how-i-help",
+        },
+        {
+          label: localizedLabel(locale, "How I work", "Méthode"),
+          href: locale === "fr" ? "/fr#services" : "/#services",
+        },
+        {
+          label: localizedLabel(locale, "Who I work with", "Clients"),
+          href: locale === "fr" ? "/fr#who-i-help" : "/#who-i-help",
+        },
+        {
+          label: localizedLabel(locale, "Insights", "Ressources"),
+          href: locale === "fr" ? "/fr/blog" : "/blog",
+        },
+      ],
+      footerText: localizedLabel(
+        locale,
+        "Delivery strategy and operations support for scaling teams.",
+        "Conseil en opérations et delivery pour équipes en croissance.",
+      ),
+      legalLinks: [
+        {
+          label: localizedLabel(locale, "Privacy Policy", "Confidentialité"),
+          href: locale === "fr" ? "/fr/privacy-policy" : "/privacy-policy",
+        },
+        {
+          label: localizedLabel(locale, "Terms of Service", "Conditions"),
+          href: locale === "fr" ? "/fr/terms-of-service" : "/terms-of-service",
+        },
+      ],
+    };
   },
-  getHome(locale: Locale): LocalizedPage {
-    const home = pages.find((page) => page.locale === locale && page.slug === "home");
-    if (!home) throw new Error(`Missing mock home content for locale: ${locale}`);
-    return home;
-  },
-  getPage(locale: Locale, slug: string): LocalizedPage | null {
-    return pages.find((page) => page.locale === locale && page.slug === slug && page.slug !== "home") ?? null;
-  },
-  getPosts(locale: Locale): LocalizedPost[] {
-    return posts
-      .filter((post) => post.locale === locale)
-      .sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
-  },
-  getPost(locale: Locale, slug: string): LocalizedPost | null {
-    return posts.find((post) => post.locale === locale && post.slug === slug) ?? null;
-  },
-  getDynamicSlugs(): DynamicEntry[] {
-    const pageSlugs = new Set(
-      pages
-        .filter((page) => page.slug !== "home")
-        .map((page) => page.slug),
-    );
-    const postSlugs = new Set(posts.map((post) => post.slug));
 
+  getHome(locale: Locale): LocalizedPage {
+    return pageFromFile(locale, "home", "home", sourceMap.home);
+  },
+
+  getPage(locale: Locale, slug: string): LocalizedPage | null {
+    if (slug === "blog") return pageFromFile(locale, slug, "generic", sourceMap.blog);
+    if (slug === "privacy-policy") return pageFromFile(locale, slug, "legal", sourceMap.privacy);
+    if (slug === "terms-of-service") return pageFromFile(locale, slug, "legal", sourceMap.terms);
+    return null;
+  },
+
+  getPosts(locale: Locale): LocalizedPost[] {
     return [
-      ...Array.from(pageSlugs).map((slug) => ({ slug, kind: "page" as const })),
-      ...Array.from(postSlugs).map((slug) => ({ slug, kind: "post" as const })),
+      postFromFile(locale, "status-updates-to-delivery-intelligence", sourceMap.postStatus),
+      postFromFile(locale, "rethink-delivery-job-ai", sourceMap.postRethink),
+      postFromFile(locale, "5-signs-delivery-model-is-breaking", sourceMap.postSigns),
+    ];
+  },
+
+  getPost(locale: Locale, slug: string): LocalizedPost | null {
+    const posts = this.getPosts(locale);
+    return posts.find((post) => post.slug === slug) ?? null;
+  },
+
+  getDynamicSlugs(): DynamicEntry[] {
+    return [
+      { slug: "privacy-policy", kind: "page" },
+      { slug: "terms-of-service", kind: "page" },
+      { slug: "status-updates-to-delivery-intelligence", kind: "post" },
+      { slug: "rethink-delivery-job-ai", kind: "post" },
+      { slug: "5-signs-delivery-model-is-breaking", kind: "post" },
     ];
   },
 };

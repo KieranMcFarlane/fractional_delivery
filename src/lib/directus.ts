@@ -13,6 +13,12 @@ export async function getPageBySlug(locale: Locale, slug: string): Promise<Local
   return mockContent.getPage(locale, slug);
 }
 
+export async function getBlogPage(locale: Locale): Promise<LocalizedPage> {
+  const page = mockContent.getPage(locale, "blog");
+  if (!page) throw new Error(`Missing blog page for locale: ${locale}`);
+  return page;
+}
+
 export async function getPosts(locale: Locale): Promise<LocalizedPost[]> {
   return mockContent.getPosts(locale);
 }

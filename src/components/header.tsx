@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { LOCALES, localizePath, swapLocalePath } from "@/lib/i18n";
@@ -14,8 +15,9 @@ export function Header({ locale, pathname, settings, localeLinks }: HeaderProps)
   return (
     <header className="sticky top-0 z-30 border-b border-zinc-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
-        <Link href={localizePath(locale, "/")} className="text-lg font-semibold tracking-tight">
-          {settings.brandName}
+        <Link href={localizePath(locale, "/")} className="flex items-center gap-3">
+          <Image src="/vector.png" alt="Fractional Delivery logo" width={82} height={56} priority />
+          <span className="text-base font-semibold tracking-tight">{settings.brandName}</span>
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm text-zinc-600 md:flex">
