@@ -1,36 +1,12 @@
-import type { Metadata } from "next";
-
-import { JsonLd } from "@/components/json-ld";
-import { RichText } from "@/components/rich-text";
-import { SiteShell } from "@/components/site-shell";
-import { getHomePage } from "@/lib/directus";
-import { buildMetadata, siteUrl } from "@/lib/seo";
-
-export const revalidate = 300;
 export const dynamic = "force-static";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const home = await getHomePage("en");
-  return buildMetadata("en", "/", home);
-}
-
-export default async function HomePage() {
-  const home = await getHomePage("en");
-  const baseUrl = siteUrl();
-
+export default function HomePage() {
   return (
-    <SiteShell locale="en" pathname="/" localeLinks={{ en: "/", fr: "/fr" }}>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Fractional Delivery",
-          url: baseUrl,
-        }}
-      />
-      <section id="home">
-        <RichText html={home.bodyRichtext} />
-      </section>
-    </SiteShell>
+    <main className="min-h-screen flex items-center justify-center px-6">
+      <div className="text-center">
+        <h1 className="text-5xl">Hello World</h1>
+        <p className="mt-4 text-zinc-600">Next.js deployment smoke test</p>
+      </div>
+    </main>
   );
 }
