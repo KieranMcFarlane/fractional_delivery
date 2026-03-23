@@ -8,15 +8,15 @@ import { buildMetadata } from "@/lib/seo";
 export const revalidate = 300;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const home = await getHomePage("en");
-  return buildMetadata("en", "/", home);
+  const home = await getHomePage("fr");
+  return buildMetadata("fr", "/", home);
 }
 
-export default async function HomePage() {
-  const home = await getHomePage("en");
+export default async function HomeFrPage() {
+  const home = await getHomePage("fr");
 
   return (
-    <SiteShell locale="en" pathname="/" localeLinks={{ en: "/", fr: "/fr" }}>
+    <SiteShell locale="fr" pathname="/fr" localeLinks={{ en: "/", fr: "/fr" }}>
       <section id="home">
         <RichText html={home.bodyRichtext} />
       </section>

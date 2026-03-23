@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fractional Delivery (Next.js + Directus)
 
-## Getting Started
+Next.js App Router migration with:
+- SEO-friendly server rendering (SSG + ISR)
+- EN/FR localized routes (`/` and `/fr/*`)
+- Directus content integration (`pages`, `posts`, `site_settings`)
+- Dynamic `sitemap.xml` and `robots.txt`
+- Revalidation webhook endpoint for publish updates
 
-First, run the development server:
+## Routes
+
+- `/` and `/fr`
+- `/blog` and `/fr/blog`
+- `/:slug` and `/fr/:slug`
+
+## Environment
+
+Copy `.env.example` to `.env.local` and set:
+
+- `DIRECTUS_URL`
+- `NEXT_PUBLIC_SITE_URL`
+- `REVALIDATE_SECRET`
+- `DIRECTUS_ADMIN_TOKEN` (only required for bootstrap/seed scripts)
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Directus Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Bootstrap collections/fields:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run directus:bootstrap
+```
 
-## Learn More
+Seed initial EN/FR content:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run directus:seed
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Seed data is in `directus/seed-data.json`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Revalidation Webhook
 
-## Deploy on Vercel
+POST `/api/revalidate` with:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```json
+{
+  "secret": "REVALIDATE_SECRET",
+  "path": "/blog"
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Configure Directus flow/webhook on content publish events to call this endpoint.
+
+## Tests
+
+```bash
+npm run test:unit
+npm run test:e2e
+```
+
+## Legacy Export
+
+Original static HTML export is preserved in `legacy-site/`.
