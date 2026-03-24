@@ -35,3 +35,9 @@ export function swapLocalePath(pathname: string, targetLocale: Locale): string {
   const basePath = chunks.length === 0 ? "/" : `/${chunks.join("/")}`;
   return localizePath(targetLocale, basePath);
 }
+
+export function stripEnglishPrefix(pathname: string): string | null {
+  if (pathname === "/en") return "/";
+  if (pathname.startsWith("/en/")) return pathname.slice(3) || "/";
+  return null;
+}

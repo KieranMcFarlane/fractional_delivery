@@ -1,4 +1,4 @@
-import { localizePath, swapLocalePath } from "@/lib/i18n";
+import { localizePath, stripEnglishPrefix, swapLocalePath } from "@/lib/i18n";
 
 describe("localizePath", () => {
   it("keeps english paths unprefixed", () => {
@@ -19,5 +19,18 @@ describe("swapLocalePath", () => {
 
   it("maps FR to EN", () => {
     expect(swapLocalePath("/fr/terms-of-service", "en")).toBe("/terms-of-service");
+  });
+});
+
+describe("stripEnglishPrefix", () => {
+  it("removes /en prefix", () => {
+    expect(stripEnglishPrefix("/en")).toBe("/");
+    expect(stripEnglishPrefix("/en/blog")).toBe("/blog");
+  });
+
+  it("returns null for non-english-prefixed paths", () => {
+    expect(stripEnglishPrefix("/")).toBeNull();
+    expect(stripEnglishPrefix("/fr/blog")).toBeNull();
+    expect(stripEnglishPrefix("/blog")).toBeNull();
   });
 });
