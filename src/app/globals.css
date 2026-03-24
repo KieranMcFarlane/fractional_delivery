@@ -121,7 +121,9 @@ h3 {
 }
 
 .gradient-text {
-  display: inline;
+  display: inline-block;
+  line-height: 1.15;
+  padding-block: 0.04em;
   background: linear-gradient(
     to right,
     #2563eb,
