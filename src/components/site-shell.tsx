@@ -16,7 +16,7 @@ export async function SiteShell({ locale, pathname, localeLinks, children }: Sit
   return (
     <>
       <Header locale={locale} pathname={pathname} localeLinks={localeLinks} settings={settings} />
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 md:px-8">{children}</main>
+      <main className="w-full flex-1">{children}</main>
       <Footer settings={settings} />
     </>
   );

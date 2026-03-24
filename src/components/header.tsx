@@ -30,23 +30,22 @@ export function Header({ locale, pathname, settings, localeLinks }: HeaderProps)
 
         <div className="flex items-center gap-3">
           <div className="hidden items-center gap-2 border-l border-border/60 pl-4 text-xs font-bold tracking-widest md:flex">
-          {LOCALES.map((item) => {
-            const href = localeLinks?.[item] ?? swapLocalePath(pathname, item);
-            const active = item === locale;
-            return (
-              <Link
-                key={item}
-                href={href}
-                className={active ? "text-foreground" : "text-muted-foreground hover:text-foreground"}
-              >
-                {item.toUpperCase()}
-              </Link>
-            );
-          })}
+            {LOCALES.map((item, idx) => {
+              const href = localeLinks?.[item] ?? swapLocalePath(pathname, item);
+              const active = item === locale;
+              return (
+                <span key={item} className="inline-flex items-center gap-2">
+                  {idx > 0 ? <span className="text-muted-foreground/30">|</span> : null}
+                  <Link href={href} className={active ? "text-foreground" : "text-muted-foreground hover:text-foreground"}>
+                    {item.toUpperCase()}
+                  </Link>
+                </span>
+              );
+            })}
           </div>
           <Link
             href={settings.ctaHref}
-            className="hidden h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:inline-flex"
+            className="hidden h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
           >
             {settings.ctaLabel}
           </Link>
