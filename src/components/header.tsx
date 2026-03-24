@@ -16,8 +16,15 @@ export function Header({ locale, pathname, settings, localeLinks }: HeaderProps)
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href={localizePath(locale, "/")} className="flex items-center gap-3">
-          <Image src="/vector.png" alt="Fractional Delivery logo" width={82} height={56} priority />
-          <span className="text-lg font-semibold tracking-tight transition-colors hover:text-brand-blue">{settings.brandName}</span>
+          <Image
+            src="/vector.png"
+            alt="Fractional Delivery logo"
+            width={160}
+            height={80}
+            className="h-[2.5rem] w-auto"
+            priority
+          />
+          <span className="sr-only">{settings.brandName}</span>
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
