@@ -35,6 +35,8 @@
 
 html {
   font-size: var(--site-scale);
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 @theme inline {
@@ -125,6 +127,11 @@ h3 {
 
 .lang-switch:hover {
   color: hsl(var(--foreground));
+}
+
+nav a {
+  font-size: 16px;
+  padding: 0 1.1rem;
 }
 
 .gradient-text {

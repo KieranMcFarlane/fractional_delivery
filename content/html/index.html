@@ -378,20 +378,58 @@
 
 
 
+    <!-- Who I Work With (Moved Up) -->
+    <section id="who-i-help" class="container py-16 md:py-24 border-t border-border/40 bg-brand-blue/5">
+      <div class="mx-auto max-w-[1200px] flex flex-col gap-12">
+        <div class="text-center flex flex-col items-center gap-4">
+          <div
+            class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-brand-pink/20 text-brand-blue w-fit uppercase tracking-wider">
+            WHO I HELP
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-balance">Who I work with</h2>
+          <p class="text-lg text-muted-foreground max-w-2xl">Scaling teams that need reliable execution without adding unnecessary process.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-card border rounded-2xl p-8 shadow-sm">
+            <h3 class="font-serif text-2xl mb-3">Digital & product teams</h3>
+            <p class="text-muted-foreground">Product, design and engineering teams where coordination pressure is starting to slow delivery.</p>
+          </div>
+          <div class="bg-card border rounded-2xl p-8 shadow-sm">
+            <h3 class="font-serif text-2xl mb-3">AI & technology teams</h3>
+            <p class="text-muted-foreground">Fast-moving technical teams where delivery complexity rises faster than operating structure.</p>
+          </div>
+          <div class="bg-card border rounded-2xl p-8 shadow-sm">
+            <h3 class="font-serif text-2xl mb-3">Scaling startups & agencies</h3>
+            <p class="text-muted-foreground">Leadership teams hitting the growth gap between informal delivery and sustainable operations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach (Short) -->
+    <section id="approach" class="container py-12 md:py-16 border-t border-border/40 bg-muted/10">
+      <div class="mx-auto max-w-[900px] text-center flex flex-col items-center gap-4">
+        <div
+          class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-brand-blue/20 text-brand-blue w-fit uppercase tracking-wider">
+          MY APPROACH
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-balance">How I think about delivery</h2>
+        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed text-balance">I look at how work actually moves, where decisions stall, and where ownership breaks down.</p>
+        <p class="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed text-balance">Then we install practical rhythms and visibility that teams can run without me.</p>
+      </div>
+    </section>
+
     <!-- How I Typically Work With Teams Section -->
     <section id="services" class="container py-24 md:py-32 bg-muted/30 border-y border-border/40 text-balance">
       <div class="mx-auto max-w-[1200px] flex flex-col gap-16">
         <div class="flex flex-col gap-4 items-center text-center">
           <div
             class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-brand-blue/20 text-brand-blue w-fit mb-4 uppercase tracking-wider">
-            MY APPROACH
+            MY SERVICES
           </div>
           <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif">How I typically work</h2>
           <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mx-auto">
             Every engagement starts the same way. I look at how work actually moves through your organisation, not how it's supposed to.
-          </p>
-          <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mt-4 mx-auto">
-            I don't leave behind a report. I leave behind visibility mechanisms your team can run without me.
           </p>
         </div>
 
@@ -534,8 +572,8 @@
       </div>
     </section>
 
-    <!-- Who I Help Section -->
-    <section id="who-i-help" class="container py-24 md:py-32 border-t border-border/40 bg-brand-blue/5">
+    <!-- Who I Help Section (legacy position, hidden after reorder) -->
+    <section id="who-i-help-legacy" class="hidden container py-24 md:py-32 border-t border-border/40 bg-brand-blue/5">
       <div class="mx-auto max-w-[1200px] flex flex-col gap-16">
         <div class="text-center flex flex-col items-center gap-4">
           <div
@@ -630,8 +668,52 @@
       </div>
     </section>
 
-    <!-- Where AI Fits Section -->
-    <section id="ai" class="container py-16 md:py-24">
+    <!-- Ebook Lead Magnet Section (moved up) -->
+    <section id="ebook" class="container py-24 md:py-32 border-t border-border/40">
+      <div class="mx-auto max-w-[1100px] bg-brand-blue rounded-[3rem] overflow-hidden shadow-2xl shadow-brand-blue/20 relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row items-center gap-12 p-8 md:p-16">
+          <div class="flex-1 text-white">
+            <div class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white/10 text-white mb-6 uppercase tracking-wider border border-white/20">
+              FREE RESOURCE
+            </div>
+            <h2 class="text-3xl md:text-5xl font-serif mb-6 leading-tight">Download the free Delivery Diagnostic</h2>
+            <p class="text-lg text-white/80 mb-8 max-w-lg leading-relaxed">
+              A focused guide to understanding your delivery health. Learn how to spot hidden friction signals before they break your roadmap.
+            </p>
+
+            <form class="flex flex-col sm:flex-row gap-3 max-w-md" onsubmit="event.preventDefault(); alert('Guide sent! Check your inbox.');">
+              <input type="email" placeholder="Your email address"
+                class="flex h-12 w-full rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30" required>
+              <button type="submit"
+                class="inline-flex items-center justify-center rounded-md text-sm font-bold transition-colors bg-white text-brand-blue hover:bg-brand-blue/10 hover:text-white border border-transparent hover:border-white h-12 px-8 shrink-0">
+                Get the guide
+              </button>
+            </form>
+            <p class="text-[10px] text-white/40 mt-4 leading-none italic">I hate spam. You can unsubscribe at any time.</p>
+          </div>
+
+          <div class="w-full md:w-auto flex justify-center">
+            <div class="relative group">
+              <div class="absolute inset-0 bg-white/20 blur-3xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative w-48 h-64 md:w-64 md:h-80 bg-white rounded-lg shadow-2xl flex flex-col p-6 overflow-hidden border-r-4 border-brand-orange transform -rotate-2 group-hover:rotate-0 transition-transform duration-500">
+                <div class="w-12 h-1 bg-brand-blue mb-4"></div>
+                <div class="text-brand-blue font-serif text-2xl mb-4">The Delivery Diagnostic</div>
+                <div class="mt-auto">
+                  <div class="w-full h-2 bg-slate-100 mb-2"></div>
+                  <div class="w-2/3 h-2 bg-slate-100"></div>
+                </div>
+                <div class="absolute bottom-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full -mr-16 -mb-16"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Where AI Fits Section (merged into About) -->
+    <section id="ai" class="hidden container py-16 md:py-24">
       <div class="rounded-2xl border bg-brand-blue/5 p-8 md:p-12 overflow-hidden relative">
         <div class="flex flex-col md:flex-row gap-12 items-center">
           <div class="flex-1 flex flex-col gap-4">
@@ -672,8 +754,8 @@
       </div>
     </section>
 
-    <!-- Why Work With Me Section -->
-    <section id="why-work-with-me" class="container py-24 md:py-32 border-t border-border/40 bg-muted/10">
+    <!-- Why Work With Me Section (merged into About) -->
+    <section id="why-work-with-me" class="hidden container py-24 md:py-32 border-t border-border/40 bg-muted/10">
       <div class="mx-auto max-w-[1200px] flex flex-col gap-16">
         <div class="text-center flex flex-col items-center gap-4">
           <div
@@ -728,7 +810,7 @@
             <div class="flex flex-col gap-4">
               <div
                 class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-brand-orange/20 text-brand-orange w-fit uppercase tracking-wider">
-                ABOUT
+                ABOUT + WHY WORK WITH ME
               </div>
               <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-balance leading-tight">Camille | Delivery & Operations Lead</h2>
             </div>
@@ -743,6 +825,18 @@
               <p class="text-sm font-medium text-muted-foreground tracking-wide italic border-l-2 border-brand-orange/30 pl-4 py-1">
                 Previously embedded with teams at Havas, alongside international corporations and across several high-growth tech startups. I've sat in the delivery seat, not just advised from outside it.
               </p>
+
+              <div class="rounded-xl border bg-brand-blue/5 p-5 text-left">
+                <h3 class="font-serif text-2xl mb-3">Why teams choose me</h3>
+                <ul class="space-y-2 text-muted-foreground">
+                  <li>I've worked inside scaling teams, not just advised them.</li>
+                  <li>No framework to sell. I build practical structure around your reality.</li>
+                  <li>I focus on the growth gap where informal delivery starts to break.</li>
+                </ul>
+                <p class="mt-4 text-sm text-muted-foreground">
+                  I also use AI tooling to surface delivery risks earlier, estimation drift, recurring blockers and coordination friction, so problems are caught before they compound.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -818,13 +912,13 @@
         <div class="grid lg:grid-cols-3 gap-8">
           <!-- Tier 1 -->
           <div class="flex flex-col bg-card border rounded-[2rem] p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <div class="mb-8">
+            <div class="mb-6">
               <h3 class="font-serif text-2xl text-foreground mb-2">Project Delivery Diagnostic</h3>
-              <div class="text-sm text-brand-blue font-medium mb-4">Understand where delivery is breaking down and why.</div>
+              <div class="text-sm text-brand-blue font-medium mb-3">Understand where delivery is breaking down and why.</div>
               <div class="text-3xl font-serif text-foreground">Starting from £3,000</div>
             </div>
             
-            <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-8">
+            <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-6">
               <p>A focused assessment of how work moves through your organisation. Outputs include a delivery friction map, prioritised recommendations and a clear improvement plan. Typically 3 to 8 days depending on scope.</p>
               <div class="flex items-center gap-2 text-sm font-medium text-foreground italic">
                 <i data-lucide="clock" class="w-4 h-4 text-brand-orange"></i>
@@ -842,13 +936,13 @@
           <!-- Tier 2 -->
           <div class="flex flex-col bg-card border rounded-[2rem] p-10 shadow-lg hover:shadow-xl hover:-translate-y-1 ring-2 ring-brand-orange/30 transition-all duration-300 relative">
             <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">Most Common</div>
-            <div class="mb-8">
+            <div class="mb-6">
               <h3 class="font-serif text-2xl text-foreground mb-2">Fractional Delivery Leadership</h3>
-              <div class="text-sm text-brand-orange font-medium mb-4">Senior delivery leadership without a full-time hire.</div>
+              <div class="text-sm text-brand-orange font-medium mb-3">Senior delivery leadership without a full-time hire.</div>
               <div class="text-3xl font-serif text-foreground">Starting from £3,500 <span class="text-sm font-sans text-muted-foreground">/ month</span></div>
             </div>
             
-            <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-8">
+            <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-6">
               <p>Embedded part-time leadership bringing structure, cadence and visibility to delivery as your organisation grows. Typically one to two days per week. Most engagements run quarterly.</p>
               <div class="flex items-center gap-2 text-sm font-medium text-foreground italic">
                 <i data-lucide="calendar" class="w-4 h-4 text-brand-orange"></i>
@@ -865,13 +959,13 @@
 
           <!-- Tier 3 -->
           <div class="flex flex-col bg-card border rounded-[2rem] p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <div class="mb-8">
+            <div class="mb-6">
               <h3 class="font-serif text-2xl text-foreground mb-2">Delivery Operating Model</h3>
-              <div class="text-sm text-brand-green font-medium mb-4">A delivery system built for where you're heading.</div>
+              <div class="text-sm text-brand-green font-medium mb-3">A delivery system built for where you're heading.</div>
               <div class="text-3xl font-serif text-foreground">Starting from £5,000</div>
             </div>
             
-            <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-8">
+            <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-6">
               <p>A co-designed operating model covering roles, decision paths, planning cadence and delivery health signals. With optional guided rollout support over 60 to 90 days.</p>
               <div class="flex items-center gap-2 text-sm font-medium text-foreground italic">
                 <i data-lucide="target" class="w-4 h-4 text-brand-orange"></i>
@@ -970,59 +1064,13 @@
         </div>
       </div>
 
-    <!-- Ebook Lead Magnet Section -->
-    <section id="ebook" class="container py-24 md:py-32">
-      <div class="mx-auto max-w-[1100px] bg-brand-blue rounded-[3rem] overflow-hidden shadow-2xl shadow-brand-blue/20 relative">
-        <!-- Subtle background pattern or glow -->
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
-        
-        <div class="relative z-10 flex flex-col md:flex-row items-center gap-12 p-8 md:p-16">
-          <div class="flex-1 text-white">
-            <div class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white/10 text-white mb-6 uppercase tracking-wider border border-white/20">
-              FREE RESOURCE
-            </div>
-            <h2 class="text-3xl md:text-5xl font-serif mb-6 leading-tight">Download the free Delivery Diagnostic</h2>
-            <p class="text-lg text-white/80 mb-8 max-w-lg leading-relaxed">
-              A focused guide to understanding your delivery health. Learn how to spot hidden friction signals before they break your roadmap.
-            </p>
-            
-            <form class="flex flex-col sm:flex-row gap-3 max-w-md" onsubmit="event.preventDefault(); alert('Guide sent! Check your inbox.');">
-              <input type="email" placeholder="Your email address" 
-                class="flex h-12 w-full rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30" required>
-              <button type="submit" 
-                class="inline-flex items-center justify-center rounded-md text-sm font-bold transition-colors bg-white text-brand-blue hover:bg-brand-blue/10 hover:text-white border border-transparent hover:border-white h-12 px-8 shrink-0">
-                Get the guide
-              </button>
-            </form>
-            <p class="text-[10px] text-white/40 mt-4 leading-none italic">I hate spam. You can unsubscribe at any time.</p>
-          </div>
-          
-          <div class="w-full md:w-auto flex justify-center">
-            <!-- Ebook Cover Mockup -->
-            <div class="relative group">
-              <div class="absolute inset-0 bg-white/20 blur-3xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
-              <div class="relative w-48 h-64 md:w-64 md:h-80 bg-white rounded-lg shadow-2xl flex flex-col p-6 overflow-hidden border-r-4 border-brand-orange transform -rotate-2 group-hover:rotate-0 transition-transform duration-500">
-                <div class="w-12 h-1 bg-brand-blue mb-4"></div>
-                <div class="text-brand-blue font-serif text-2xl mb-4">The Delivery Diagnostic</div>
-                <div class="mt-auto">
-                  <div class="w-full h-2 bg-slate-100 mb-2"></div>
-                  <div class="w-2/3 h-2 bg-slate-100"></div>
-                </div>
-                <div class="absolute bottom-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full -mr-16 -mb-16"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Contact Form Section -->
     <section id="discovery-call" class="container py-16 md:py-24 border-t border-border/40 bg-muted/20">
       <div class="mx-auto max-w-[1000px] flex flex-col md:flex-row gap-12 items-center">
         <div class="flex-1 w-full relative hidden md:block">
           <div class="overflow-hidden rounded-xl shadow-xl border bg-background/50 p-2">
             <img
-              src="images/camm/camcam_29764_senior_delivery_consultant_working_with_a_develo_7ad87c51-5dc4-41e8-93ec-5fdf1daeb6f9_1.png"
+              src="images/camm/camcam_29764_httpss.mj.run3o8q3o28Rec_httpss.mj.runP_EjGOkJfW_bfebbc51-a0e5-44ba-bf5c-15bbae7d24d7_2.png"
               alt="contact delivery operations lead for a discovery call"
               class="w-full h-auto rounded-lg object-cover bg-muted">
           </div>
@@ -1031,13 +1079,12 @@
           </div>
         </div>
         <div class="flex-1 w-full">
-          <div class="text-left mb-8">
-            <h2 class="text-3xl md:text-4xl font-serif">Discuss your delivery challenges</h2>
-            <p class="text-muted-foreground mt-2 text-balance">Let's explore how your team could scale delivery and see
-              if I can help bring structure to your growth.</p>
-          </div>
-
           <div class="bg-card border rounded-2xl shadow-lg p-8 md:p-10 flex flex-col gap-6">
+            <div class="text-left">
+              <h2 class="text-3xl md:text-4xl font-serif">Discuss your delivery challenges</h2>
+              <p class="text-muted-foreground mt-2 text-balance">Let's explore how your team could scale delivery and see
+                if I can help bring structure to your growth.</p>
+            </div>
             <button
               type="button"
               data-cal-namespace="30min"

@@ -19,7 +19,7 @@ export async function SiteShell({ locale, pathname, localeLinks, children }: Sit
       <CalInit />
       <Header locale={locale} pathname={pathname} localeLinks={localeLinks} settings={settings} />
       <main className="w-full flex-1">{children}</main>
-      <Footer settings={settings} />
+      <Footer locale={locale} settings={settings} />
     </>
   );
 }
