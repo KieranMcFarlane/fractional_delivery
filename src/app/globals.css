@@ -127,6 +127,11 @@ h3 {
   color: hsl(var(--foreground));
 }
 
+nav a {
+  font-size: 16px;
+  padding: 0 1.1rem;
+}
+
 .gradient-text {
   display: inline;
   font-size: 4.2rem;
