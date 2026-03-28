@@ -378,6 +378,43 @@
 
 
 
+    <!-- Who I Work With (Moved Up) -->
+    <section id="who-i-help" class="container py-16 md:py-24 border-t border-border/40 bg-brand-blue/5">
+      <div class="mx-auto max-w-[1200px] flex flex-col gap-12">
+        <div class="text-center flex flex-col items-center gap-4">
+          <div
+            class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-brand-pink/20 text-brand-blue w-fit uppercase tracking-wider">
+            WHO I HELP
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-balance">Who I work with</h2>
+          <p class="text-lg text-muted-foreground max-w-2xl">Scaling teams that need reliable execution without adding unnecessary process.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-card border rounded-2xl p-8 shadow-sm">
+            <h3 class="font-serif text-2xl mb-3">Digital & product teams</h3>
+            <p class="text-muted-foreground">Product, design and engineering teams where coordination pressure is starting to slow delivery.</p>
+          </div>
+          <div class="bg-card border rounded-2xl p-8 shadow-sm">
+            <h3 class="font-serif text-2xl mb-3">AI & technology teams</h3>
+            <p class="text-muted-foreground">Fast-moving technical teams where delivery complexity rises faster than operating structure.</p>
+          </div>
+          <div class="bg-card border rounded-2xl p-8 shadow-sm">
+            <h3 class="font-serif text-2xl mb-3">Scaling startups & agencies</h3>
+            <p class="text-muted-foreground">Leadership teams hitting the growth gap between informal delivery and sustainable operations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach (Short) -->
+    <section id="approach" class="container py-12 md:py-16 border-t border-border/40 bg-muted/10">
+      <div class="mx-auto max-w-[900px] text-center">
+        <h2 class="text-2xl md:text-3xl font-serif">How I think about delivery</h2>
+        <p class="mt-3 text-lg text-muted-foreground">I look at how work actually moves, where decisions stall, and where ownership breaks down.</p>
+        <p class="mt-2 text-muted-foreground">Then we install practical rhythms and visibility that teams can run without me.</p>
+      </div>
+    </section>
+
     <!-- How I Typically Work With Teams Section -->
     <section id="services" class="container py-24 md:py-32 bg-muted/30 border-y border-border/40 text-balance">
       <div class="mx-auto max-w-[1200px] flex flex-col gap-16">
@@ -389,9 +426,6 @@
           <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif">How I typically work</h2>
           <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mx-auto">
             Every engagement starts the same way. I look at how work actually moves through your organisation, not how it's supposed to.
-          </p>
-          <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mt-4 mx-auto">
-            I don't leave behind a report. I leave behind visibility mechanisms your team can run without me.
           </p>
         </div>
 
@@ -534,8 +568,8 @@
       </div>
     </section>
 
-    <!-- Who I Help Section -->
-    <section id="who-i-help" class="container py-24 md:py-32 border-t border-border/40 bg-brand-blue/5">
+    <!-- Who I Help Section (legacy position, hidden after reorder) -->
+    <section id="who-i-help-legacy" class="hidden container py-24 md:py-32 border-t border-border/40 bg-brand-blue/5">
       <div class="mx-auto max-w-[1200px] flex flex-col gap-16">
         <div class="text-center flex flex-col items-center gap-4">
           <div
@@ -630,8 +664,8 @@
       </div>
     </section>
 
-    <!-- Where AI Fits Section -->
-    <section id="ai" class="container py-16 md:py-24">
+    <!-- Where AI Fits Section (merged into About) -->
+    <section id="ai" class="hidden container py-16 md:py-24">
       <div class="rounded-2xl border bg-brand-blue/5 p-8 md:p-12 overflow-hidden relative">
         <div class="flex flex-col md:flex-row gap-12 items-center">
           <div class="flex-1 flex flex-col gap-4">
@@ -672,8 +706,8 @@
       </div>
     </section>
 
-    <!-- Why Work With Me Section -->
-    <section id="why-work-with-me" class="container py-24 md:py-32 border-t border-border/40 bg-muted/10">
+    <!-- Why Work With Me Section (merged into About) -->
+    <section id="why-work-with-me" class="hidden container py-24 md:py-32 border-t border-border/40 bg-muted/10">
       <div class="mx-auto max-w-[1200px] flex flex-col gap-16">
         <div class="text-center flex flex-col items-center gap-4">
           <div
@@ -728,7 +762,7 @@
             <div class="flex flex-col gap-4">
               <div
                 class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-brand-orange/20 text-brand-orange w-fit uppercase tracking-wider">
-                ABOUT
+                ABOUT + WHY WORK WITH ME
               </div>
               <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-balance leading-tight">Camille | Delivery & Operations Lead</h2>
             </div>
@@ -743,6 +777,18 @@
               <p class="text-sm font-medium text-muted-foreground tracking-wide italic border-l-2 border-brand-orange/30 pl-4 py-1">
                 Previously embedded with teams at Havas, alongside international corporations and across several high-growth tech startups. I've sat in the delivery seat, not just advised from outside it.
               </p>
+
+              <div class="rounded-xl border bg-brand-blue/5 p-5 text-left">
+                <h3 class="font-serif text-2xl mb-3">Why teams choose me</h3>
+                <ul class="space-y-2 text-muted-foreground">
+                  <li>I've worked inside scaling teams, not just advised them.</li>
+                  <li>No framework to sell. I build practical structure around your reality.</li>
+                  <li>I focus on the growth gap where informal delivery starts to break.</li>
+                </ul>
+                <p class="mt-4 text-sm text-muted-foreground">
+                  I also use AI tooling to surface delivery risks earlier, estimation drift, recurring blockers and coordination friction, so problems are caught before they compound.
+                </p>
+              </div>
             </div>
           </div>
 
