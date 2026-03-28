@@ -134,6 +134,100 @@ nav a {
   padding: 0 1.1rem;
 }
 
+section.container.py-12 {
+  padding-bottom: 18px;
+}
+
+.legal-content {
+  color: hsl(var(--foreground));
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.legal-content p {
+  margin-bottom: 1rem;
+}
+
+.legal-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-instrument-serif), serif;
+  font-size: 2rem;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.legal-content ul {
+  margin-bottom: 1rem;
+}
+
+.logo-marquee {
+  --duration: 40s;
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  gap: var(--gap);
+}
+
+.logo-marquee-track {
+  display: flex;
+  min-width: max-content;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap);
+  animation: logo-marquee var(--duration) linear infinite;
+}
+
+.logo-marquee-item {
+  display: flex;
+  width: clamp(10rem, 12vw, 12rem);
+  height: clamp(3.25rem, 4.5vw, 4rem);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-marquee-item--panther {
+  margin-right: clamp(1rem, 2vw, 2rem);
+}
+
+.logo-marquee-logo {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.logo-marquee-logo--square {
+  max-width: 72%;
+}
+
+.logo-marquee-logo--lg {
+  max-height: 125%;
+}
+
+.logo-marquee-logo--capita {
+  max-height: 88%;
+}
+
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
 .gradient-text {
   display: inline;
   font-size: 4.2rem;

@@ -54,7 +54,6 @@ export default async function SlugFrPage({ params }: Props) {
             url: `${baseUrl}/fr/${slug}`,
           }}
         />
-        <h1 className="mb-6 text-5xl">{page.title}</h1>
         <RichText html={page.bodyRichtext} />
       </SiteShell>
     );

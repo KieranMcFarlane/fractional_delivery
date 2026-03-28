@@ -164,6 +164,28 @@ export function Footer({ locale, settings }: FooterProps) {
           <div className="space-y-4">
             <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-foreground">{t.newsletterTitle}</h4>
             <div data-supascribe-embed-id="905066645628" data-supascribe-subscribe />
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              By subscribing, you agree to receive email updates from Fractional Delivery. You can unsubscribe at any
+              time. See our{" "}
+              <a
+                href="/privacy-policy"
+                className="underline transition-colors hover:text-foreground"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://substack.com/privacy"
+                className="underline transition-colors hover:text-foreground"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Substack Privacy Policy
+              </a>
+              .
+            </p>
             <Script
               src="https://js.supascribe.com/v1/loader/b2nQm9wgMLWsDqQydwXvtHZwvSD2.js"
               strategy="afterInteractive"

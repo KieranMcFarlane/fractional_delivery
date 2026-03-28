@@ -240,7 +240,7 @@
 
   <main class="flex-1">
     <!-- Hero Section -->
-    <section class="container py-16 md:py-24 lg:py-32">
+    <section class="container py-12">
       <div class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-24">
         <div class="flex flex-col gap-6 flex-1">
           <div
@@ -254,16 +254,16 @@
             "When growth gets messy, I bring structure."
           </p>
           <div class="space-y-4 text-muted-foreground text-lg leading-relaxed max-w-[650px]">
-            <p>I work with founders and leadership teams in AI, tech and digital when delivery starts slowing everything else down.</p>
+            <p style="font-size: 18px;">I work with founders and leadership teams in AI, tech and digital when delivery starts slowing everything else down.</p>
             <p>If priorities keep shifting, roadmaps keep slipping, or the team feels busy but nothing meaningful is landing, that's usually a signal the operational foundations need attention.</p>
           </div>
           <div class="flex flex-col sm:flex-row gap-4 mt-4">
             <a href="#services"
-              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3.5">
               Explore Services
             </a>
             <a href="#discovery-call"
-              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-8 py-3.5">
               Discuss Your Needs
             </a>
           </div>
@@ -287,25 +287,40 @@
     </section>
 
     <!-- Experience Logos Section -->
-    <section class="container py-12 border-t border-border/40 bg-muted/10">
-      <div class="mx-auto max-w-[1000px] flex flex-col items-center justify-center gap-8 text-center">
+    <section class="w-full py-12 border-t border-border/40 bg-muted/10" style="border-top: none;">
+      <div class="container">
+        <div class="mx-auto max-w-[1000px] flex flex-col items-center justify-center gap-8 text-center" style="margin-bottom: 3rem;">
         <p class="text-sm font-medium text-muted-foreground tracking-wider uppercase">
           Trusted by teams at:
         </p>
-        <!-- Logos in full color -->
-        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 mix-blend-multiply">
-          <img src="images/media__1773645527804.png" alt="Yellow Panther" class="h-10 md:h-12 w-auto object-contain">
-          <img src="images/isu.png" alt="ISU" class="h-10 md:h-12 w-auto object-contain">
-          <img src="images/capita.png" alt="Capita" class="h-10 md:h-12 w-auto object-contain">
-          <img src="images/media__1773645534358.jpg" alt="Havas" class="h-8 md:h-10 w-auto object-contain">
-          <img src="images/media__1773645534353.png" alt="ThirtyThree" class="h-14 md:h-16 w-auto object-contain">
-          <img src="images/media__1773645534350.jpg" alt="ONE" class="h-10 md:h-12 w-auto object-contain">
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="logo-marquee [--duration:40s] [--gap:5rem] md:[--gap:10rem]">
+          <div class="logo-marquee-track mix-blend-multiply">
+            <div class="logo-marquee-item logo-marquee-item--panther"><img src="images/Logo/yellow_panther.svg" alt="Yellow Panther" class="logo-marquee-logo"></div>
+            <div class="logo-marquee-item logo-marquee-item--havas"><img src="images/Logo/Havas_Worldwide__LLC_HAVAS_CREATIVE_NETWORK_EXPANDS_MELISSA_TIFR.jpg" alt="Havas" class="logo-marquee-logo"></div>
+            <div class="logo-marquee-item"><img src="images/Logo/isu.png" alt="ISU" class="logo-marquee-logo logo-marquee-logo--lg"></div>
+            <div class="logo-marquee-item"><img src="images/Logo/thisisone.jpeg" alt="This is One" class="logo-marquee-logo logo-marquee-logo--lg"></div>
+            <div class="logo-marquee-item"><img src="images/Logo/33.png" alt="ThirtyThree" class="logo-marquee-logo logo-marquee-logo--square"></div>
+            <div class="logo-marquee-item"><img src="images/Logo/capita.svg" alt="Capita" class="logo-marquee-logo logo-marquee-logo--capita"></div>
+            <div class="logo-marquee-item"><img src="images/Logo/lnb transprent logo.png" alt="LNB" class="logo-marquee-logo logo-marquee-logo--square"></div>
+          </div>
+          <div class="logo-marquee-track mix-blend-multiply" aria-hidden="true">
+            <div class="logo-marquee-item logo-marquee-item--panther"><img src="images/Logo/yellow_panther.svg" alt="" class="logo-marquee-logo"></div>
+            <div class="logo-marquee-item logo-marquee-item--havas"><img src="images/Logo/Havas_Worldwide__LLC_HAVAS_CREATIVE_NETWORK_EXPANDS_MELISSA_TIFR.jpg" alt="" class="logo-marquee-logo"></div>
+            <div class="logo-marquee-item"><img src="images/Logo/isu.png" alt="" class="logo-marquee-logo logo-marquee-logo--lg"></div>
+            <div class="logo-marquee-item"><img src="images/Logo/thisisone.jpeg" alt="" class="logo-marquee-logo logo-marquee-logo--lg"></div>
+            <div class="logo-marquee-item"><img src="images/Logo/33.png" alt="" class="logo-marquee-logo logo-marquee-logo--square"></div>
+            <div class="logo-marquee-item"><img src="images/Logo/capita.svg" alt="" class="logo-marquee-logo logo-marquee-logo--capita"></div>
+            <div class="logo-marquee-item"><img src="images/Logo/lnb transprent logo.png" alt="" class="logo-marquee-logo logo-marquee-logo--square"></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Typical Situations Section -->
-    <section id="how-i-help" class="container py-24 md:py-32 border-t border-border/40">
+    <section id="how-i-help" class="container py-24 md:py-32 border-t border-border/40" style="border-top: none; padding-top: 3rem;">
       <div class="mx-auto max-w-[1100px] bg-card border rounded-2xl overflow-hidden shadow-sm">
         <div class="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-border/60">
           
@@ -914,8 +929,7 @@
           <div class="flex flex-col bg-card border rounded-[2rem] p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <div class="mb-6">
               <h3 class="font-serif text-2xl text-foreground mb-2">Project Delivery Diagnostic</h3>
-              <div class="text-sm text-brand-blue font-medium mb-3">Understand where delivery is breaking down and why.</div>
-              <div class="text-3xl font-serif text-foreground">Starting from £3,000</div>
+              <div class="text-sm text-brand-blue font-medium mb-0">Understand where delivery is breaking down and why.</div>
             </div>
             
             <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-6">
@@ -938,8 +952,7 @@
             <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">Most Common</div>
             <div class="mb-6">
               <h3 class="font-serif text-2xl text-foreground mb-2">Fractional Delivery Leadership</h3>
-              <div class="text-sm text-brand-orange font-medium mb-3">Senior delivery leadership without a full-time hire.</div>
-              <div class="text-3xl font-serif text-foreground">Starting from £3,500 <span class="text-sm font-sans text-muted-foreground">/ month</span></div>
+              <div class="text-sm text-brand-orange font-medium mb-0">Senior delivery leadership without a full-time hire.</div>
             </div>
             
             <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-6">
@@ -961,8 +974,7 @@
           <div class="flex flex-col bg-card border rounded-[2rem] p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <div class="mb-6">
               <h3 class="font-serif text-2xl text-foreground mb-2">Delivery Operating Model</h3>
-              <div class="text-sm text-brand-green font-medium mb-3">A delivery system built for where you're heading.</div>
-              <div class="text-3xl font-serif text-foreground">Starting from £5,000</div>
+              <div class="text-sm text-brand-green font-medium mb-0">A delivery system built for where you're heading.</div>
             </div>
             
             <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-6">
