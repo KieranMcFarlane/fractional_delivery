@@ -1,3 +1,4 @@
+import { CalInit } from "@/components/cal-init";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { getSiteSettings } from "@/lib/directus";
@@ -15,6 +16,7 @@ export async function SiteShell({ locale, pathname, localeLinks, children }: Sit
 
   return (
     <>
+      <CalInit />
       <Header locale={locale} pathname={pathname} localeLinks={localeLinks} settings={settings} />
       <main className="w-full flex-1">{children}</main>
       <Footer settings={settings} />

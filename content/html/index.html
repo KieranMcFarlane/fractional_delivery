@@ -248,9 +248,7 @@
             DELIVERY & OPERATIONS LEAD
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-balance leading-[1.1]">
-            Helping digital, AI & tech teams <span
-              class="gradient-text italic">scale
-              delivery without chaos</span>
+            <span style="display: block;">Helping digital, AI</span><span>&amp; tech teams</span> <span class="gradient-text italic" style="display: inline;">scale delivery without chaos</span>
           </h1>
           <p class="text-2xl md:text-3xl lg:text-4xl text-foreground font-serif italic mb-4 leading-tight">
             "When growth gets messy, I bring structure."
@@ -292,7 +290,7 @@
     <section class="container py-12 border-t border-border/40 bg-muted/10">
       <div class="mx-auto max-w-[1000px] flex flex-col items-center justify-center gap-8 text-center">
         <p class="text-sm font-medium text-muted-foreground tracking-wider uppercase">
-          Teams I've worked with
+          Trusted by teams at:
         </p>
         <!-- Logos in full color -->
         <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 mix-blend-multiply">
@@ -1039,50 +1037,19 @@
               if I can help bring structure to your growth.</p>
           </div>
 
-          <form class="bg-card border rounded-2xl shadow-lg p-8 md:p-10 flex flex-col gap-6"
-            onsubmit="event.preventDefault(); alert('Request sent! I will be in touch shortly.');">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="space-y-2">
-                <label for="firstName" class="text-sm font-medium leading-none">First name</label>
-                <input type="text" id="firstName"
-                  class="flex h-14 md:text-base px-4 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
-                  placeholder="Jane" required>
-              </div>
-              <div class="space-y-2">
-                <label for="lastName" class="text-sm font-medium leading-none">Last name</label>
-                <input type="text" id="lastName"
-                  class="flex h-14 md:text-base px-4 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
-                  placeholder="Doe" required>
-              </div>
-            </div>
-            <div class="space-y-2">
-              <label for="email" class="text-sm font-medium leading-none">Email address</label>
-              <input type="email" id="email"
-                class="flex h-14 md:text-base px-4 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
-                placeholder="jane@example.com" required>
-            </div>
-            <div class="space-y-2">
-              <label for="message" class="text-sm font-medium leading-none">What are your main delivery
-                challenges?</label>
-              <textarea id="message"
-                class="flex min-h-[120px] md:text-base px-4 py-3 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
-                placeholder="Tell me a bit about your current situation..." required></textarea>
-            </div>
-            <div class="flex items-start gap-3 mt-2">
-              <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required
-                class="mt-1 h-4 w-4 rounded border-input bg-background text-brand-blue focus:ring-brand-blue focus:ring-offset-background">
-              <label for="gdpr-consent" class="text-xs text-muted-foreground leading-relaxed">
-                I agree to the processing of my data in accordance with the 
-                <a href="privacy-policy.html" class="underline hover:text-brand-blue transition-colors">Privacy Policy</a> 
-                and <a href="terms-of-service.html" class="underline hover:text-brand-blue transition-colors">Terms of Service</a>.
-              </label>
-            </div>
-
-            <button type="submit"
-              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full mt-2">
+          <div class="bg-card border rounded-2xl shadow-lg p-8 md:p-10 flex flex-col gap-6">
+            <button
+              type="button"
+              data-cal-namespace="30min"
+              data-cal-link="camillefractionaldelivery/30min"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"}'
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
               Discuss Your Challenges
             </button>
-          </form>
+            <p class="text-xs text-muted-foreground">
+              Book directly in the calendar and share context during scheduling.
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -1036,49 +1036,19 @@
             <p class="text-muted-foreground mt-2 text-balance">Échangeons sur la situation de votre équipe et voyons ensemble si je peux vous aider à structurer votre croissance.</p>
           </div>
 
-          <form class="bg-card border rounded-2xl shadow-lg p-8 md:p-10 flex flex-col gap-6"
-            onsubmit="event.preventDefault(); alert('Demande envoyée ! Je vous recontacterai prochainement.');">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="space-y-2">
-                <label for="firstName" class="text-sm font-medium leading-none">Prénom</label>
-                <input type="text" id="firstName"
-                  class="flex h-14 md:text-base px-4 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
-                  placeholder="Jane" required>
-              </div>
-              <div class="space-y-2">
-                <label for="lastName" class="text-sm font-medium leading-none">Nom</label>
-                <input type="text" id="lastName"
-                  class="flex h-14 md:text-base px-4 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
-                  placeholder="Doe" required>
-              </div>
-            </div>
-            <div class="space-y-2">
-              <label for="email" class="text-sm font-medium leading-none">Adresse e-mail</label>
-              <input type="email" id="email"
-                class="flex h-14 md:text-base px-4 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
-                placeholder="jane@exemple.com" required>
-            </div>
-            <div class="space-y-2">
-              <label for="message" class="text-sm font-medium leading-none">Quels sont vos principaux défis de delivery en ce moment ?</label>
-              <textarea id="message"
-                class="flex min-h-[120px] md:text-base px-4 py-3 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
-                placeholder="Dites-m'en un peu plus sur votre situation actuelle..." required></textarea>
-            </div>
-            <div class="flex items-start gap-3 mt-2 text-left">
-              <input type="checkbox" id="gdpr-consent-fr" name="gdpr-consent" required
-                class="mt-1 h-4 w-4 rounded border-input bg-background text-brand-blue focus:ring-brand-blue focus:ring-offset-background">
-              <label for="gdpr-consent-fr" class="text-xs text-muted-foreground leading-relaxed">
-                J'accepte que mes données soient traitées conformément à la 
-                <a href="../privacy-policy.html" class="underline hover:text-brand-blue transition-colors">Politique de confidentialité</a> 
-                et aux <a href="../terms-of-service.html" class="underline hover:text-brand-blue transition-colors">Conditions d'utilisation</a>.
-              </label>
-            </div>
-
-            <button type="submit"
-              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full mt-2">
+          <div class="bg-card border rounded-2xl shadow-lg p-8 md:p-10 flex flex-col gap-6">
+            <button
+              type="button"
+              data-cal-namespace="30min"
+              data-cal-link="camillefractionaldelivery/30min"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"}'
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
               Discutons-en
             </button>
-          </form>
+            <p class="text-xs text-muted-foreground">
+              Réservez directement dans le calendrier et partagez le contexte pendant la prise de rendez-vous.
+            </p>
+          </div>
         </div>
       </div>
     </section>
