@@ -35,6 +35,8 @@
 
 html {
   font-size: var(--site-scale);
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 @theme inline {
