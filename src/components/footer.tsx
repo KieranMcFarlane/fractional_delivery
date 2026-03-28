@@ -1,9 +1,8 @@
 "use client";
 
-import type { FormEvent } from "react";
-
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
 import { localizePath } from "@/lib/i18n";
 import type { Locale, SiteSettings } from "@/lib/types";
@@ -17,9 +16,6 @@ type FooterCopy = {
   navigationTitle: string;
   focusAreasTitle: string;
   newsletterTitle: string;
-  newsletterText: string;
-  newsletterPlaceholder: string;
-  newsletterButton: string;
   roleTitle: string;
   brandDescription: string;
   navigationLinks: Array<{ label: string; href: string }>;
@@ -38,9 +34,6 @@ const copy: Record<Locale, FooterCopy> = {
     navigationTitle: "Navigation",
     focusAreasTitle: "Focus Areas",
     newsletterTitle: "Newsletter",
-    newsletterText: "Monthly signals and practical delivery patterns for growing teams.",
-    newsletterPlaceholder: "email@address.com",
-    newsletterButton: "Subscribe to the Brief",
     roleTitle: "Delivery & Operations Lead",
     brandDescription:
       "Providing senior delivery leadership and tech operations consultancy for high-growth product, AI and engineering teams.",
@@ -67,9 +60,6 @@ const copy: Record<Locale, FooterCopy> = {
     navigationTitle: "Navigation",
     focusAreasTitle: "Axes d'intervention",
     newsletterTitle: "Newsletter",
-    newsletterText: "Signaux mensuels et patterns delivery pour les équipes en croissance.",
-    newsletterPlaceholder: "email@address.com",
-    newsletterButton: "S'abonner au Brief",
     roleTitle: "Delivery & Operations Lead",
     brandDescription:
       "Leadership senior en delivery et conseil en opérations tech pour les équipes produit, IA et engineering à forte croissance.",
@@ -94,11 +84,6 @@ const copy: Record<Locale, FooterCopy> = {
   },
 };
 
-function onNewsletterSubmit(event: FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-  window.alert("Subscribed! Welcome to the Brief.");
-}
-
 export function Footer({ locale, settings }: FooterProps) {
   const t = copy[locale];
   const blogHref = localizePath(locale, "/blog");
@@ -108,7 +93,7 @@ export function Footer({ locale, settings }: FooterProps) {
   return (
     <footer className="border-t bg-muted/40 pb-8 pt-16 text-muted-foreground">
       <div className="container mx-auto max-w-[1200px]">
-        <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-20 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4" itemScope itemType="https://schema.org/Person">
             <div className="font-sans text-lg font-semibold tracking-tight text-foreground" itemProp="name">
               Camille Wilhelm McFarlane
@@ -140,15 +125,6 @@ export function Footer({ locale, settings }: FooterProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 transition-colors hover:text-brand-blue"
               >
-                <Image
-                  src="https://cdn.hugeicons.com/icons/linkedin-02-stroke-rounded.svg"
-                  alt=""
-                  width={14}
-                  height={14}
-                  unoptimized
-                  aria-hidden="true"
-                  className="h-3.5 w-3.5"
-                />
                 {t.linkedinLabel}
               </a>
             </div>
@@ -187,25 +163,15 @@ export function Footer({ locale, settings }: FooterProps) {
 
           <div className="space-y-4">
             <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-foreground">{t.newsletterTitle}</h4>
-            <p className="text-xs italic leading-relaxed">{t.newsletterText}</p>
-            <form className="flex flex-col gap-2 pt-2" onSubmit={onNewsletterSubmit}>
-              <input
-                type="email"
-                placeholder={t.newsletterPlaceholder}
-                className="flex h-9 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-xs ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                required
-              />
-              <button
-                type="submit"
-                className="inline-flex h-9 items-center justify-center rounded-md bg-brand-blue px-4 text-[11px] font-bold text-white transition-colors hover:opacity-90"
-              >
-                {t.newsletterButton}
-              </button>
-            </form>
+            <div data-supascribe-embed-id="905066645628" data-supascribe-subscribe />
+            <Script
+              src="https://js.supascribe.com/v1/loader/b2nQm9wgMLWsDqQydwXvtHZwvSD2.js"
+              strategy="afterInteractive"
+            />
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-8 text-[11px] md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-10 text-[11px] md:flex-row">
           <p className="text-muted-foreground">{t.rightsReserved}</p>
           <div className="flex items-center gap-6">
             <Link href={privacyHref} className="transition-colors hover:text-foreground">
