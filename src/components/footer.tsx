@@ -29,6 +29,8 @@ type FooterCopy = {
   locationLabel: string;
   emailLabel: string;
   linkedinLabel: string;
+  privacyLabel: string;
+  termsLabel: string;
 };
 
 const copy: Record<Locale, FooterCopy> = {
@@ -58,6 +60,8 @@ const copy: Record<Locale, FooterCopy> = {
     locationLabel: "Based in Leamington Spa, UK",
     emailLabel: "Email",
     linkedinLabel: "LinkedIn",
+    privacyLabel: "Privacy Policy",
+    termsLabel: "Terms of Service",
   },
   fr: {
     navigationTitle: "Navigation",
@@ -85,6 +89,8 @@ const copy: Record<Locale, FooterCopy> = {
     locationLabel: "Basée à Leamington Spa, Royaume-Uni",
     emailLabel: "Email",
     linkedinLabel: "LinkedIn",
+    privacyLabel: "Confidentialité",
+    termsLabel: "Conditions",
   },
 };
 
@@ -96,6 +102,8 @@ function onNewsletterSubmit(event: FormEvent<HTMLFormElement>) {
 export function Footer({ locale, settings }: FooterProps) {
   const t = copy[locale];
   const blogHref = localizePath(locale, "/blog");
+  const privacyHref = localizePath(locale, "/privacy-policy");
+  const termsHref = localizePath(locale, "/terms-of-service");
 
   return (
     <footer className="border-t bg-muted/40 pb-8 pt-16 text-muted-foreground">
@@ -200,11 +208,12 @@ export function Footer({ locale, settings }: FooterProps) {
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-8 text-[11px] md:flex-row">
           <p className="text-muted-foreground">{t.rightsReserved}</p>
           <div className="flex items-center gap-6">
-            {settings.legalLinks.map((item) => (
-              <Link key={item.href} href={item.href} className="transition-colors hover:text-foreground">
-                {item.label}
-              </Link>
-            ))}
+            <Link href={privacyHref} className="transition-colors hover:text-foreground">
+              {t.privacyLabel}
+            </Link>
+            <Link href={termsHref} className="transition-colors hover:text-foreground">
+              {t.termsLabel}
+            </Link>
             <span className="hidden text-muted-foreground/30 md:inline">|</span>
             <p className="italic text-muted-foreground">{t.locationLabel}</p>
           </div>
