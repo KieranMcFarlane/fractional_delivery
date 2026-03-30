@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your job title hasn't changed. Your job has. - Fractional Delivery</title>
+  <meta name="description" content="AI is fundamentally changing the role of delivery leadership. From status chasing to system design, discover how the job is evolving.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style type="text/tailwindcss">
+    @layer base {
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        
+        --primary: 11 82.6% 63.5%; /* Brand Orange */
+        --primary-foreground: 210 40% 98%;
+        
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 11 82.6% 63.5%;
+        
+        --radius: 0.5rem;
+      }
+    }
+
+    @layer base {
+      * {
+        @apply border-border;
+      }
+      body {
+        @apply bg-background text-foreground font-sans antialiased;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        @apply font-serif;
+      }
+    }
+
+    .gradient-text {
+      display: inline;
+      background: linear-gradient(
+        to right,
+        #2563eb,
+        #10b981,
+        #fb923c,
+        #f8c75e,
+        #5299d0,
+        #f9a7ad,
+        #2563eb
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 8s linear infinite;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        container: {
+          center: true,
+          padding: "2rem",
+          screens: {
+            "2xl": "1400px",
+          },
+        },
+        extend: {
+          fontFamily: {
+            sans: ['"DM Sans"', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'serif'],
+          },
+          colors: {
+            brand: {
+              blue: '#3971B8',
+              green: '#68C2B0',
+              orange: '#EF7255',
+              yellow: '#FBC86D',
+              pink: '#F7A8AE',
+            },
+            border: "hsl(var(--border))",
+            input: "hsl(var(--input))",
+            ring: "hsl(var(--ring))",
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+            primary: {
+              DEFAULT: "#EF7255",
+              foreground: "#ffffff",
+            },
+            secondary: {
+              DEFAULT: "hsl(var(--secondary))",
+              foreground: "hsl(var(--secondary-foreground))",
+            },
+            muted: {
+              DEFAULT: "hsl(var(--muted))",
+              foreground: "hsl(var(--muted-foreground))",
+            },
+            accent: {
+              DEFAULT: "hsl(var(--accent))",
+              foreground: "hsl(var(--accent-foreground))",
+            },
+            card: {
+              DEFAULT: "hsl(var(--card))",
+              foreground: "hsl(var(--card-foreground))",
+            },
+          },
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-background text-foreground font-sans antialiased flex flex-col">
+
+  <!-- Navigation -->
+  <header
+    class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div class="container flex h-16 max-w-screen-2xl items-center justify-between">
+        <div class="flex items-center gap-2 group">
+          <div class="relative flex items-center">
+            <svg viewBox="0 0 100 85" class="h-10 w-auto shrink-0" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="70" font-family="'Instrument Serif', serif" font-size="85" fill="#1a1a1a">F</text>
+              <text x="21" y="70" font-family="'Instrument Serif', serif" font-size="85" fill="#1a1a1a">D</text>
+              <circle cx="21" cy="70" r="5" fill="#bc7353" />
+            </svg>
+          </div>
+          <a href="index.html" class="font-sans font-semibold text-lg tracking-tight hover:text-brand-blue transition-colors">Fractional Delivery</a>
+        </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="index.html#how-i-help" class="transition-colors hover:text-foreground/80 text-foreground/60">Expertise</a>
+        <a href="index.html#services" class="transition-colors hover:text-foreground/80 text-foreground/60">Méthode</a>
+        <a href="index.html#who-i-help" class="transition-colors hover:text-foreground/80 text-foreground/60">Clients</a>
+        <a href="index.html#faq" class="transition-colors hover:text-foreground/80 text-foreground/60">FAQ</a>
+        <a href="blog.html" class="transition-colors hover:text-foreground/80 text-foreground/60">Ressources</a>
+        <div class="ml-4 flex items-center gap-2 text-xs font-bold tracking-widest border-l pl-4 border-border/60">
+          <a href="../rethink-delivery-job-ai.html" class="lang-switch">EN</a>
+          <span class="text-muted-foreground/30">|</span>
+          <span class="text-foreground">FR</span>
+        </div>
+      </nav>
+
+      <div class="hidden md:flex items-center">
+        <!-- Button (Shadcn style) -->
+        <a href="index.html#discovery-call"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+          Me contacter
+        </a>
+      </div>
+
+      <!-- Mobile Nav Trigger -->
+      <button
+        class="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+        id="mobile-menu-btn">
+        <i data-lucide="menu"></i>
+        <span class="sr-only">Toggle Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu (Hidden by default) -->
+  <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden p-4 pt-20">
+    <div class="bg-card w-full rounded-xl border p-4 shadow-lg flex flex-col gap-4">
+      <button class="absolute top-4 right-4 p-2 rounded-md hover:bg-accent text-foreground" id="close-menu-btn">
+        <i data-lucide="x"></i>
+      </button>
+      <nav class="flex flex-col gap-4 text-lg font-medium">
+        <a href="index.html#how-i-help" class="mobile-link text-foreground/70 hover:text-foreground">Expertise</a>
+        <a href="index.html#services" class="mobile-link text-foreground/70 hover:text-foreground">Méthode</a>
+        <a href="index.html#who-i-help" class="mobile-link text-foreground/70 hover:text-foreground">Clients</a>
+        <a href="index.html#faq" class="mobile-link text-foreground/70 hover:text-foreground">FAQ</a>
+        <a href="blog.html" class="mobile-link text-foreground/70 hover:text-foreground">Ressources</a>
+        <div class="flex items-center gap-4 mt-4 pt-4 border-t border-border/40">
+          <a href="../rethink-delivery-job-ai.html" class="lang-switch">English</a>
+          <span class="text-sm font-bold text-foreground">Français</span>
+        </div>
+        <a href="index.html#discovery-call"
+          class="mobile-link inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 mt-4">
+          Me contacter
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="flex-1 bg-muted/10">
+    
+    <article class="max-w-3xl mx-auto py-16 md:py-24 px-4 bg-background min-h-screen pb-32">
+      <a href="blog.html" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-12">
+        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Retour aux Ressources
+      </a>
+
+      <header class="mb-12">
+        <div class="flex items-center gap-2 mb-4 flex-wrap">
+          <span class="text-[10px] font-bold text-brand-blue tracking-wider uppercase bg-brand-blue/10 px-2 py-0.5 rounded-full">AI for Delivery Leaders</span><span class="text-[10px] font-bold text-brand-orange tracking-wider uppercase bg-brand-orange/10 px-2 py-0.5 rounded-full">Scaling Teams</span><span class="text-[10px] font-bold text-brand-green tracking-wider uppercase bg-brand-green/10 px-2 py-0.5 rounded-full">AI Tools</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-serif text-foreground mb-4 leading-tight text-balance">Votre page de poste n’a pas changé. Votre rôle, si.</h1>
+        <p class="text-xl text-muted-foreground mb-6">La gestion de la delivery est l’un de ces rôles qui semblent immuables de l’extérieur pendant des années, jusqu’à ce que tout bascule. L’IA change tout.</p>
+        <div class="flex items-center text-sm text-muted-foreground pt-4 mt-6 border-t border-border/40">
+          <span class="mr-6 flex items-center"><i data-lucide="user" class="w-4 h-4 mr-2"></i> Camille Wilhelm McFarlane</span>
+          <span class="flex items-center"><i data-lucide="calendar" class="w-4 h-4 mr-2"></i> 18 Mars 2026</span>
+        </div>
+      </header>
+
+      <div class="w-full h-auto rounded-2xl overflow-hidden mb-16 border shadow-sm">
+        <img src="../images/ai_delivery_intelligence_art.jpg" alt="AI in delivery leadership editorial illustration" class="w-full h-[400px] object-cover">
+      </div>
+
+      <div class="prose prose-lg prose-slate max-w-none text-foreground leading-relaxed">
+        <p class="mb-6">Delivery and project management is one of those roles that looks the same from the outside for years, until suddenly, it doesn't.</p>
+        
+        <p class="mb-6">We've always been the people holding the chaos together. The ones who know where everything is, what's blocked, who's spinning their wheels, and which deadline is quietly on fire. We've built careers on being the calm in the room when everyone else is losing the plot.</p>
+
+        <p class="mb-8 italic text-lg text-muted-foreground border-l-4 border-brand-blue pl-6 py-2 bg-brand-blue/5">But here's the thing: a lot of what made us valuable? AI is starting to do it faster.</p>
+
+        <p class="mb-6">Not better. Not with more empathy. Not with the contextual judgement that comes from three years of working with a particular client. But faster, and for the parts of the job that were honestly just... exhausting.</p>
+
+        <h2 class="text-3xl font-serif text-brand-blue mb-4 mt-12 leading-tight">The status update is dead. Long live the status update.</h2>
+        <p class="mb-6">Think about how much of your week disappears into chasing progress. Pinging people. Compiling updates. Writing the same summary in four different formats for four different stakeholders.</p>
+        <p class="mb-6">AI doesn't get bored of that. It doesn't forget to check the board. It doesn't deprioritise the Slack message because it was in a back-to-back.</p>
+        <p class="mb-6">What you get back isn't just time. It's headspace. The kind you need to actually think about what the data means, not just collect it.</p>
+
+        <h2 class="text-3xl font-serif text-brand-orange mb-4 mt-12 leading-tight">Planning used to be an event. Now it's a loop.</h2>
+        <p class="mb-6">Remember the two-day planning workshop? Flipcharts everywhere, someone drawing dependencies on a whiteboard in red marker, everyone mildly caffeinated and slightly resentful?</p>
+        <p class="mb-6">AI turns planning from a ceremony into a conversation. Scope shifts? Re-run the model. New dependency surfaces? Adjust in real time. The plan stops being a document you defend and starts being a system you interrogate.</p>
+        <p class="mb-6 italic">That's a fundamentally different skill, and honestly, a more interesting one.</p>
+
+        <h2 class="text-3xl font-serif text-brand-green mb-4 mt-12 leading-tight">You're not just managing a team anymore. You're conducting one.</h2>
+        <p class="mb-6">Here's where it gets genuinely exciting. The teams you're leading now include AI tooling generating code, testing features, monitoring systems, flagging anomalies. That's not a metaphor. That's Tuesday.</p>
+        <p class="mb-6">Which means delivery leadership starts to look less like project coordination and more like system design. You're setting up the conditions for humans and machines to do their best work together. Getting the feedback loops right. Knowing when to intervene and when to let it run.</p>
+        <p class="mb-6 italic font-medium">That's a bigger job. It's also a better one.</p>
+
+        <h2 class="text-3xl font-serif text-brand-pink mb-4 mt-12 leading-tight">The real risk isn't being replaced. It's being left behind.</h2>
+        <p class="mb-6">No one's automating strategic judgement, stakeholder trust, or the ability to walk into a difficult conversation and make it productive. Those are yours.</p>
+        <p class="mb-6">But if you're still spending most of your energy on things AI can handle, such as reporting, chasing or manually connecting dots, you're not just losing time. You're losing ground.</p>
+        <p class="mb-6">The delivery leaders who thrive in the next few years won't be the ones who avoided AI. They'll be the ones who figured out how to run with it.</p>
+
+        <h2 class="text-3xl font-serif text-foreground mb-4 mt-16 leading-tight">So, are you ready to rethink what your job actually is?</h2>
+        <p class="mb-6">Because the title might stay the same. But the job? It's already changing.</p>
+        
+        <div class="mt-20 pt-10 border-t border-border/40 flex flex-col md:flex-row items-center gap-8 bg-brand-blue/5 p-8 rounded-2xl">
+          <div class="relative flex items-center shrink-0">
+            <svg viewBox="0 0 100 85" class="h-24 w-auto shrink-0" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="70" font-family="'Instrument Serif', serif" font-size="85" fill="#1a1a1a">F</text>
+              <text x="21" y="70" font-family="'Instrument Serif', serif" font-size="85" fill="#1a1a1a">D</text>
+              <circle cx="21" cy="70" r="5" fill="#bc7353" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-serif text-3xl text-foreground mb-2">Need help navigating the new era of delivery?</h3>
+            <p class="text-lg text-muted-foreground mb-6">I help teams design delivery systems that leverage human talent and AI intelligence. Let's talk about your roadmap.</p>
+            <a href="index.html#discovery-call" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+              Book a discovery call <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="border-t bg-muted/40 text-muted-foreground pt-16 pb-8">
+    <div class="container mx-auto max-w-[1200px]">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <!-- Col 1: Brand/Expert -->
+        <div class="space-y-4" itemscope itemtype="https://schema.org/Person">
+          <div class="font-sans font-semibold text-lg tracking-tight text-foreground" itemprop="name">Camille Wilhelm McFarlane</div>
+          <p class="text-sm font-medium text-brand-blue" itemprop="jobTitle">Responsable Delivery & Opérations</p>
+          <p class="text-xs leading-relaxed max-w-xs">Leadership de delivery senior et conseil en opérations pour les équipes produit, IA et ingénierie en pleine croissance.</p>
+          <div class="flex items-center gap-4 pt-2 text-xs">
+            <a href="mailto:camille@fractionaldelivery.com" class="hover:text-brand-blue transition-colors flex items-center gap-2" itemprop="email">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
+            </a>
+            <a href="https://linkedin.com/in/camillemcfarlane" target="_blank" rel="noopener noreferrer" class="hover:text-brand-blue transition-colors flex items-center gap-2">
+              <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="space-y-4">
+          <h4 class="text-xs font-bold font-sans text-foreground uppercase tracking-widest">Navigation</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#why-me" class="hover:text-brand-blue transition-colors">Pourquoi moi</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Ma méthode</a></li>
+            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Investissement</a></li>
+            <li><a href="blog.html" class="hover:text-brand-blue transition-colors">Blog & Briefs</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="space-y-4">
+          <h4 class="text-xs font-bold font-sans text-foreground uppercase tracking-widest">Expertises</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Diagnostic de Delivery</a></li>
+            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Leadership Fractionné</a></li>
+            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Modèles Opérationnels</a></li>
+            <li><a href="#discovery-call" class="hover:text-brand-blue transition-colors">Appel Découverte</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Brief Signup -->
+        <div class="space-y-4">
+          <h4 class="text-xs font-bold font-sans text-foreground uppercase tracking-widest">Newsletter</h4>
+          <p class="text-xs italic leading-relaxed">Signaux et patterns de delivery mensuels pour les équipes en croissance.</p>
+          <form class="flex flex-col gap-2 pt-2" onsubmit="event.preventDefault(); alert('Inscription réussie ! Bienvenue.');">
+            <input type="email" placeholder="email@adresse.com" 
+              class="flex h-9 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-xs ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" required>
+            <button type="submit" 
+              class="inline-flex items-center justify-center rounded-md text-[11px] font-bold transition-colors bg-brand-blue text-white hover:opacity-90 h-9 px-4">
+              S'inscrire à la Brief
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-border/40 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px]">
+        <p class="text-muted-foreground">&copy; 2026 Fractional Delivery. Tous droits réservés.</p>
+        <div class="flex gap-6 items-center">
+          <a href="../privacy-policy.html" class="hover:text-foreground transition-colors">Confidentialité</a>
+          <a href="../terms-of-service.html" class="hover:text-foreground transition-colors">Conditions</a>
+          <span class="text-muted-foreground/30 hidden md:inline">|</span>
+          <p class="text-muted-foreground italic">Basée à Leamington Spa, Royaume-Uni</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    function toggleMenu() {
+      mobileMenu.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+    }
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    closeMenuBtn?.addEventListener('click', toggleMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+  </script>
+  <script src="../i18n.js"></script>
+</body>
+</html>

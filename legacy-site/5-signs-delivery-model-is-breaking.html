@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Signs Your Delivery Model Is Breaking As You Grow - Fractional Delivery</title>
+  <meta name="description" content="Learn the key indicators that your software delivery model is breaking under the pressure of scale, and how to fix it before it impacts growth.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style type="text/tailwindcss">
+    @layer base {
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        
+        --primary: 11 82.6% 63.5%; /* Brand Orange */
+        --primary-foreground: 210 40% 98%;
+        
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 11 82.6% 63.5%;
+        
+        --radius: 0.5rem;
+      }
+    }
+
+    @layer base {
+      * {
+        @apply border-border;
+      }
+      body {
+        @apply bg-background text-foreground font-sans antialiased;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        @apply font-serif;
+      }
+    }
+
+    .gradient-text {
+      display: inline;
+      background: linear-gradient(
+        to right,
+        #2563eb,
+        #10b981,
+        #fb923c,
+        #f8c75e,
+        #5299d0,
+        #f9a7ad,
+        #2563eb
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 8s linear infinite;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        container: {
+          center: true,
+          padding: "2rem",
+          screens: {
+            "2xl": "1400px",
+          },
+        },
+        extend: {
+          fontFamily: {
+            sans: ['"DM Sans"', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'serif'],
+          },
+          colors: {
+            brand: {
+              blue: '#3971B8',
+              green: '#68C2B0',
+              orange: '#EF7255',
+              yellow: '#FBC86D',
+              pink: '#F7A8AE',
+            },
+            border: "hsl(var(--border))",
+            input: "hsl(var(--input))",
+            ring: "hsl(var(--ring))",
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+            primary: {
+              DEFAULT: "#EF7255",
+              foreground: "#ffffff",
+            },
+            secondary: {
+              DEFAULT: "hsl(var(--secondary))",
+              foreground: "hsl(var(--secondary-foreground))",
+            },
+            muted: {
+              DEFAULT: "hsl(var(--muted))",
+              foreground: "hsl(var(--muted-foreground))",
+            },
+            accent: {
+              DEFAULT: "hsl(var(--accent))",
+              foreground: "hsl(var(--accent-foreground))",
+            },
+            card: {
+              DEFAULT: "hsl(var(--card))",
+              foreground: "hsl(var(--card-foreground))",
+            },
+          },
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-background text-foreground font-sans antialiased flex flex-col">
+
+  <!-- Navigation -->
+  <header
+    class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div class="container flex h-16 max-w-screen-2xl items-center justify-between">
+        <div class="flex items-center gap-2 group">
+          <div class="relative flex items-center">
+            <svg viewBox="0 0 100 85" class="h-10 w-auto shrink-0" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="70" font-family="'Instrument Serif', serif" font-size="85" fill="#1a1a1a">F</text>
+              <text x="21" y="70" font-family="'Instrument Serif', serif" font-size="85" fill="#1a1a1a">D</text>
+              <circle cx="21" cy="70" r="5" fill="#bc7353" />
+            </svg>
+          </div>
+          <a href="index.html" class="font-sans font-semibold text-lg tracking-tight hover:text-brand-blue transition-colors">Fractional Delivery</a>
+        </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="index.html#how-i-help" class="transition-colors hover:text-foreground/80 text-foreground/60">How I help</a>
+        <a href="index.html#services" class="transition-colors hover:text-foreground/80 text-foreground/60">How I work</a>
+        <a href="index.html#who-i-help" class="transition-colors hover:text-foreground/80 text-foreground/60">Who I work with</a>
+        <a href="index.html#faq" class="transition-colors hover:text-foreground/80 text-foreground/60">FAQ</a>
+        <a href="blog.html" class="transition-colors hover:text-foreground/80 text-foreground/60">Insights</a>
+        <div class="ml-4 flex items-center gap-2 text-xs font-bold tracking-widest border-l pl-4 border-border/60">
+          <span class="text-foreground">EN</span>
+          <span class="text-muted-foreground/30">|</span>
+          <a href="fr/5-signs-delivery-model-is-breaking.html" class="lang-switch">FR</a>
+        </div>
+      </nav>
+
+      <div class="hidden md:flex items-center">
+        <!-- Button (Shadcn style) -->
+        <a href="index.html#discovery-call"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+          Get in Touch
+        </a>
+      </div>
+
+      <!-- Mobile Nav Trigger -->
+      <button
+        class="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+        id="mobile-menu-btn">
+        <i data-lucide="menu"></i>
+        <span class="sr-only">Toggle Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu (Hidden by default) -->
+  <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden p-4 pt-20">
+    <div class="bg-card w-full rounded-xl border p-4 shadow-lg flex flex-col gap-4">
+      <button class="absolute top-4 right-4 p-2 rounded-md hover:bg-accent text-foreground" id="close-menu-btn">
+        <i data-lucide="x"></i>
+      </button>
+      <nav class="flex flex-col gap-4 text-lg font-medium">
+        <a href="index.html#how-i-help" class="mobile-link text-foreground/70 hover:text-foreground">How I help</a>
+        <a href="index.html#services" class="mobile-link text-foreground/70 hover:text-foreground">How I work</a>
+        <a href="index.html#who-i-help" class="mobile-link text-foreground/70 hover:text-foreground">Who I work with</a>
+        <a href="index.html#faq" class="mobile-link text-foreground/70 hover:text-foreground">FAQ</a>
+        <a href="blog.html" class="mobile-link text-foreground/70 hover:text-foreground">Insights</a>
+        <div class="flex items-center gap-4 mt-4 pt-4 border-t border-border/40">
+          <span class="text-sm font-bold text-foreground">EN</span>
+          <a href="fr/5-signs-delivery-model-is-breaking.html" class="lang-switch">Français</a>
+        </div>
+        <a href="index.html#discovery-call"
+          class="mobile-link inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 mt-4">
+          Get in Touch
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="flex-1 bg-muted/10">
+    
+    <!-- Article Header -->
+    <article class="max-w-3xl mx-auto py-16 md:py-24 px-4 bg-background min-h-screen pb-32">
+      <a href="blog.html" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-12">
+        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Insights
+      </a>
+
+      <header class="mb-12">
+        <div class="flex items-center gap-2 mb-4 flex-wrap">
+          <span class="text-[10px] font-bold text-brand-blue tracking-wider uppercase bg-brand-blue/10 px-2 py-0.5 rounded-full">Delivery Friction</span><span class="text-[10px] font-bold text-brand-orange tracking-wider uppercase bg-brand-orange/10 px-2 py-0.5 rounded-full">Team Scaling</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-serif text-foreground mb-4 leading-tight text-balance">5 signs your delivery model is breaking as you grow</h1>
+        <p class="text-xl text-muted-foreground mb-6">What got you to your first million in ARR won’t get you to your next ten. Here is how to spot when your processes are buckling under the pressure of scale.</p>
+        <div class="flex items-center text-sm text-muted-foreground pt-4 mt-6 border-t border-border/40">
+          <span class="mr-6 flex items-center"><i data-lucide="user" class="w-4 h-4 mr-2"></i> Camille Wilhelm McFarlane</span>
+          <span class="flex items-center"><i data-lucide="calendar" class="w-4 h-4 mr-2"></i> March 14, 2026</span>
+        </div>
+      </header>
+
+      <div class="w-full h-auto rounded-2xl overflow-hidden mb-16 border shadow-sm">
+        <img src="images/delivery_model_scaling_art.jpg" alt="Abstract Delivery Concept Image" class="w-full h-[400px] object-cover">
+      </div>
+
+      <!-- Article Body -->
+      <div class="prose prose-lg prose-slate max-w-none text-foreground leading-relaxed">
+        <p class="mb-6">There's a moment every scaling team hits. Things that used to just work (without a process, without a meeting, without a Notion doc explaining the Notion doc) suddenly don't.</p>
+        
+        <p class="mb-6">It's not that your team got worse. It's that your delivery model didn't grow with them.</p>
+
+        <p class="mb-8 font-medium">Here are five signs it's quietly falling apart.</p>
+        
+        <h2 class="text-3xl font-serif text-brand-blue mb-4 mt-12 leading-tight">1. You're hiring more people but shipping less</h2>
+        <p class="mb-6">You've brought on more engineers, more designers, more everything. And somehow, output has flatlined.</p>
+        <p class="mb-6">This isn't a mystery. When you scale headcount without scaling your coordination structures, you don't multiply output. You multiply the number of people in confusing meetings about the same work.</p>
+        <p class="mb-6 italic">More hands on deck only helps if everyone knows which part of the boat they're responsible for.</p>
+
+        <h2 class="text-3xl font-serif text-brand-orange mb-4 mt-12 leading-tight">2. The roadmap changes more than it gets delivered</h2>
+        <p class="mb-6">There's a difference between being agile and being reactive. If priorities are shifting every sprint, teams are context-switching constantly, and nothing meaningful ever reaches the finish line, that's not flexibility. That's a governance problem dressed up as one.</p>
+        <p class="mb-6">Real agility means being able to move fast within a clear direction. Without that, you're not pivoting. You're just firefighting with a Confluence page.</p>
+
+        <h2 class="text-3xl font-serif text-brand-green mb-4 mt-12 leading-tight">3. The founder is still the human bottleneck</h2>
+        <p class="mb-6">If every decision has an invisible post-it note on it saying "check with [founder] first", that's not leadership. That's a single point of failure with a great LinkedIn profile.</p>
+        <p class="mb-6">It's rarely the team's fault. They're not being timid. They just don't have clear enough ownership to act without second-guessing themselves. That's an ops problem, not a people problem.</p>
+        <p class="mb-6 italic font-medium">Fix the clarity, and watch how fast they move.</p>
+
+        <h2 class="text-3xl font-serif text-brand-pink mb-4 mt-12 leading-tight">4. Product, design and engineering are playing broken telephone</h2>
+        <p class="mb-6">Engineers complaining that tickets make no sense. Designers watching their carefully considered UX get quietly ignored in implementation. Product managers who somehow became full-time update-chasers.</p>
+        <p class="mb-6">When the three disciplines aren't formally aligned, the gaps between them turn into rework loops. And rework loops are where velocity goes to die.</p>
+        <p class="mb-6 italic">This isn't about blame. It's about the handover points between teams being vague enough that everyone fills in the blanks differently.</p>
+
+        <h2 class="text-3xl font-serif text-brand-yellow mb-4 mt-12 leading-tight">5. Your backlog is a graveyard and everything is critical</h2>
+        <p class="mb-6">Five hundred tickets. Half of them marked urgent. A grooming session that somehow takes three hours and answers nothing.</p>
+        <p class="mb-6">When everything is a priority, nothing is. And when the backlog becomes a dumping ground rather than a deliberate list of intent, teams spend more time managing the board than actually building anything.</p>
+        <p class="mb-6 italic">A backlog should tell you what matters and in what order. If yours doesn't, that's the problem to fix first.</p>
+
+        <h2 class="text-3xl font-serif text-foreground mb-4 mt-16 leading-tight">So what now?</h2>
+        <p class="mb-6">Recognising these signs is the easy part. The harder truth is that a new methodology or a shinier project management tool won't fix any of this.</p>
+        <p class="mb-6">What actually helps is a delivery operating model built for the stage you're at, not the stage you were at eighteen months ago. One that defines how strategy becomes quarterly goals, how teams coordinate without constant hand-holding, and what rhythms keep everything from sliding sideways.</p>
+        
+        <p class="text-xl font-serif italic text-primary mt-12">Structure isn't the enemy of speed. The wrong structure is.</p>
+
+        <div class="mt-20 pt-10 border-t border-border/40 flex flex-col md:flex-row items-center gap-8 bg-brand-blue/5 p-8 rounded-2xl">
+          <div class="relative flex items-center shrink-0">
+            <svg viewBox="0 0 100 85" class="h-24 w-auto shrink-0" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="70" font-family="'Instrument Serif', serif" font-size="85" fill="#1a1a1a">F</text>
+              <text x="21" y="70" font-family="'Instrument Serif', serif" font-size="85" fill="#1a1a1a">D</text>
+              <circle cx="21" cy="70" r="5" fill="#bc7353" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-serif text-3xl text-foreground mb-2">Need help bringing structure to the chaos?</h3>
+            <p class="text-lg text-muted-foreground mb-6">I help technology teams restore clarity and install sustainable delivery models. Let's discuss your current friction points.</p>
+            <a href="index.html#discovery-call" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+              Book a discovery call <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t bg-muted/40 text-muted-foreground pt-16 pb-8">
+    <div class="container mx-auto max-w-[1200px]">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <!-- Col 1: Brand/Expert -->
+        <div class="space-y-4" itemscope itemtype="https://schema.org/Person">
+          <div class="font-sans font-semibold text-lg tracking-tight text-foreground" itemprop="name">Camille Wilhelm McFarlane</div>
+          <p class="text-sm font-medium text-brand-blue" itemprop="jobTitle">Delivery & Operations Lead</p>
+          <p class="text-xs leading-relaxed max-w-xs">Providing senior delivery leadership and tech operations consultancy for high-growth product, AI and engineering teams.</p>
+          <div class="flex items-center gap-4 pt-2 text-xs">
+            <a href="mailto:camille@fractionaldelivery.com" class="hover:text-brand-blue transition-colors flex items-center gap-2" itemprop="email">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
+            </a>
+            <a href="https://linkedin.com/in/camillemcfarlane" target="_blank" rel="noopener noreferrer" class="hover:text-brand-blue transition-colors flex items-center gap-2">
+              <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="space-y-4">
+          <h4 class="text-xs font-bold font-sans text-foreground uppercase tracking-widest">Navigation</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#why-me" class="hover:text-brand-blue transition-colors">Why work with me</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">How I work</a></li>
+            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Investment</a></li>
+            <li><a href="blog.html" class="hover:text-brand-blue transition-colors">Blog & Briefs</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="space-y-4">
+          <h4 class="text-xs font-bold font-sans text-foreground uppercase tracking-widest">Focus Areas</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Delivery Diagnostic</a></li>
+            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Fractional Leadership</a></li>
+            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Operating Models</a></li>
+            <li><a href="#discovery-call" class="hover:text-brand-blue transition-colors">Discovery Call</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Brief Signup -->
+        <div class="space-y-4">
+          <h4 class="text-xs font-bold font-sans text-foreground uppercase tracking-widest">Newsletter</h4>
+          <p class="text-xs italic leading-relaxed">Monthly signals and practical delivery patterns for growing teams.</p>
+          <form class="flex flex-col gap-2 pt-2" onsubmit="event.preventDefault(); alert('Subscribed! Welcome to the Brief.');">
+            <input type="email" placeholder="email@address.com" 
+              class="flex h-9 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-xs ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" required>
+            <button type="submit" 
+              class="inline-flex items-center justify-center rounded-md text-[11px] font-bold transition-colors bg-brand-blue text-white hover:opacity-90 h-9 px-4">
+              Subscribe to the Brief
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-border/40 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px]">
+        <p class="text-muted-foreground">&copy; 2026 Fractional Delivery. All rights reserved.</p>
+        <div class="flex gap-6 items-center">
+          <a href="privacy-policy.html" class="hover:text-foreground transition-colors">Privacy Policy</a>
+          <a href="terms-of-service.html" class="hover:text-foreground transition-colors">Terms of Service</a>
+          <span class="text-muted-foreground/30 hidden md:inline">|</span>
+          <p class="text-muted-foreground italic">Based in Leamington Spa, UK</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    // Mobile menu toggle logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMenu() {
+      mobileMenu.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    closeMenuBtn.addEventListener('click', toggleMenu);
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', toggleMenu);
+    });
+  </script>
+  <script src="i18n.js"></script>
+</body>
+</html>
