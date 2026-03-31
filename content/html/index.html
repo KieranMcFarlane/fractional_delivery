@@ -290,9 +290,15 @@
     <section class="w-full py-12 border-t border-border/40 bg-muted/10" style="border-top: none;">
       <div class="container">
         <div class="mx-auto max-w-[1000px] flex flex-col items-center justify-center gap-8 text-center" style="margin-bottom: 3rem;">
-        <p class="text-sm font-medium text-muted-foreground tracking-wider uppercase">
-          Trusted by teams at:
-        </p>
+        <div class="inline-flex items-center gap-2">
+          <p class="text-sm font-medium text-muted-foreground tracking-wider uppercase">
+            Trusted by teams at:
+          </p>
+          <div class="trusted-tooltip">
+            <button type="button" class="trusted-tooltip-trigger" aria-label="Engagement details">ⓘ</button>
+            <span class="trusted-tooltip-content" role="tooltip">Engagements delivered in-house and through agency teams</span>
+          </div>
+        </div>
         </div>
       </div>
       <div class="w-full">
@@ -483,13 +489,7 @@
                     <span>Prioritised 30-60-90 day improvement plan</span>
                   </li>
                 </ul>
-              </div>
-
-              <div class="mt-auto pt-4 border-t bg-brand-blue/5 rounded-md p-4 group-hover:bg-brand-blue/10 transition-colors border-brand-blue/10">
-                <h4 class="font-semibold text-xs text-brand-blue mb-1 uppercase tracking-wider text-[10px]">The Outcome</h4>
-                <p class="text-base font-medium leading-relaxed">You know exactly where delivery is breaking down and have a practical plan to fix it.</p>
-              </div>
-            </div>
+              </div>            </div>
           </div>
 
           <!-- Card 2: Stabilise Delivery Leadership -->
@@ -528,13 +528,7 @@
                     <span>Risk and dependency management</span>
                   </li>
                 </ul>
-              </div>
-
-              <div class="mt-auto pt-4 border-t bg-brand-orange/5 rounded-md p-4 group-hover:bg-brand-orange/10 transition-colors border-brand-orange/10">
-                <h4 class="font-semibold text-xs text-brand-orange mb-1 uppercase tracking-wider text-[10px]">The Outcome</h4>
-                <p class="text-base font-medium leading-relaxed">Delivery stops feeling like something that happens to you and starts feeling like something you control.</p>
-              </div>
-            </div>
+              </div>            </div>
           </div>
 
           <!-- Card 3: Delivery Operating Model -->
@@ -573,13 +567,7 @@
                     <span>Delivery health indicators and reporting structure</span>
                   </li>
                 </ul>
-              </div>
-
-              <div class="mt-auto pt-4 border-t bg-brand-green/5 rounded-md p-4 group-hover:bg-brand-green/10 transition-colors border-brand-green/10">
-                <h4 class="font-semibold text-xs text-brand-green mb-1 uppercase tracking-wider text-[10px]">The Outcome</h4>
-                <p class="text-base font-medium leading-relaxed">Founders step out of day-to-day delivery while teams operate with clarity and momentum.</p>
-              </div>
-            </div>
+              </div>            </div>
           </div>
         </div>
       </div>
@@ -814,96 +802,72 @@
 
     <!-- About Section -->
     <section id="about" class="container py-24 md:py-32 border-t border-border/40">
-      <div
-        class="mx-auto max-w-[1100px] bg-card border rounded-2xl p-8 md:p-12 lg:p-16 shadow-sm overflow-hidden relative">
-        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-          
-          <!-- Column 1: Identity & Bio -->
-          <div class="flex-1 flex flex-col gap-8 text-left">
-            <div class="flex flex-col gap-4">
-              <div
-                class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-brand-orange/20 text-brand-orange w-fit uppercase tracking-wider">
-                ABOUT + WHY WORK WITH ME
-              </div>
-              <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-balance leading-tight">Camille | Delivery & Operations Lead</h2>
-            </div>
-            
-            <div class="flex flex-col gap-6">
-              <p class="text-xl text-foreground font-medium leading-relaxed">
-                I help product and engineering teams scale delivery without losing clarity or momentum. Not by adding more process, but by building the right operational foundations for where the team is heading next.
-              </p>
-              <p class="text-base md:text-lg text-muted-foreground leading-relaxed">
-                I've spent the last 8 years working inside fast-growing digital, AI and tech teams. Agencies, international organisations, and high-growth startups. The contexts vary, but the challenge is usually the same: delivery that worked brilliantly at one size stops working at the next.
-              </p>
-              <p class="text-sm font-medium text-muted-foreground tracking-wide italic border-l-2 border-brand-orange/30 pl-4 py-1">
-                Previously embedded with teams at Havas, alongside international corporations and across several high-growth tech startups. I've sat in the delivery seat, not just advised from outside it.
-              </p>
+      <div class="mx-auto max-w-[1100px] rounded-2xl border bg-card p-8 md:p-12">
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">About</p>
+        <p class="mt-1 text-[11px] text-muted-foreground/80">Section label</p>
 
-              <div class="rounded-xl border bg-brand-blue/5 p-5 text-left">
-                <h3 class="font-serif text-2xl mb-3">Why teams choose me</h3>
-                <ul class="space-y-2 text-muted-foreground">
-                  <li>I've worked inside scaling teams, not just advised them.</li>
-                  <li>No framework to sell. I build practical structure around your reality.</li>
-                  <li>I focus on the growth gap where informal delivery starts to break.</li>
-                </ul>
-                <p class="mt-4 text-sm text-muted-foreground">
-                  I also use AI tooling to surface delivery risks earlier, estimation drift, recurring blockers and coordination friction, so problems are caught before they compound.
-                </p>
+        <div class="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div>
+            <div class="mb-6 flex items-center gap-4">
+              <div class="relative flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
+                <span class="text-xl font-medium">CM</span>
+                <div class="pointer-events-none absolute inset-0 rounded-full border-2 border-dashed border-border/80"></div>
               </div>
+              <h2 class="text-3xl leading-tight md:text-4xl">Camille | Delivery & Operations Lead</h2>
             </div>
+
+            <p class="text-lg font-medium leading-relaxed text-foreground">
+              I help product and engineering teams scale delivery without losing clarity or momentum. Not by adding more
+              process, but by building the right operational foundations for where the team is heading next.
+            </p>
+
+            <p class="mt-5 text-base leading-relaxed text-muted-foreground">
+              I've spent the last 8 years working inside fast-growing digital, AI and tech teams. Agencies,
+              international organisations, and high-growth startups. The contexts vary, but the challenge is usually
+              the same: delivery that worked brilliantly at one size stops working at the next. I've sat in the
+              delivery seat, not just advised from outside it.
+            </p>
           </div>
 
-          <!-- Column 2: Focus & Logistics -->
-          <div class="w-full lg:w-[400px] flex flex-col gap-8 bg-muted/30 p-8 rounded-xl border border-border/10">
-            <div>
-              <h3 class="font-serif text-2xl text-foreground mb-6">Focus areas</h3>
-              <ul class="flex flex-col gap-5">
-                <li class="flex items-start gap-4">
-                  <div class="h-10 w-10 rounded-lg bg-brand-orange/10 flex items-center justify-center text-brand-blue shrink-0">
-                    <i data-lucide="layers" class="w-5 h-5"></i>
-                  </div>
-                  <div>
-                    <span class="font-semibold text-foreground block">Delivery Operations</span>
-                    <span class="text-sm text-muted-foreground">When informal ways of working stop being enough</span>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <div class="h-10 w-10 rounded-lg bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
-                    <i data-lucide="shield-check" class="w-5 h-5"></i>
-                  </div>
-                  <div>
-                    <span class="font-semibold text-foreground block">Stabilising Delivery</span>
-                    <span class="text-sm text-muted-foreground">Bringing order to delivery that's started to fray</span>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <div class="h-10 w-10 rounded-lg bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">
-                    <i data-lucide="book-open" class="w-5 h-5"></i>
-                  </div>
-                  <div>
-                    <span class="font-semibold text-foreground block">Delivery Playbooks</span>
-                    <span class="text-sm text-muted-foreground">A system your team can actually run without you</span>
-                  </div>
-                </li>
-              </ul>
+          <div class="rounded-xl border bg-card p-6">
+            <h3 class="text-2xl">Why teams choose me</h3>
+            <ul class="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+              <li class="flex items-start gap-2">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40"></span>
+                <span>Worked inside scaling teams, not just advised them</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40"></span>
+                <span>No framework to sell - practical structure around your reality</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40"></span>
+                <span>Built for the growth gap where informal delivery breaks</span>
+              </li>
+            </ul>
+
+            <div class="mt-5 border-t border-border/70 pt-4">
+              <p class="text-sm leading-relaxed text-muted-foreground">
+                I use AI tooling to surface delivery risks earlier - estimation drift, recurring blockers, coordination
+                friction - so problems are caught before they compound.
+              </p>
             </div>
 
-            <div class="pt-6 border-t border-border/40 flex flex-col gap-3">
-              <div class="flex items-center gap-3 text-xs font-bold text-foreground uppercase tracking-widest">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-muted-foreground"></i>
+            <div class="mt-5 border-t border-border/70 pt-4 space-y-2.5">
+              <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-widest text-foreground">
+                <i data-lucide="map-pin" class="h-3.5 w-3.5 text-muted-foreground"></i>
                 <span>Based in the UK</span>
               </div>
-              <div class="flex items-center gap-3 text-xs font-bold text-foreground uppercase tracking-widest">
-                <i data-lucide="globe" class="w-3.5 h-3.5 text-muted-foreground"></i>
+              <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-widest text-foreground">
+                <i data-lucide="globe" class="h-3.5 w-3.5 text-muted-foreground"></i>
                 <span>Working across Europe</span>
               </div>
-              <div class="flex items-center gap-3 text-xs font-bold text-foreground uppercase tracking-widest">
-                <i data-lucide="languages" class="w-3.5 h-3.5 text-muted-foreground"></i>
+              <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-widest text-foreground">
+                <i data-lucide="languages" class="h-3.5 w-3.5 text-muted-foreground"></i>
                 <span>English & French</span>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -1073,6 +1037,7 @@
           </div>
         </div>
       </div>
+    </section>
 
     <!-- Contact Form Section -->
     <section id="discovery-call" class="container py-16 md:py-24 border-t border-border/40 bg-muted/20">

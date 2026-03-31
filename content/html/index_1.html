@@ -335,9 +335,15 @@
     <section class="w-full py-12 border-t border-border/40 bg-muted/10" style="border-top: none;">
       <div class="container">
         <div class="mx-auto max-w-[1000px] flex flex-col items-center justify-center gap-8 text-center" style="margin-bottom: 3rem;">
-        <p class="text-sm font-medium text-muted-foreground tracking-wider uppercase">
-          Équipes avec lesquelles j'ai travaillé
-        </p>
+        <div class="inline-flex items-center gap-2">
+          <p class="text-sm font-medium text-muted-foreground tracking-wider uppercase">
+            Équipes avec lesquelles j'ai travaillé
+          </p>
+          <div class="trusted-tooltip">
+            <button type="button" class="trusted-tooltip-trigger" aria-label="Engagement details">ⓘ</button>
+            <span class="trusted-tooltip-content" role="tooltip">Engagements delivered in-house and through agency teams</span>
+          </div>
+        </div>
         </div>
       </div>
       <div class="w-full">
@@ -528,13 +534,7 @@
                     <span>Plan d'amélioration priorisé sur 30, 60 et 90 jours</span>
                   </li>
                 </ul>
-              </div>
-
-              <div class="mt-auto pt-4 border-t bg-brand-blue/5 rounded-md p-4 group-hover:bg-brand-blue/10 transition-colors border-brand-blue/10">
-                <h4 class="font-semibold text-xs text-brand-blue mb-1 uppercase tracking-wider text-[10px]">LE RÉSULTAT</h4>
-                <p class="text-base font-medium leading-relaxed">Vous savez exactement où la delivery bloque et vous disposez d'un plan concret pour y remédier.</p>
-              </div>
-            </div>
+              </div>            </div>
           </div>
 
           <!-- Card 2: Stabilise Delivery Leadership -->
@@ -573,13 +573,7 @@
                     <span>Gestion des risques et des dépendances</span>
                   </li>
                 </ul>
-              </div>
-
-              <div class="mt-auto pt-4 border-t bg-brand-orange/5 rounded-md p-4 group-hover:bg-brand-orange/10 transition-colors border-brand-orange/10">
-                <h4 class="font-semibold text-xs text-brand-orange mb-1 uppercase tracking-wider text-[10px]">LE RÉSULTAT</h4>
-                <p class="text-base font-medium leading-relaxed">La delivery cesse d'être quelque chose que vous subissez pour devenir quelque chose que vous pilotez.</p>
-              </div>
-            </div>
+              </div>            </div>
           </div>
 
           <!-- Card 3: Delivery Operating Model -->
@@ -618,13 +612,7 @@
                     <span>Indicateurs de santé de la delivery et structure de reporting</span>
                   </li>
                 </ul>
-              </div>
-
-              <div class="mt-auto pt-4 border-t bg-brand-green/5 rounded-md p-4 group-hover:bg-brand-green/10 transition-colors border-brand-green/10">
-                <h4 class="font-semibold text-xs text-brand-green mb-1 uppercase tracking-wider text-[10px]">LE RÉSULTAT</h4>
-                <p class="text-base font-medium leading-relaxed">Les fondateurs sortent du quotidien opérationnel pendant que les équipes avancent avec clarté et momentum.</p>
-              </div>
-            </div>
+              </div>            </div>
           </div>
         </div>
       </div>
@@ -812,96 +800,74 @@
 
     <!-- About Section -->
     <section id="about" class="container py-24 md:py-32 border-t border-border/40">
-      <div
-        class="mx-auto max-w-[1100px] bg-card border rounded-2xl p-8 md:p-12 lg:p-16 shadow-sm overflow-hidden relative">
-        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-          
-          <!-- Column 1: Identity & Bio -->
-          <div class="flex-1 flex flex-col gap-8 text-left">
-            <div class="flex flex-col gap-4">
-              <div
-                class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-brand-orange/20 text-brand-orange w-fit uppercase tracking-wider">
-                À PROPOS + POURQUOI MOI
-              </div>
-              <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-balance leading-tight">Camille | Responsable Delivery & Opérations</h2>
-            </div>
-            
-            <div class="flex flex-col gap-6">
-              <p class="text-xl text-foreground font-medium leading-relaxed">
-                J'aide les équipes produit et ingénierie à faire évoluer leur delivery sans perdre en clarté ni en élan. Non pas en ajoutant plus de processus, mais en construisant les bases opérationnelles adaptées à l'étape suivante.
-              </p>
-              <p class="text-base md:text-lg text-muted-foreground leading-relaxed">
-                J'ai passé les 8 dernières années au cœur d'équipes digitales, IA et tech en pleine croissance. Agences, organisations internationales, startups à forte croissance. Les contextes varient, mais le défi est presque toujours le même : une delivery qui fonctionnait brillamment à une certaine taille cesse de fonctionner à la suivante.
-              </p>
-              <p class="text-sm font-medium text-muted-foreground tracking-wide italic border-l-2 border-brand-orange/30 pl-4 py-1">
-                Précédemment intégrée aux équipes de Havas, aux côtés de grandes entreprises internationales et de plusieurs startups tech à forte croissance. J'ai occupé le terrain, je ne me suis pas contentée de conseiller depuis l'extérieur.
-              </p>
+      <div class="mx-auto max-w-[1100px] rounded-2xl border bg-card p-8 md:p-12">
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">À propos</p>
+        <p class="mt-1 text-[11px] text-muted-foreground/80">Libellé de section</p>
 
-              <div class="rounded-xl border bg-brand-blue/5 p-5 text-left">
-                <h3 class="font-serif text-2xl mb-3">Pourquoi les équipes me choisissent</h3>
-                <ul class="space-y-2 text-muted-foreground">
-                  <li>J'ai travaillé au cœur des équipes en croissance, pas seulement en conseil externe.</li>
-                  <li>Aucun framework à vendre : on construit une structure pragmatique autour de votre réalité.</li>
-                  <li>Je me spécialise sur le moment où la croissance fait craquer les modes de fonctionnement informels.</li>
-                </ul>
-                <p class="mt-4 text-sm text-muted-foreground">
-                  J'utilise aussi l'IA pour détecter plus tôt les signaux de risque delivery (dérives d'estimation, bloqueurs récurrents, frictions de coordination) avant qu'ils ne s'accumulent.
-                </p>
+        <div class="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div>
+            <div class="mb-6 flex items-center gap-4">
+              <div class="relative flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
+                <span class="text-xl font-medium">CM</span>
+                <div class="pointer-events-none absolute inset-0 rounded-full border-2 border-dashed border-border/80"></div>
               </div>
+              <h2 class="text-3xl leading-tight md:text-4xl">Camille | Responsable Delivery & Opérations</h2>
             </div>
+
+            <p class="text-lg font-medium leading-relaxed text-foreground">
+              J'aide les équipes produit et ingénierie à faire évoluer leur delivery sans perdre en clarté ni en élan.
+              Non pas en ajoutant plus de processus, mais en construisant les bases opérationnelles adaptées à l'étape
+              suivante.
+            </p>
+
+            <p class="mt-5 text-base leading-relaxed text-muted-foreground">
+              J'ai passé les 8 dernières années au cœur d'équipes digitales, IA et tech en pleine croissance. Agences,
+              organisations internationales, startups à forte croissance. Les contextes varient, mais le défi est
+              presque toujours le même : une delivery qui fonctionnait brillamment à une certaine taille cesse de
+              fonctionner à la suivante. J'ai occupé le terrain, je ne me suis pas contentée de conseiller depuis
+              l'extérieur.
+            </p>
           </div>
 
-          <!-- Column 2: Focus & Logistics -->
-          <div class="w-full lg:w-[400px] flex flex-col gap-8 bg-muted/30 p-8 rounded-xl border border-border/10">
-            <div>
-              <h3 class="font-serif text-2xl text-foreground mb-6">Domaines d'intervention</h3>
-              <ul class="flex flex-col gap-5">
-                <li class="flex items-start gap-4">
-                  <div class="h-10 w-10 rounded-lg bg-brand-orange/10 flex items-center justify-center text-brand-blue shrink-0">
-                    <i data-lucide="layers" class="w-5 h-5"></i>
-                  </div>
-                  <div>
-                    <span class="font-semibold text-foreground block">Opérations de Delivery</span>
-                    <span class="text-sm text-muted-foreground">Quand les modes de fonctionnement informels ne suffisent plus</span>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <div class="h-10 w-10 rounded-lg bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
-                    <i data-lucide="shield-check" class="w-5 h-5"></i>
-                  </div>
-                  <div>
-                    <span class="font-semibold text-foreground block">Stabilisation de la Delivery</span>
-                    <span class="text-sm text-muted-foreground">Remettre de l'ordre dans une delivery qui commence à s'effilocher</span>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <div class="h-10 w-10 rounded-lg bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">
-                    <i data-lucide="book-open" class="w-5 h-5"></i>
-                  </div>
-                  <div>
-                    <span class="font-semibold text-foreground block">Playbooks de Delivery</span>
-                    <span class="text-sm text-muted-foreground">Un système que votre équipe peut faire tourner sans vous</span>
-                  </div>
-                </li>
-              </ul>
+          <div class="rounded-xl border bg-card p-6">
+            <h3 class="text-2xl">Pourquoi les équipes me choisissent</h3>
+            <ul class="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+              <li class="flex items-start gap-2">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40"></span>
+                <span>J'ai travaillé au cœur des équipes en croissance, pas seulement en conseil externe</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40"></span>
+                <span>Aucun framework à vendre - une structure pragmatique autour de votre réalité</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40"></span>
+                <span>Conçu pour le moment où la croissance fait craquer la delivery informelle</span>
+              </li>
+            </ul>
+
+            <div class="mt-5 border-t border-border/70 pt-4">
+              <p class="text-sm leading-relaxed text-muted-foreground">
+                J'utilise l'IA pour détecter plus tôt les risques delivery - dérives d'estimation, bloqueurs
+                récurrents, frictions de coordination - afin d'agir avant qu'ils ne s'accumulent.
+              </p>
             </div>
 
-            <div class="pt-6 border-t border-border/40 flex flex-col gap-3">
-              <div class="flex items-center gap-3 text-xs font-bold text-foreground uppercase tracking-widest">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-muted-foreground"></i>
+            <div class="mt-5 border-t border-border/70 pt-4 space-y-2.5">
+              <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-widest text-foreground">
+                <i data-lucide="map-pin" class="h-3.5 w-3.5 text-muted-foreground"></i>
                 <span>Basée au Royaume-Uni</span>
               </div>
-              <div class="flex items-center gap-3 text-xs font-bold text-foreground uppercase tracking-widest">
-                <i data-lucide="globe" class="w-3.5 h-3.5 text-muted-foreground"></i>
+              <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-widest text-foreground">
+                <i data-lucide="globe" class="h-3.5 w-3.5 text-muted-foreground"></i>
                 <span>Interventions dans toute l'Europe</span>
               </div>
-              <div class="flex items-center gap-3 text-xs font-bold text-foreground uppercase tracking-widest">
-                <i data-lucide="languages" class="w-3.5 h-3.5 text-muted-foreground"></i>
+              <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-widest text-foreground">
+                <i data-lucide="languages" class="h-3.5 w-3.5 text-muted-foreground"></i>
                 <span>Anglais & Français</span>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -1071,6 +1037,7 @@
           </div>
         </div>
       </div>
+    </section>
 
 
 

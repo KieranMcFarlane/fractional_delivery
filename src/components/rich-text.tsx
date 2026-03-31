@@ -16,8 +16,13 @@ export function RichText({ html }: RichTextProps) {
     const toggles = Array.from(root.querySelectorAll<HTMLButtonElement>(".faq-toggle"));
 
     const handlers = toggles.map((toggle) => {
+      toggle.style.cursor = "pointer";
+      if (!toggle.hasAttribute("aria-expanded")) {
+        toggle.setAttribute("aria-expanded", "false");
+      }
+
       const handler = () => {
-        const container = toggle.parentElement;
+        const container = toggle.closest<HTMLElement>(".border");
         if (!container) return;
 
         const content = container.querySelector<HTMLElement>(".faq-content");

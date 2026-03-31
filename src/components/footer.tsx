@@ -50,7 +50,7 @@ const copy: Record<Locale, FooterCopy> = {
     ],
     blogLabel: "Blog & Briefs",
     rightsReserved: "© 2026 Fractional Delivery. All rights reserved.",
-    locationLabel: "Based in Leamington Spa, UK",
+    locationLabel: "Professionally insured - PI, cyber & data protection | Based in Leamington Spa, UK",
     emailLabel: "Email",
     linkedinLabel: "LinkedIn",
     privacyLabel: "Privacy Policy",
@@ -76,7 +76,7 @@ const copy: Record<Locale, FooterCopy> = {
     ],
     blogLabel: "Blog & Briefs",
     rightsReserved: "© 2026 Fractional Delivery. Tous droits réservés.",
-    locationLabel: "Basée à Leamington Spa, Royaume-Uni",
+    locationLabel: "Assurée professionnellement - PI, cyber & protection des données | Basée à Leamington Spa, Royaume-Uni",
     emailLabel: "Email",
     linkedinLabel: "LinkedIn",
     privacyLabel: "Confidentialité",
@@ -202,7 +202,6 @@ export function Footer({ locale, settings }: FooterProps) {
             <Link href={termsHref} className="transition-colors hover:text-foreground">
               {t.termsLabel}
             </Link>
-            <span className="hidden text-muted-foreground/30 md:inline">|</span>
             <p className="italic text-muted-foreground">{t.locationLabel}</p>
           </div>
         </div>
