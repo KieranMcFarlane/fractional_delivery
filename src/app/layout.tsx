@@ -48,6 +48,23 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("h-full", "antialiased", dmSans.variable, instrumentSerif.variable, "font-sans", geist.variable)}>
       <head>
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="d76f8ad3-369c-4fb8-9156-3ee1f8e42990"
+          data-blockingmode="auto"
+          type="text/javascript"
+        ></script>
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "w49oisyyx4");`,
+          }}
+        />
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}></script>
         <script
           dangerouslySetInnerHTML={{

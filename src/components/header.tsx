@@ -12,6 +12,15 @@ type HeaderProps = {
 };
 
 export function Header({ locale, pathname, settings, localeLinks }: HeaderProps) {
+  const navOrder = ["how-i-help", "who-i-help", "services", "blog"];
+  const orderedNavItems = [...settings.navItems].sort((a, b) => {
+    const getRank = (href: string) => {
+      const idx = navOrder.findIndex((key) => href.includes(key));
+      return idx === -1 ? Number.MAX_SAFE_INTEGER : idx;
+    };
+    return getRank(a.href) - getRank(b.href);
+  });
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
@@ -28,7 +37,7 @@ export function Header({ locale, pathname, settings, localeLinks }: HeaderProps)
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-          {settings.navItems.map((item) => (
+          {orderedNavItems.map((item) => (
             <Link key={item.href} href={item.href} className="text-foreground/60 transition-colors hover:text-foreground/80">
               {item.label}
             </Link>
