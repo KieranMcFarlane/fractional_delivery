@@ -211,7 +211,7 @@
 
   <main class="flex-1 bg-muted/10">
     
-    <article class="max-w-3xl mx-auto py-16 md:py-24 px-4 bg-background min-h-screen pb-32">
+    <article class="max-w-3xl mx-auto pt-0 px-4 bg-background min-h-screen pb-32">
       <a href="blog.html" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-12">
         <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Retour aux Ressources
       </a>
@@ -275,9 +275,14 @@
           <div>
             <h3 class="font-serif text-3xl text-foreground mb-2">Need help navigating the new era of delivery?</h3>
             <p class="text-lg text-muted-foreground mb-6">I help teams design delivery systems that leverage human talent and AI intelligence. Let's talk about your roadmap.</p>
-            <a href="index.html#discovery-call" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
-              Book a discovery call <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-            </a>
+            <button
+              type="button"
+              data-cal-namespace="30min"
+              data-cal-link="camillefractionaldelivery/30min"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"}'
+              class="inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+              Book a discovery call
+            </button>
           </div>
         </div>
       </div>

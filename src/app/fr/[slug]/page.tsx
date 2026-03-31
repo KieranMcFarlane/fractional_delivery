@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function SlugFrPage({ params }: Props) {
   const { slug } = await params;
   const baseUrl = siteUrl();
+  const hideInjectedArticleHeader = slug === "rethink-delivery-job-ai";
 
   const page = await getPageBySlug("fr", slug);
   if (page) {
@@ -87,9 +88,13 @@ export default async function SlugFrPage({ params }: Props) {
             inLanguage: "fr",
           }}
         />
-        <p className="text-xs uppercase tracking-wide text-zinc-500">{formatPublishedDate(post.publishedAt, "fr")}</p>
-        <h1 className="mt-2 text-5xl">{post.title}</h1>
-        <p className="mt-3 text-sm text-zinc-600">{post.excerpt}</p>
+        {!hideInjectedArticleHeader ? (
+          <>
+            <p className="text-xs uppercase tracking-wide text-zinc-500">{formatPublishedDate(post.publishedAt, "fr")}</p>
+            <h1 className="mt-2 text-5xl">{post.title}</h1>
+            <p className="mt-3 text-sm text-zinc-600">{post.excerpt}</p>
+          </>
+        ) : null}
         <div className="mt-8">
           <RichText html={post.contentRichtext} />
         </div>

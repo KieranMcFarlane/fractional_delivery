@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Locale } from "@/lib/types";
 
 type AboutCopy = {
@@ -84,21 +85,27 @@ export function AboutSection({ locale }: { locale: Locale }) {
     <section id="about" className="container border-t border-border/40 py-24 md:py-32">
       <div className="mx-auto max-w-[1100px] rounded-2xl border bg-card p-8 shadow-sm md:p-12 lg:p-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-14">
-          <div className="text-left">
+          <div className="relative text-left">
             <div className="mb-6 inline-flex items-center rounded-full border border-transparent bg-brand-orange/20 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-brand-orange">
               {t.label}
             </div>
 
             <div className="mb-6 flex items-center gap-4">
-              <div className="relative flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
-                <span className="text-xl font-medium">CM</span>
-                <div className="pointer-events-none absolute inset-0 rounded-full border-2 border-dashed border-border/80"></div>
-              </div>
               <h2 className="text-3xl leading-tight md:text-4xl">{t.name}</h2>
             </div>
 
             <p className="text-xl font-medium leading-relaxed text-foreground">{t.intro}</p>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">{t.bio}</p>
+            <div className="mt-6 max-w-[16rem] overflow-hidden rounded-xl bg-card lg:absolute lg:bottom-0 lg:right-0 lg:mt-0">
+              <Image
+                src="/images/camm/about-frame.png"
+                alt="Camille Wilhelm portrait"
+                width={320}
+                height={320}
+                className="hidden h-auto w-full object-cover"
+                priority
+              />
+            </div>
           </div>
 
           <div className="flex flex-col gap-8 rounded-xl border border-border/10 bg-muted/30 p-8">
