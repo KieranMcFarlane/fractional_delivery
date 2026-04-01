@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { AboutSection } from "@/components/about-section";
 import { BentoChallenges } from "@/components/bento-challenges";
+import { EbookSignup } from "@/components/ebook-signup";
 import { JsonLd } from "@/components/json-ld";
 import { RichText } from "@/components/rich-text";
 import { SiteShell } from "@/components/site-shell";
@@ -21,6 +22,7 @@ function blogPathname(locale: Locale): string {
 const TOKENS = {
   bento: "<!--__BENTO_CHALLENGES__-->",
   about: "<!--__ABOUT_SECTION__-->",
+  ebook: "<!--__EBOOK_SECTION__-->",
   testimonials: "<!--__TESTIMONIALS_SECTION__-->",
 } as const;
 
@@ -43,7 +45,7 @@ function insertTokenBeforeSection(content: string, sectionId: string, token: str
   return { content: content.replace(pattern, `${token}$1`), found: true };
 }
 
-function buildHomeFragments(html: string): { parts: string[]; hasBento: boolean; hasAbout: boolean; hasTestimonials: boolean } {
+function buildHomeFragments(html: string): { parts: string[]; hasBento: boolean; hasAbout: boolean; hasEbook: boolean; hasTestimonials: boolean } {
   let content = extractMainContent(html);
 
   const hasExistingTestimonials = /<section id="testimonials"[\s\S]*?<\/section>/i.test(content);
@@ -51,6 +53,8 @@ function buildHomeFragments(html: string): { parts: string[]; hasBento: boolean;
   content = bento.content;
   const about = replaceSectionWithToken(content, "about", TOKENS.about);
   content = about.content;
+  const ebook = replaceSectionWithToken(content, "ebook", TOKENS.ebook);
+  content = ebook.content;
 
   let hasTestimonials = false;
   if (!hasExistingTestimonials) {
@@ -65,8 +69,8 @@ function buildHomeFragments(html: string): { parts: string[]; hasBento: boolean;
     }
   }
 
-  const splitPattern = new RegExp(`(${TOKENS.bento}|${TOKENS.about}|${TOKENS.testimonials})`);
-  return { parts: content.split(splitPattern), hasBento: bento.found, hasAbout: about.found, hasTestimonials };
+  const splitPattern = new RegExp(`(${TOKENS.bento}|${TOKENS.about}|${TOKENS.ebook}|${TOKENS.testimonials})`);
+  return { parts: content.split(splitPattern), hasBento: bento.found, hasAbout: about.found, hasEbook: ebook.found, hasTestimonials };
 }
 
 export async function generateLocalizedHomeMetadata(locale: Locale): Promise<Metadata> {
@@ -94,6 +98,7 @@ export async function renderLocalizedHomePage(locale: Locale) {
         {fragments.parts.map((part, index) => {
           if (part === TOKENS.bento) return fragments.hasBento ? <BentoChallenges key={`bento-${index}`} locale={locale} /> : null;
           if (part === TOKENS.about) return fragments.hasAbout ? <AboutSection key={`about-${index}`} locale={locale} /> : null;
+          if (part === TOKENS.ebook) return fragments.hasEbook ? <EbookSignup key={`ebook-${index}`} locale={locale} /> : null;
           if (part === TOKENS.testimonials) {
             return fragments.hasTestimonials ? <Testimonials key={`testimonials-${index}`} locale={locale} /> : null;
           }

@@ -16,6 +16,8 @@ Next.js App Router site with:
 Copy `.env.example` to `.env.local` and set:
 
 - `NEXT_PUBLIC_SITE_URL`
+- `MAILERLITE_API` (required for the ebook signup form)
+- `MAILERLITE_GROUP_ID` (optional MailerLite group id)
 
 ## Local Development
 
