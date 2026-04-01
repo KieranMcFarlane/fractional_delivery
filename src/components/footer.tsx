@@ -40,12 +40,12 @@ const copy: Record<Locale, FooterCopy> = {
     navigationLinks: [
       { label: "Why work with me", href: "/#why-me" },
       { label: "How I work", href: "/#services" },
-      { label: "Investment", href: "/#investment" },
+      { label: "Ways to engage", href: "/#services" },
     ],
     focusAreaLinks: [
-      { label: "Delivery Diagnostic", href: "/#investment" },
-      { label: "Fractional Leadership", href: "/#investment" },
-      { label: "Operating Models", href: "/#investment" },
+      { label: "Delivery Diagnostic", href: "/#services" },
+      { label: "Fractional Leadership", href: "/#services" },
+      { label: "Operating Models", href: "/#services" },
       { label: "Discovery Call", href: "/#discovery-call" },
     ],
     blogLabel: "Blog & Briefs",
@@ -66,12 +66,12 @@ const copy: Record<Locale, FooterCopy> = {
     navigationLinks: [
       { label: "Pourquoi travailler avec moi", href: "/#why-me" },
       { label: "Comment je travaille", href: "/#services" },
-      { label: "Investissement", href: "/#investment" },
+      { label: "Modes d'engagement", href: "/#services" },
     ],
     focusAreaLinks: [
-      { label: "Diagnostic de Delivery", href: "/#investment" },
-      { label: "Leadership Fractionné", href: "/#investment" },
-      { label: "Modèles Opérationnels", href: "/#investment" },
+      { label: "Diagnostic de Delivery", href: "/#services" },
+      { label: "Leadership Fractionné", href: "/#services" },
+      { label: "Modèles Opérationnels", href: "/#services" },
       { label: "Discovery Call", href: "/#discovery-call" },
     ],
     blogLabel: "Blog & Briefs",

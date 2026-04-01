@@ -240,7 +240,7 @@
 
   <main class="flex-1">
     <!-- Hero Section -->
-    <section class="container py-12">
+    <section class="container px-4 md:px-6 lg:px-8 py-12" style="max-width: 1400px;">
       <div class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-24">
         <div class="flex flex-col gap-6 flex-1">
           <div
@@ -273,7 +273,7 @@
           <!-- Image Container with Shadcn border radius & shadow -->
           <div class="overflow-hidden rounded-xl border bg-background/50 p-2 shadow-xl">
             <img
-              src="../images/camm/camcam_29764_modern_editorial_illustration_of_a_female_delive_5bc9a774-a8c9-449f-a883-104e5519273c_1.png"
+              src="/fractional_delivery_images/hero_image.jpeg"
               alt="delivery operations consultant helping tech teams scale"
               class="w-full h-auto rounded-lg object-cover bg-muted">
           </div>
@@ -287,51 +287,7 @@
       </div>
     </section>
 
-    <!-- Section Aimant à Leads (Ebook) déplacée plus haut -->
-    <section id="ebook" class="container py-24 md:py-32 border-t border-border/40">
-      <div class="mx-auto max-w-[1100px] bg-brand-blue rounded-[3rem] overflow-hidden shadow-2xl shadow-brand-blue/20 relative">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
-
-        <div class="relative z-10 flex flex-col md:flex-row items-center gap-12 p-8 md:p-16">
-          <div class="flex-1 text-white">
-            <div class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white/10 text-white mb-6 uppercase tracking-wider border border-white/20">
-              RESSOURCE GRATUITE
-            </div>
-            <h2 class="text-3xl md:text-5xl font-serif mb-6 leading-tight">Téléchargez le Guide Diagnostic de Delivery</h2>
-            <p class="text-lg text-white/80 mb-8 max-w-lg leading-relaxed">
-              Une approche concrète pour évaluer la santé de votre delivery. Apprenez à identifier les signaux de friction avant qu'ils ne freinent votre roadmap.
-            </p>
-
-            <form class="flex flex-col sm:flex-row gap-3 max-w-md" onsubmit="event.preventDefault(); alert('Guide envoyé ! Consultez votre boîte mail.');">
-              <input type="email" placeholder="Votre adresse email"
-                class="flex h-12 w-full rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30" required>
-              <button type="submit"
-                class="inline-flex items-center justify-center rounded-md text-sm font-bold transition-colors bg-white text-brand-blue hover:bg-brand-blue/10 hover:text-white border border-transparent hover:border-white h-12 px-8 shrink-0">
-                Recevoir le guide
-              </button>
-            </form>
-            <p class="text-[10px] text-white/40 mt-4 leading-none italic">Pas de spam. Désinscription à tout moment.</p>
-          </div>
-
-          <div class="w-full md:w-auto flex justify-center">
-            <div class="relative group">
-              <div class="absolute inset-0 bg-white/20 blur-3xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
-              <div class="relative w-48 h-64 md:w-64 md:h-80 bg-white rounded-lg shadow-2xl flex flex-col p-6 overflow-hidden border-r-4 border-brand-orange transform -rotate-2 group-hover:rotate-0 transition-transform duration-500">
-                <div class="w-12 h-1 bg-brand-blue mb-4"></div>
-                <div class="text-brand-blue font-serif text-2xl mb-4">Le Diagnostic de Delivery</div>
-                <div class="mt-auto">
-                  <div class="w-full h-2 bg-slate-100 mb-2"></div>
-                  <div class="w-2/3 h-2 bg-slate-100"></div>
-                </div>
-                <div class="absolute bottom-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full -mr-16 -mb-16"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Logos Section -->
+    <!-- Section Aimant à Leads (Ebook) déplacée plus haut --><!-- Experience Logos Section -->
     <section class="w-full py-12 border-t border-border/40 bg-muted/10" style="border-top: none;">
       <div class="container">
         <div class="mx-auto max-w-[1000px] flex flex-col items-center justify-center gap-8 text-center" style="margin-bottom: 3rem;">
@@ -470,19 +426,6 @@
       </div>
     </section>
 
-    <!-- Approche (courte) -->
-    <section id="approach" class="container py-12 md:py-16 border-t border-border/40 bg-muted/10">
-      <div class="mx-auto max-w-[900px] text-center flex flex-col items-center gap-4">
-        <div
-          class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-brand-blue/20 text-brand-blue w-fit uppercase tracking-wider">
-          MA MÉTHODE
-        </div>
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-balance">Comment j'aborde la delivery</h2>
-        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed text-balance">Je regarde comment le travail circule réellement, où les décisions se bloquent et où la responsabilité se diffuse.</p>
-        <p class="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed text-balance">Puis on installe des rituels et une visibilité que l'équipe peut faire vivre sans dépendance externe.</p>
-      </div>
-    </section>
-
     <!-- How I Typically Work With Teams Section -->
     <section id="services" class="container py-24 md:py-32 bg-muted/30 border-y border-border/40 text-balance">
       <div class="mx-auto max-w-[1200px] flex flex-col gap-16">
@@ -534,12 +477,28 @@
                     <span>Plan d'amélioration priorisé sur 30, 60 et 90 jours</span>
                   </li>
                 </ul>
-              </div>            </div>
+              </div>
+              <div class="mt-auto pt-4 border-t bg-brand-blue/5 rounded-md p-4 group-hover:bg-brand-blue/10 transition-colors border-brand-blue/10">
+                <div class="flex items-center gap-2 text-sm font-medium text-foreground italic">
+                  <i data-lucide="clock" class="w-4 h-4 text-brand-blue"></i>
+                  Généralement 3 à 8 jours selon le périmètre.
+                </div>
+              </div>
+              <a href="#discovery-call"
+                onclick="window.scrollTo({top: document.getElementById('discovery-call').offsetTop, behavior: 'smooth'}); return false;"
+                class="mt-auto w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
+                Réserver un diagnostic
+              </a>
+            </div>
           </div>
 
           <!-- Card 2: Stabilise Delivery Leadership -->
           <div
-            class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col group overflow-hidden transition-all hover:shadow-md">
+            class="relative rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col group overflow-hidden transition-all hover:shadow-md">
+            <div
+              class="absolute top-4 right-4 bg-brand-orange text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">
+              Le plus courant
+            </div>
             <div class="h-48 bg-muted w-full overflow-hidden border-b relative">
               <img src="../images/team_alignment_art_abstract_1773586089439.png"
                 class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
@@ -573,7 +532,19 @@
                     <span>Gestion des risques et des dépendances</span>
                   </li>
                 </ul>
-              </div>            </div>
+              </div>
+              <div class="mt-auto pt-4 border-t bg-brand-orange/5 rounded-md p-4 group-hover:bg-brand-orange/10 transition-colors border-brand-orange/10">
+                <div class="flex items-center gap-2 text-sm font-medium text-foreground italic">
+                  <i data-lucide="calendar" class="w-4 h-4 text-brand-orange"></i>
+                  Missions structurées sur une base trimestrielle.
+                </div>
+              </div>
+              <a href="#discovery-call"
+                onclick="window.scrollTo({top: document.getElementById('discovery-call').offsetTop, behavior: 'smooth'}); return false;"
+                class="mt-auto w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+                Démarrer une mission
+              </a>
+            </div>
           </div>
 
           <!-- Card 3: Delivery Operating Model -->
@@ -612,7 +583,19 @@
                     <span>Indicateurs de santé de la delivery et structure de reporting</span>
                   </li>
                 </ul>
-              </div>            </div>
+              </div>
+              <div class="mt-auto pt-4 border-t bg-brand-green/5 rounded-md p-4 group-hover:bg-brand-green/10 transition-colors border-brand-green/10">
+                <div class="flex items-center gap-2 text-sm font-medium text-foreground italic">
+                  <i data-lucide="target" class="w-4 h-4 text-brand-green"></i>
+                  Périmètre défini selon la taille de l'équipe.
+                </div>
+              </div>
+              <a href="#discovery-call"
+                onclick="window.scrollTo({top: document.getElementById('discovery-call').offsetTop, behavior: 'smooth'}); return false;"
+                class="mt-auto w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
+                Concevoir votre modèle
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -706,6 +689,49 @@
             </div>
             <h3 class="font-serif text-2xl text-foreground leading-tight">Focus sur la croissance</h3>
             <p class="text-base text-muted-foreground leading-relaxed">C'est ce que les fondateurs ressentent le plus. Vous n'êtes plus aspiré par le quotidien opérationnel et retrouvez l'espace mental pour vous concentrer sur là où va le business. L'équipe tourne. Vous pilotez.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ebook" class="container py-24 md:py-32 border-t border-border/40">
+      <div class="mx-auto max-w-[1100px] bg-brand-blue rounded-[3rem] overflow-hidden shadow-2xl shadow-brand-blue/20 relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row items-center gap-12 p-8 md:p-16">
+          <div class="flex-1 text-white">
+            <div class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white/10 text-white mb-6 uppercase tracking-wider border border-white/20">
+              RESSOURCE GRATUITE
+            </div>
+            <h2 class="text-3xl md:text-5xl font-serif mb-6 leading-tight">Téléchargez le Guide Diagnostic de Delivery</h2>
+            <p class="text-lg text-white/80 mb-8 max-w-lg leading-relaxed">
+              Une approche concrète pour évaluer la santé de votre delivery. Apprenez à identifier les signaux de friction avant qu'ils ne freinent votre roadmap.
+            </p>
+
+            <form class="flex flex-col sm:flex-row gap-3 max-w-md" onsubmit="event.preventDefault(); alert('Guide envoyé ! Consultez votre boîte mail.');">
+              <input type="email" placeholder="Votre adresse email"
+                class="flex h-12 w-full rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30" required>
+              <button type="submit"
+                class="inline-flex items-center justify-center rounded-md text-sm font-bold transition-colors bg-white text-brand-blue hover:bg-brand-blue/10 hover:text-white border border-transparent hover:border-white h-12 px-8 shrink-0">
+                Recevoir le guide
+              </button>
+            </form>
+            <p class="text-[10px] text-white/40 mt-4 leading-none italic">Pas de spam. Désinscription à tout moment.</p>
+          </div>
+
+          <div class="w-full md:w-auto flex justify-center">
+            <div class="relative group">
+              <div class="absolute inset-0 bg-white/20 blur-3xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative w-48 h-64 md:w-64 md:h-80 bg-white rounded-lg shadow-2xl flex flex-col p-6 overflow-hidden border-r-4 border-brand-orange transform -rotate-2 group-hover:rotate-0 transition-transform duration-500">
+                <div class="w-12 h-1 bg-brand-blue mb-4"></div>
+                <div class="text-brand-blue font-serif text-2xl mb-4">Le Diagnostic de Delivery</div>
+                <div class="mt-auto">
+                  <div class="w-full h-2 bg-slate-100 mb-2"></div>
+                  <div class="w-2/3 h-2 bg-slate-100"></div>
+                </div>
+                <div class="absolute bottom-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full -mr-16 -mb-16"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -869,93 +895,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Investment Section -->
-    <section id="investment" class="container py-24 md:py-32 bg-slate-50/50 border-t border-border/40">
-      <div class="mx-auto max-w-[1200px] flex flex-col gap-16">
-        <div class="text-center flex flex-col items-center gap-4">
-          <div
-            class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-brand-orange/20 text-brand-orange w-fit mb-4 uppercase tracking-wider">
-            INVESTISSEMENT
-          </div>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-balance">Des points de départ clairs et transparents</h2>
-          <p class="text-lg md:text-xl text-muted-foreground mt-2 max-w-2xl leading-relaxed text-balance">
-            Chaque mission commence par un échange pour comprendre votre situation. Ce sont des points de départ, pas des devis figés.
-          </p>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-8">
-          <!-- Tier 1 -->
-          <div class="flex flex-col bg-card border rounded-[2rem] p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <div class="mb-6">
-              <h3 class="font-serif text-2xl text-foreground mb-2">Diagnostic de Delivery</h3>
-              <div class="text-sm text-brand-blue font-medium mb-0">Comprendre où la delivery ralentit et pourquoi.</div>
-            </div>
-            
-            <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-6">
-              <p>Une évaluation ciblée de la façon dont le travail circule réellement dans votre organisation. Livrables : cartographie des frictions, recommandations prioritaires et plan d'amélioration concret.</p>
-              <div class="flex items-center gap-2 text-sm font-medium text-foreground italic">
-                <i data-lucide="clock" class="w-4 h-4 text-brand-orange"></i>
-                Généralement 3 à 8 jours selon le périmètre et la taille de l'équipe.
-              </div>
-            </div>
-
-            <a href="#discovery-call" 
-               onclick="window.scrollTo({top: document.getElementById('discovery-call').offsetTop, behavior: 'smooth'}); return false;"
-               class="mt-auto w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
-              Réserver un diagnostic
-            </a>
-          </div>
-
-          <!-- Tier 2 -->
-          <div class="flex flex-col bg-card border rounded-[2rem] p-10 shadow-lg hover:shadow-xl hover:-translate-y-1 ring-2 ring-brand-orange/30 transition-all duration-300 relative">
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">Le plus courant</div>
-            <div class="mb-6">
-              <h3 class="font-serif text-2xl text-foreground mb-2">Leadership de Delivery Fractionné</h3>
-              <div class="text-sm text-brand-orange font-medium mb-0">Un leadership senior, sans recrutement à plein temps.</div>
-            </div>
-            
-            <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-6">
-              <p>Intégration à temps partiel apportant structure, rythme et visibilité au fur et à mesure que votre organisation grandit. Généralement un à deux jours par semaine.</p>
-              <div class="flex items-center gap-2 text-sm font-medium text-foreground italic">
-                <i data-lucide="calendar" class="w-4 h-4 text-brand-orange"></i>
-                Missions structurées sur une base trimestrielle, renouvelables.
-              </div>
-            </div>
-
-            <a href="#discovery-call" 
-               onclick="window.scrollTo({top: document.getElementById('discovery-call').offsetTop, behavior: 'smooth'}); return false;"
-               class="mt-auto w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-brand-blue text-white hover:bg-brand-blue/90 h-11 px-8">
-              Démarrer une mission
-            </a>
-          </div>
-
-          <!-- Tier 3 -->
-          <div class="flex flex-col bg-card border rounded-[2rem] p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <div class="mb-6">
-              <h3 class="font-serif text-2xl text-foreground mb-2">Modèle Opérationnel de Delivery</h3>
-              <div class="text-sm text-brand-green font-medium mb-0">Une delivery conçue pour l'étape vers laquelle vous tendez.</div>
-            </div>
-            
-            <div class="flex-grow space-y-4 text-base text-muted-foreground leading-relaxed mb-6">
-              <p>Co-conception d'un modèle opérationnel couvrant les rôles, les chemins de décision, la cadence de planification et les signaux de santé de la delivery. Accompagnement optionnel sur 60 à 90 jours.</p>
-              <div class="flex items-center gap-2 text-sm font-medium text-foreground italic">
-                <i data-lucide="target" class="w-4 h-4 text-brand-orange"></i>
-                Périmètre défini selon la taille et la complexité de l'équipe.
-              </div>
-            </div>
-
-            <a href="#discovery-call" 
-               onclick="window.scrollTo({top: document.getElementById('discovery-call').offsetTop, behavior: 'smooth'}); return false;"
-               class="mt-auto w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
-              Concevoir votre modèle
-            </a>
-          </div>
-        </div>
-
-        <!-- Redundant CTA removed -->
       </div>
     </section>
 
@@ -1151,7 +1090,7 @@
           <ul class="space-y-3 text-sm">
             <li><a href="#why-me" class="hover:text-brand-blue transition-colors">Pourquoi moi</a></li>
             <li><a href="#services" class="hover:text-brand-blue transition-colors">Ma méthode</a></li>
-            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Investissement</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Investissement</a></li>
             <li><a href="blog.html" class="hover:text-brand-blue transition-colors">Blog & Briefs</a></li>
           </ul>
         </div>
@@ -1160,9 +1099,9 @@
         <div class="space-y-4">
           <h4 class="text-xs font-bold font-sans text-foreground uppercase tracking-widest">Expertises</h4>
           <ul class="space-y-3 text-sm">
-            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Diagnostic de Delivery</a></li>
-            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Leadership Fractionné</a></li>
-            <li><a href="#investment" class="hover:text-brand-blue transition-colors">Modèles Opérationnels</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Diagnostic de Delivery</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Leadership Fractionné</a></li>
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Modèles Opérationnels</a></li>
             <li><a href="#discovery-call" class="hover:text-brand-blue transition-colors">Appel Découverte</a></li>
           </ul>
         </div>

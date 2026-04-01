@@ -1,4 +1,6 @@
 import Image from "next/image";
+
+import { ExperiencedWith } from "@/components/experienced-with";
 import type { Locale } from "@/lib/types";
 
 type AboutCopy = {
@@ -96,6 +98,7 @@ export function AboutSection({ locale }: { locale: Locale }) {
 
             <p className="text-xl font-medium leading-relaxed text-foreground">{t.intro}</p>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">{t.bio}</p>
+            <ExperiencedWith locale={locale} />
             <div className="mt-6 max-w-[16rem] overflow-hidden rounded-xl bg-card lg:absolute lg:bottom-0 lg:right-0 lg:mt-0">
               <Image
                 src="/images/camm/about-frame.png"

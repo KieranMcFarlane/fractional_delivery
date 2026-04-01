@@ -51,6 +51,13 @@ function removeScripts(html: string): string {
   return html.replace(/<script[\s\S]*?<\/script>/gi, "");
 }
 
+function normalizeLegacyButtonStyles(html: string): string {
+  return html.replace(
+    /bg-brand-blue text-white hover:bg-brand-blue\/90 h-11 px-8/g,
+    "bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8",
+  );
+}
+
 const hugeIconMap: Record<string, string> = {
   menu: "menu-01",
   x: "cancel-01",
@@ -95,10 +102,10 @@ function replaceLucideTagsWithHugeIcons(html: string): string {
 
 function extractMainOrBody(html: string): string {
   const mainMatch = html.match(/<main[\s\S]*?<\/main>/i);
-  if (mainMatch?.[0]) return replaceLucideTagsWithHugeIcons(removeScripts(mainMatch[0]));
+  if (mainMatch?.[0]) return replaceLucideTagsWithHugeIcons(normalizeLegacyButtonStyles(removeScripts(mainMatch[0])));
 
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-  return replaceLucideTagsWithHugeIcons(removeScripts(bodyMatch?.[1] ?? html));
+  return replaceLucideTagsWithHugeIcons(normalizeLegacyButtonStyles(removeScripts(bodyMatch?.[1] ?? html)));
 }
 
 function normalizeLocalAssetPath(value: string): string {
