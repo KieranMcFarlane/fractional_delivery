@@ -16,8 +16,10 @@ Next.js App Router site with:
 Copy `.env.example` to `.env.local` and set:
 
 - `NEXT_PUBLIC_SITE_URL`
-- `MAILERLITE_API` (required for the ebook signup form)
-- `MAILERLITE_GROUP_ID` (optional MailerLite group id)
+- `NEXT_PUBLIC_COOKIEBOT_ID` (Cookiebot CBID)
+- `MAILERLITE_API_KEY` (required for ebook signup form; `MAILERLITE_API` is supported as fallback)
+- `MAILERLITE_GROUP_DIAGNOSTIC` (group id for all diagnostic downloads; `MAILERLITE_GROUP_ID` fallback)
+- `MAILERLITE_GROUP_NEWSLETTER` (optional group id for users who opt into marketing emails)
 
 ## Local Development
 

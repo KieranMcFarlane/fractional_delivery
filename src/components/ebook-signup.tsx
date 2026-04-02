@@ -20,6 +20,12 @@ const copy = {
     cardTitle: "The Delivery Diagnostic",
     success: "Guide sent. Check your inbox.",
     error: "Unable to subscribe right now. Please try again.",
+    requiredConsent:
+      "I agree to the Terms of Service and Privacy Policy. *",
+    optionalConsent:
+      "I'd like to receive occasional emails about delivery leadership, insights, and services from Fractional Delivery. Unsubscribe anytime.",
+    consentError: "Please accept the Terms of Service and Privacy Policy.",
+    sending: "Sending...",
   },
   fr: {
     badge: "RESSOURCE GRATUITE",
@@ -32,12 +38,22 @@ const copy = {
     cardTitle: "Le Diagnostic de Delivery",
     success: "Guide envoyé. Consultez votre boîte mail.",
     error: "Impossible de vous inscrire pour le moment. Réessayez.",
+    requiredConsent:
+      "J'accepte les Conditions d'utilisation et la Politique de confidentialité. *",
+    optionalConsent:
+      "Je souhaite recevoir occasionnellement des emails sur la delivery leadership, des insights et les services de Fractional Delivery. Désinscription à tout moment.",
+    consentError: "Veuillez accepter les Conditions et la Politique de confidentialité.",
+    sending: "Envoi...",
   },
 } as const;
 
 export function EbookSignup({ locale }: EbookSignupProps) {
   const t = copy[locale];
+  const termsHref = locale === "fr" ? "/fr/terms-of-service" : "/terms-of-service";
+  const privacyHref = locale === "fr" ? "/fr/privacy-policy" : "/privacy-policy";
   const [email, setEmail] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{ kind: "idle" | "success" | "error"; message: string }>({
     kind: "idle",
@@ -46,7 +62,14 @@ export function EbookSignup({ locale }: EbookSignupProps) {
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!email || isSubmitting) return;
+    if (isSubmitting) return;
+
+    if (!termsAccepted) {
+      setStatus({ kind: "error", message: t.consentError });
+      return;
+    }
+
+    if (!email) return;
 
     setIsSubmitting(true);
     setStatus({ kind: "idle", message: "" });
@@ -55,7 +78,7 @@ export function EbookSignup({ locale }: EbookSignupProps) {
       const response = await fetch("/api/ebook-signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, locale }),
+        body: JSON.stringify({ email, locale, marketingConsent, termsAccepted }),
       });
 
       const data = (await response.json().catch(() => ({}))) as { error?: string };
@@ -66,6 +89,8 @@ export function EbookSignup({ locale }: EbookSignupProps) {
 
       setStatus({ kind: "success", message: t.success });
       setEmail("");
+      setTermsAccepted(false);
+      setMarketingConsent(false);
     } catch {
       setStatus({ kind: "error", message: t.error });
     } finally {
@@ -86,7 +111,8 @@ export function EbookSignup({ locale }: EbookSignupProps) {
             <h2 className="mb-6 font-serif text-3xl leading-tight md:text-5xl">{t.heading}</h2>
             <p className="mb-8 max-w-lg text-lg leading-relaxed text-white/80">{t.description}</p>
 
-            <form className="flex max-w-md flex-col gap-3 sm:flex-row" onSubmit={onSubmit}>
+            <form className="max-w-md" onSubmit={onSubmit}>
+              <div className="flex flex-col gap-3 sm:flex-row">
               <input
                 type="email"
                 placeholder={t.placeholder}
@@ -100,8 +126,41 @@ export function EbookSignup({ locale }: EbookSignupProps) {
                 disabled={isSubmitting}
                 className="inline-flex h-12 shrink-0 items-center justify-center rounded-md border border-transparent bg-white px-8 text-sm font-bold text-brand-blue transition-colors hover:border-white hover:bg-brand-blue/10 hover:text-white disabled:opacity-70"
               >
-                {isSubmitting ? "..." : t.cta}
+                {isSubmitting ? t.sending : t.cta}
               </button>
+              </div>
+
+              <div className="mt-4 flex flex-col gap-3 text-xs leading-relaxed text-white/80">
+                <label className="flex items-start gap-2">
+                  <input
+                    type="checkbox"
+                    className="mt-0.5 h-4 w-4 shrink-0 accent-white"
+                    checked={termsAccepted}
+                    onChange={(event) => setTermsAccepted(event.target.checked)}
+                    required
+                  />
+                  <span>
+                    {locale === "en" ? "I agree to the " : "J'accepte les "}
+                    <a href={termsHref} className="underline hover:text-white" target="_blank" rel="noopener noreferrer">
+                      {locale === "en" ? "Terms of Service" : "Conditions d'utilisation"}
+                    </a>{" "}
+                    {locale === "en" ? "and " : "et la "}
+                    <a href={privacyHref} className="underline hover:text-white" target="_blank" rel="noopener noreferrer">
+                      {locale === "en" ? "Privacy Policy" : "Politique de confidentialité"}
+                    </a>
+                    .
+                  </span>
+                </label>
+                <label className="flex items-start gap-2">
+                  <input
+                    type="checkbox"
+                    className="mt-0.5 h-4 w-4 shrink-0 accent-white"
+                    checked={marketingConsent}
+                    onChange={(event) => setMarketingConsent(event.target.checked)}
+                  />
+                  <span>{t.optionalConsent}</span>
+                </label>
+              </div>
             </form>
 
             {status.kind !== "idle" ? (
@@ -129,4 +188,3 @@ export function EbookSignup({ locale }: EbookSignupProps) {
     </section>
   );
 }
-

@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       postDateMap.set(post.slug, candidate);
     }
   }
-  const staticPaths = ["/", "/blog"];
+  const staticPaths = ["/", "/blog", "/cookie-policy"];
   const dynamicPaths = dynamicSlugs.map((entry) => `/${entry.slug}`);
 
   const uniquePaths = Array.from(new Set([...staticPaths, ...dynamicPaths]));

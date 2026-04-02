@@ -305,6 +305,11 @@ section.container.py-12 {
   opacity: 1;
 }
 
+[data-supascribe-subscribe] input[type="email"],
+[data-supascribe-subscribe] button[type="submit"] {
+  font-size: 12px !important;
+}
+
 @keyframes logo-marquee {
   from {
     transform: translateX(0);
