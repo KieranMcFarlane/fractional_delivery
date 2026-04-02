@@ -313,8 +313,8 @@ section.container.py-12 {
 
 .gradient-text {
   display: inline;
-  font-size: 4.2rem;
-  line-height: 1;
+  font-size: inherit;
+  line-height: inherit;
   padding-block: 0.04em;
   padding-inline-end: 0.08em;
   margin-inline-end: -0.08em;
