@@ -26,11 +26,11 @@ export function Header({ locale, pathname, settings, localeLinks }: HeaderProps)
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href={localizePath(locale, "/")} className="flex items-center gap-3">
           <Image
-            src="/vector.png"
+            src="/images/fractional_delivery-logo2.png"
             alt="Fractional Delivery logo"
             width={160}
             height={80}
-            className="h-[2.5rem] w-auto"
+            className="h-[3.25rem] w-auto"
             priority
           />
           <span className="sr-only">{settings.brandName}</span>
