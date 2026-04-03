@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { calLink, calNamespace } from "@/lib/cal";
+import { calLink, calNamespace, calOrigin } from "@/lib/cal";
 import type { DynamicEntry, Locale, LocalizedPage, LocalizedPost, SiteSettings } from "@/lib/types";
 
 type SourceFile = {
@@ -169,13 +169,28 @@ function rewriteInternalLinks(html: string, locale: Locale): string {
 function applyCalEmbedConfig(html: string): string {
   const configuredLink = calLink();
   const configuredNamespace = calNamespace();
+  const configuredOrigin = calOrigin();
   const config = '{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}';
 
-  return html
+  let output = html
     .replace(/data-cal-link="[^"]*"/g, `data-cal-link="${configuredLink}"`)
     .replace(/data-cal-namespace="[^"]*"/g, `data-cal-namespace="${configuredNamespace}"`)
     .replace(/data-cal-config='[^']*'/g, `data-cal-config='${config}'`)
     .replace(/data-cal-config="[^"]*"/g, `data-cal-config='${config}'`);
+
+  if (configuredOrigin) {
+    output = output
+      .replace(/data-cal-origin="[^"]*"/g, `data-cal-origin="${configuredOrigin}"`)
+      .replace(/data-cal-origin='[^']*'/g, `data-cal-origin="${configuredOrigin}"`);
+
+    if (!/data-cal-origin=/.test(output)) {
+      output = output.replace(/data-cal-link="[^"]*"/g, (match) => `${match} data-cal-origin="${configuredOrigin}"`);
+    }
+  } else {
+    output = output.replace(/\sdata-cal-origin=(?:"[^"]*"|'[^']*')/g, "");
+  }
+
+  return output;
 }
 
 function pageFromFile(locale: Locale, slug: string, type: "home" | "legal" | "generic", file: SourceFile): LocalizedPage {

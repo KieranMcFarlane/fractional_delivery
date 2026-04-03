@@ -2,17 +2,26 @@
 
 import { useEffect } from "react";
 import { getCalApi } from "@calcom/embed-react";
-import { calNamespace } from "@/lib/cal";
+import { calNamespace, calOrigin } from "@/lib/cal";
 
 export function CalInit() {
   useEffect(() => {
     let mounted = true;
     const namespace = calNamespace();
+    const origin = calOrigin();
 
     (async () => {
-      const cal = await getCalApi(namespace ? { namespace } : undefined);
+      const cal = (await getCalApi()) as any;
       if (!mounted) return;
-      cal("ui", {
+
+      if (namespace) {
+        cal("init", namespace, origin ? { origin } : {});
+      } else if (origin) {
+        cal("init", { origin });
+      }
+
+      const scopedCal = namespace ? (cal.ns?.[namespace] ?? cal) : cal;
+      scopedCal("ui", {
         hideEventTypeDetails: false,
         layout: "month_view",
       });
