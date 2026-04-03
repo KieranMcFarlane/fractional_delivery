@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { calLink, calNamespace } from "@/lib/cal";
 import type { DynamicEntry, Locale, LocalizedPage, LocalizedPost, SiteSettings } from "@/lib/types";
 
 type SourceFile = {
@@ -165,10 +166,22 @@ function rewriteInternalLinks(html: string, locale: Locale): string {
   return rewiredHref.replace(/src="([^"]*)"/g, (_full, src: string) => `src="${normalizeLocalAssetPath(src)}"`);
 }
 
+function applyCalEmbedConfig(html: string): string {
+  const configuredLink = calLink();
+  const configuredNamespace = calNamespace();
+  const config = '{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}';
+
+  return html
+    .replace(/data-cal-link="[^"]*"/g, `data-cal-link="${configuredLink}"`)
+    .replace(/data-cal-namespace="[^"]*"/g, `data-cal-namespace="${configuredNamespace}"`)
+    .replace(/data-cal-config='[^']*'/g, `data-cal-config='${config}'`)
+    .replace(/data-cal-config="[^"]*"/g, `data-cal-config='${config}'`);
+}
+
 function pageFromFile(locale: Locale, slug: string, type: "home" | "legal" | "generic", file: SourceFile): LocalizedPage {
   const html = readHtml(fileForLocale(file, locale));
   const title = getTagContent(html, "title");
-  const body = rewriteInternalLinks(extractMainOrBody(html), locale);
+  const body = applyCalEmbedConfig(rewriteInternalLinks(extractMainOrBody(html), locale));
   const description = getMetaDescription(html);
 
   return {
@@ -186,7 +199,7 @@ function postFromFile(locale: Locale, slug: string, file: SourceFile): Localized
   const html = readHtml(fileForLocale(file, locale));
   const title = getTagContent(html, "title");
   const description = getMetaDescription(html);
-  const body = rewriteInternalLinks(extractMainOrBody(html), locale);
+  const body = applyCalEmbedConfig(rewriteInternalLinks(extractMainOrBody(html), locale));
 
   return {
     locale,
