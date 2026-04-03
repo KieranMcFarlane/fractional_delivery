@@ -11,8 +11,12 @@ function isValidEmail(email: string): boolean {
 
 export async function POST(request: Request) {
   const apiKey = process.env.MAILERLITE_API_KEY ?? process.env.MAILERLITE_API;
-  const diagnosticGroupId = process.env.MAILERLITE_GROUP_DIAGNOSTIC ?? process.env.MAILERLITE_GROUP_ID;
-  const newsletterGroupId = process.env.MAILERLITE_GROUP_NEWSLETTER;
+  const diagnosticGroupId =
+    process.env.MAILERLITE_GROUP_DIAGNOSTIC ??
+    process.env.MAILERLITE_GROUP_ID ??
+    process.env.MAILERLITE_DELIVERY_DIAGNOSTIC_DOWNLOADS;
+  const newsletterGroupId =
+    process.env.MAILERLITE_GROUP_NEWSLETTER ?? process.env.MAILERLITE_NEWSLETTER_SUBSCRIBERS;
 
   if (!apiKey) {
     return NextResponse.json({ error: "MailerLite is not configured." }, { status: 500 });
