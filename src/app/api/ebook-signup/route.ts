@@ -17,6 +17,9 @@ export async function POST(request: Request) {
   if (!apiKey) {
     return NextResponse.json({ error: "MailerLite is not configured." }, { status: 500 });
   }
+  if (!diagnosticGroupId) {
+    return NextResponse.json({ error: "MailerLite diagnostic group is not configured." }, { status: 500 });
+  }
 
   let payload: { email?: string; locale?: string; termsAccepted?: boolean; marketingConsent?: boolean } = {};
   try {
@@ -39,7 +42,7 @@ export async function POST(request: Request) {
   }
 
   const groups: string[] = [];
-  if (diagnosticGroupId) groups.push(diagnosticGroupId);
+  groups.push(diagnosticGroupId);
   if (marketingConsent && newsletterGroupId) groups.push(newsletterGroupId);
 
   const body: {

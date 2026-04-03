@@ -18,7 +18,7 @@ const copy = {
     cta: "Get the guide",
     note: "I hate spam. You can unsubscribe at any time.",
     cardTitle: "The Delivery Diagnostic",
-    success: "Guide sent. Check your inbox.",
+    success: "Your free e-book is heading to your inbox.",
     error: "Unable to subscribe right now. Please try again.",
     requiredConsent:
       "I agree to the Terms of Service and Privacy Policy. *",
@@ -36,7 +36,7 @@ const copy = {
     cta: "Recevoir le guide",
     note: "Pas de spam. Désinscription à tout moment.",
     cardTitle: "Le Diagnostic de Delivery",
-    success: "Guide envoyé. Consultez votre boîte mail.",
+    success: "Votre e-book gratuit arrive dans votre boîte mail.",
     error: "Impossible de vous inscrire pour le moment. Réessayez.",
     requiredConsent:
       "J'accepte les Conditions d'utilisation et la Politique de confidentialité. *",
@@ -59,6 +59,7 @@ export function EbookSignup({ locale }: EbookSignupProps) {
     kind: "idle",
     message: "",
   });
+  const canSubmit = termsAccepted && email.trim().length > 0 && !isSubmitting;
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -123,8 +124,8 @@ export function EbookSignup({ locale }: EbookSignupProps) {
               />
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="inline-flex h-12 shrink-0 items-center justify-center rounded-md border border-transparent bg-white px-8 text-sm font-bold text-brand-blue transition-colors hover:border-white hover:bg-brand-blue/10 hover:text-white disabled:opacity-70"
+                disabled={!canSubmit}
+                className="inline-flex h-12 shrink-0 items-center justify-center rounded-md border border-transparent bg-white px-8 text-sm font-bold text-brand-blue transition-colors hover:border-white hover:bg-brand-blue/10 hover:text-white disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer"
               >
                 {isSubmitting ? t.sending : t.cta}
               </button>
@@ -166,7 +167,6 @@ export function EbookSignup({ locale }: EbookSignupProps) {
             {status.kind !== "idle" ? (
               <p className={`mt-4 text-xs ${status.kind === "success" ? "text-white/90" : "text-red-100"}`}>{status.message}</p>
             ) : null}
-            <p className="mt-4 text-[10px] italic leading-none text-white/40">{t.note}</p>
           </div>
 
           <div className="flex w-full justify-center md:w-auto">
