@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { CookieDeclaration } from "@/components/cookie-declaration";
 import { SiteShell } from "@/components/site-shell";
 
 export const revalidate = 300;
@@ -8,7 +7,7 @@ export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
-  description: "Cookie declaration and cookie policy details for Fractional Delivery.",
+  description: "Cookie policy information for Fractional Delivery.",
 };
 
 export default async function CookiePolicyPage() {
@@ -18,14 +17,10 @@ export default async function CookiePolicyPage() {
         <div className="mx-auto max-w-[900px] space-y-6">
           <h1 className="text-4xl md:text-5xl">Cookie Policy</h1>
           <p className="text-muted-foreground">
-            This page provides the live cookie declaration for Fractional Delivery, managed through Cookiebot.
+            Cookie preferences are managed by the CookieYes banner available on the site.
           </p>
-          <div className="rounded-2xl border bg-card p-6">
-            <CookieDeclaration />
-          </div>
         </div>
       </section>
     </SiteShell>
   );
 }
-

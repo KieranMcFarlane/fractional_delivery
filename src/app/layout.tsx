@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { DM_Sans, Instrument_Serif, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { CookiebotScripts } from "@/components/cookiebot-scripts";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -49,7 +48,48 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("h-full", "antialiased", dmSans.variable, instrumentSerif.variable, "font-sans", geist.variable)}>
       <head>
-        <CookiebotScripts googleTagId={googleTagId} clarityId="w49oisyyx4" />
+        <script
+          id="cookieyes"
+          type="text/javascript"
+          src="https://cdn-cookieyes.com/client_data/ea5f550da8c02cfb50c4b53e516bf129/script.js"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("consent", "default", {
+  ad_personalization: "denied",
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  analytics_storage: "denied",
+  functionality_storage: "denied",
+  personalization_storage: "denied",
+  security_storage: "granted",
+  wait_for_update: 500
+});
+gtag("set", "ads_data_redaction", true);
+gtag("set", "url_passthrough", false);`,
+          }}
+        />
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${googleTagId}');`,
+          }}
+        />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "w49oisyyx4");`,
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col">
         <TooltipProvider>{children}</TooltipProvider>
