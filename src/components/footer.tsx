@@ -26,6 +26,7 @@ type FooterCopy = {
   emailLabel: string;
   linkedinLabel: string;
   privacyLabel: string;
+  cookieLabel: string;
   termsLabel: string;
 };
 
@@ -54,6 +55,7 @@ const copy: Record<Locale, FooterCopy> = {
     emailLabel: "Email",
     linkedinLabel: "LinkedIn",
     privacyLabel: "Privacy Policy",
+    cookieLabel: "Cookie Policy",
     termsLabel: "Terms of Service",
   },
   fr: {
@@ -80,6 +82,7 @@ const copy: Record<Locale, FooterCopy> = {
     emailLabel: "Email",
     linkedinLabel: "LinkedIn",
     privacyLabel: "Confidentialité",
+    cookieLabel: "Politique de cookies",
     termsLabel: "Conditions",
   },
 };
@@ -88,6 +91,7 @@ export function Footer({ locale, settings }: FooterProps) {
   const t = copy[locale];
   const blogHref = localizePath(locale, "/blog");
   const privacyHref = localizePath(locale, "/privacy-policy");
+  const cookieHref = localizePath(locale, "/cookie-policy");
   const termsHref = localizePath(locale, "/terms-of-service");
 
   return (
@@ -198,6 +202,9 @@ export function Footer({ locale, settings }: FooterProps) {
           <div className="flex items-center gap-6">
             <Link href={privacyHref} className="transition-colors hover:text-foreground">
               {t.privacyLabel}
+            </Link>
+            <Link href={cookieHref} className="transition-colors hover:text-foreground">
+              {t.cookieLabel}
             </Link>
             <Link href={termsHref} className="transition-colors hover:text-foreground">
               {t.termsLabel}

@@ -12,6 +12,7 @@ type SourceFile = {
 const sourceMap = {
   home: { en: "index.html", fr: "index_1.html" },
   blog: { en: "blog.html", fr: "blog_1.html" },
+  cookie: { en: "cookie-policy.html", fr: "cookie-policy_1.html" },
   privacy: { en: "privacy-policy.html", fr: "privacy-policy_1.html" },
   terms: { en: "terms-of-service.html" },
   postStatus: {
@@ -283,6 +284,7 @@ export const mockContent = {
 
   getPage(locale: Locale, slug: string): LocalizedPage | null {
     if (slug === "blog") return pageFromFile(locale, slug, "generic", sourceMap.blog);
+    if (slug === "cookie-policy") return pageFromFile(locale, slug, "legal", sourceMap.cookie);
     if (slug === "privacy-policy") return pageFromFile(locale, slug, "legal", sourceMap.privacy);
     if (slug === "terms-of-service") return pageFromFile(locale, slug, "legal", sourceMap.terms);
     return null;
@@ -304,6 +306,7 @@ export const mockContent = {
   getDynamicSlugs(): DynamicEntry[] {
     return [
       { slug: "privacy-policy", kind: "page" },
+      { slug: "cookie-policy", kind: "page" },
       { slug: "terms-of-service", kind: "page" },
       { slug: "status-updates-to-delivery-intelligence", kind: "post" },
       { slug: "rethink-delivery-job-ai", kind: "post" },
