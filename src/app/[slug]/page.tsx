@@ -31,7 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SlugPage({ params }: Props) {
   const { slug } = await params;
-  const hideInjectedArticleHeader = slug === "rethink-delivery-job-ai";
 
   const page = await getPageBySlug("en", slug);
   if (page) {
@@ -53,5 +52,5 @@ export default async function SlugPage({ params }: Props) {
     fr: translatedPost ? `/fr/${slug}` : "/fr",
   };
 
-  return <ArticleTemplate locale="en" pathname={`/${slug}`} localeLinks={localeLinks} post={post} showTitle={!hideInjectedArticleHeader} />;
+  return <ArticleTemplate locale="en" pathname={`/${slug}`} localeLinks={localeLinks} post={post} showTitle={false} />;
 }
