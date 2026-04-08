@@ -44,15 +44,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const googleTagId = "G-F2DFYZP4XZ";
+  const enableCookieYes = process.env.NODE_ENV === "production";
 
   return (
     <html lang="en" className={cn("h-full", "antialiased", dmSans.variable, instrumentSerif.variable, "font-sans", geist.variable)}>
       <head>
-        <script
-          id="cookieyes"
-          type="text/javascript"
-          src="https://cdn-cookieyes.com/client_data/ea5f550da8c02cfb50c4b53e516bf129/script.js"
-        />
+        {enableCookieYes ? (
+          <script
+            id="cookieyes"
+            type="text/javascript"
+            src="https://cdn-cookieyes.com/client_data/ea5f550da8c02cfb50c4b53e516bf129/script.js"
+          />
+        ) : null}
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
