@@ -12,7 +12,7 @@ type SourceFile = {
 const sourceMap = {
   home: { en: "index.html", fr: "index_1.html" },
   blog: { en: "blog.html", fr: "blog_1.html" },
-  privacy: { en: "privacy-policy.html" },
+  privacy: { en: "privacy-policy.html", fr: "privacy-policy_1.html" },
   terms: { en: "terms-of-service.html" },
   postStatus: {
     en: "status-updates-to-delivery-intelligence.html",
