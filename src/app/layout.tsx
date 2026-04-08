@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Instrument_Serif, Geist } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -50,13 +51,15 @@ export default function RootLayout({
     <html lang="en" className={cn("h-full", "antialiased", dmSans.variable, instrumentSerif.variable, "font-sans", geist.variable)}>
       <head>
         {enableCookieYes ? (
-          <script
+          <Script
             id="cookieyes"
-            type="text/javascript"
             src="https://cdn-cookieyes.com/client_data/ea5f550da8c02cfb50c4b53e516bf129/script.js"
+            strategy="afterInteractive"
           />
         ) : null}
-        <script
+        <Script
+          id="google-consent-defaults"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -74,8 +77,10 @@ gtag("set", "ads_data_redaction", true);
 gtag("set", "url_passthrough", false);`,
           }}
         />
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}></script>
-        <script
+        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`} strategy="afterInteractive" />
+        <Script
+          id="google-tag-config"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -83,7 +88,9 @@ gtag('js', new Date());
 gtag('config', '${googleTagId}');`,
           }}
         />
-        <script
+        <Script
+          id="clarity"
+          strategy="afterInteractive"
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `(function(c,l,a,r,i,t,y){
