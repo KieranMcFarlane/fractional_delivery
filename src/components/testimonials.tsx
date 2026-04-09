@@ -101,7 +101,7 @@ const copy: Record<Locale, { badge: string; title: string; items: Testimonial[] 
     items: [
       {
         quote:
-          '"Camille a apporté clarté, structure et leadership calme sur un projet en mouvement rapide, avec une communication fluide entre toutes les parties prenantes."',
+          '"Camille a été une excellente Delivery Lead sur l’application Recce. Elle a apporté clarté, structure et un leadership serein à un projet en mouvement rapide, tout en maintenant une communication fluide entre toutes les parties prenantes."',
         name: "Jim Irving",
         role: "CEO",
         companyName: "Recce",
@@ -109,21 +109,19 @@ const copy: Record<Locale, { badge: string; title: string; items: Testimonial[] 
       },
       {
         quote:
-          '"Le diagnostic a été très révélateur. Nous avons identifié des blocages invisibles et constaté une nette hausse de la vélocité delivery."',
-        name: "Marcus T.",
-        role: "Head of Product",
-        companyName: "ThirtyThree",
-        companyLogo: "/images/media__1773645534353.png",
-        colorClass: "text-brand-orange",
+          '"Camille est une responsable delivery extrêmement rigoureuse et efficace. Elle a l’esprit vif et une grande rapidité d’analyse. Camille n’est pas seulement une PM fiable et engagée, c’est aussi une personne inspirante et motivante à côtoyer, ce qui lui permet de faire avancer les équipes et de livrer des projets digitaux réussis. J’espère retravailler avec elle un jour !"',
+        name: "Pia Redway",
+        role: "Associate Marketing Director, International Commercial Strategy",
+        companyName: "Vertex Pharmaceuticals Inc",
+        colorClass: "text-brand-pink",
       },
       {
         quote:
-          '"Le modèle fractionné est parfait pour nous. Nous bénéficions d’un niveau senior chaque semaine sans supporter le coût d’un poste à temps plein."',
-        name: "Sarah L.",
-        role: "CEO",
-        companyName: "ISU",
-        companyLogo: "/images/isu.png",
-        colorClass: "text-brand-green",
+          '"Camille est une personne très agréable avec qui travailler. Elle est très positive, dynamique et vraiment professionnelle. Elle fait de son mieux pour comprendre les besoins et les priorités du client. Elle possède d’excellentes compétences en communication et sait très bien conseiller une marque pour obtenir des résultats en communication digitale. C’est un vrai plaisir d’avoir Camille comme interlocutrice et partenaire."',
+        name: "Estelle D'Hubert",
+        role: "Directrice internationale des relations presse",
+        companyName: "289 Consulting",
+        colorClass: "text-brand-yellow",
       },
     ],
   },
