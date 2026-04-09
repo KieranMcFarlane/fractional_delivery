@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
+import { useEffect } from "react";
 
 import { localizePath } from "@/lib/i18n";
 import type { Locale, SiteSettings } from "@/lib/types";
@@ -93,6 +93,16 @@ export function Footer({ locale, settings }: FooterProps) {
   const privacyHref = localizePath(locale, "/privacy-policy");
   const cookieHref = localizePath(locale, "/cookie-policy");
   const termsHref = localizePath(locale, "/terms-of-service");
+
+  useEffect(() => {
+    if (document.getElementById("supascribe-loader")) return;
+
+    const script = document.createElement("script");
+    script.id = "supascribe-loader";
+    script.src = "https://js.supascribe.com/v1/loader/b2nQm9wgMLWsDqQydwXvtHZwvSD2.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <footer className="border-t bg-muted/40 pb-8 pt-16 text-muted-foreground">
@@ -190,10 +200,6 @@ export function Footer({ locale, settings }: FooterProps) {
               </a>
               .
             </p>
-            <Script
-              src="https://js.supascribe.com/v1/loader/b2nQm9wgMLWsDqQydwXvtHZwvSD2.js"
-              strategy="afterInteractive"
-            />
           </div>
         </div>
 
