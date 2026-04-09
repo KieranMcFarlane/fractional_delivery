@@ -54,11 +54,12 @@ export default function RootLayout({
           <Script
             id="cookieyes"
             src="https://cdn-cookieyes.com/client_data/ea5f550da8c02cfb50c4b53e516bf129/script.js"
-            strategy="afterInteractive"
+            strategy="beforeInteractive"
           />
         ) : null}
         <Script
           id="google-consent-defaults"
+          data-cookieconsent="ignore"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
