@@ -91,7 +91,7 @@ gtag('config', '${googleTagId}');`,
         />
         <Script
           id="clarity"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `(function(c,l,a,r,i,t,y){
