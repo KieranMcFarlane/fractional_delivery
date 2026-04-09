@@ -1,11 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 import { LOCALES, localizePath, swapLocalePath } from "@/lib/i18n";
 import type { Locale, SiteSettings } from "@/lib/types";
+import { MobileHeaderMenu } from "@/components/mobile-header-menu";
 
 type HeaderProps = {
   locale: Locale;
@@ -15,7 +13,6 @@ type HeaderProps = {
 };
 
 export function Header({ locale, pathname, settings, localeLinks }: HeaderProps) {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const navOrder = ["how-i-help", "who-i-help", "services", "blog"];
   const orderedNavItems = [...settings.navItems].sort((a, b) => {
     const getRank = (href: string) => {
@@ -28,7 +25,7 @@ export function Header({ locale, pathname, settings, localeLinks }: HeaderProps)
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link href={localizePath(locale, "/")} className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
+        <Link href={localizePath(locale, "/")} className="flex items-center gap-3">
           <Image
             src="/images/fractional_delivery-logo2.png"
             alt="Fractional Delivery logo"
@@ -49,16 +46,13 @@ export function Header({ locale, pathname, settings, localeLinks }: HeaderProps)
         </nav>
 
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={() => setMobileOpen((value) => !value)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border/60 text-foreground md:hidden"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-          >
-            <span className="text-lg leading-none">{mobileOpen ? "×" : "☰"}</span>
-          </button>
+          <MobileHeaderMenu
+            locale={locale}
+            pathname={pathname}
+            localeLinks={localeLinks}
+            settings={settings}
+            orderedNavItems={orderedNavItems}
+          />
           <div className="hidden items-center gap-2 border-l border-border/60 pl-4 text-[12px] font-bold tracking-widest md:mr-[6px] md:flex">
             {LOCALES.map((item, idx) => {
               const href = localeLinks?.[item] ?? swapLocalePath(pathname, item);
@@ -81,47 +75,6 @@ export function Header({ locale, pathname, settings, localeLinks }: HeaderProps)
           </Link>
         </div>
       </div>
-      {mobileOpen ? (
-        <div id="mobile-menu" className="border-t border-border/40 bg-background px-4 pb-4 pt-3 md:hidden">
-          <nav className="flex flex-col gap-3 text-sm font-medium">
-            {orderedNavItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-foreground/70 transition-colors hover:text-foreground"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="mt-4 flex items-center gap-2 border-t border-border/40 pt-4 text-[12px] font-bold tracking-widest">
-            {LOCALES.map((item, idx) => {
-              const href = localeLinks?.[item] ?? swapLocalePath(pathname, item);
-              const active = item === locale;
-              return (
-                <span key={item} className="inline-flex items-center gap-2">
-                  {idx > 0 ? <span className="text-muted-foreground/30">|</span> : null}
-                  <Link
-                    href={href}
-                    onClick={() => setMobileOpen(false)}
-                    className={active ? "text-foreground" : "text-muted-foreground hover:text-foreground"}
-                  >
-                    {item.toUpperCase()}
-                  </Link>
-                </span>
-              );
-            })}
-          </div>
-          <Link
-            href={settings.ctaHref}
-            onClick={() => setMobileOpen(false)}
-            className="mt-4 inline-flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-[16px] font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          >
-            {settings.ctaLabel}
-          </Link>
-        </div>
-      ) : null}
     </header>
   );
 }
