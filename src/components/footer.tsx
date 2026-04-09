@@ -1,11 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
 
 import { localizePath } from "@/lib/i18n";
 import type { Locale, SiteSettings } from "@/lib/types";
+import { NewsletterEmbed } from "@/components/newsletter-embed";
 
 type FooterProps = {
   locale: Locale;
@@ -94,16 +92,6 @@ export function Footer({ locale, settings }: FooterProps) {
   const cookieHref = localizePath(locale, "/cookie-policy");
   const termsHref = localizePath(locale, "/terms-of-service");
 
-  useEffect(() => {
-    if (document.getElementById("supascribe-loader")) return;
-
-    const script = document.createElement("script");
-    script.id = "supascribe-loader";
-    script.src = "https://js.supascribe.com/v1/loader/b2nQm9wgMLWsDqQydwXvtHZwvSD2.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
   return (
     <footer className="border-t bg-muted/40 pb-8 pt-16 text-muted-foreground">
       <div className="container mx-auto max-w-[1200px]">
@@ -177,7 +165,7 @@ export function Footer({ locale, settings }: FooterProps) {
 
           <div className="space-y-4">
             <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-foreground">{t.newsletterTitle}</h4>
-            <div data-supascribe-embed-id="905066645628" data-supascribe-subscribe />
+            <NewsletterEmbed />
             <p className="text-xs leading-relaxed text-muted-foreground">
               En vous inscrivant, vous acceptez de recevoir des emails de mise à jour de Fractional Delivery. Vous
               pouvez vous désinscrire à tout moment. Consultez notre{" "}
