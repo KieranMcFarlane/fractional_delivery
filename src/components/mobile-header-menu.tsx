@@ -18,7 +18,7 @@ export function MobileHeaderMenu({ locale, pathname, settings, localeLinks, orde
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <>
+    <div className="md:hidden">
       <button
         type="button"
         onClick={() => setMobileOpen((value) => !value)}
@@ -30,7 +30,10 @@ export function MobileHeaderMenu({ locale, pathname, settings, localeLinks, orde
         <span className="text-lg leading-none">{mobileOpen ? "×" : "☰"}</span>
       </button>
       {mobileOpen ? (
-        <div id="mobile-menu" className="border-t border-border/40 bg-background px-4 pb-4 pt-3 md:hidden">
+        <div
+          id="mobile-menu"
+          className="absolute left-0 right-0 top-full z-50 mt-3 rounded-b-2xl border border-border/40 bg-background/98 px-4 pb-4 pt-3 shadow-xl backdrop-blur"
+        >
           <nav className="flex flex-col gap-3 text-sm font-medium">
             {orderedNavItems.map((item) => (
               <Link
@@ -70,6 +73,6 @@ export function MobileHeaderMenu({ locale, pathname, settings, localeLinks, orde
           </Link>
         </div>
       ) : null}
-    </>
+    </div>
   );
 }

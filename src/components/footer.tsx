@@ -191,9 +191,9 @@ export function Footer({ locale, settings }: FooterProps) {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-10 text-[11px] md:flex-row">
+        <div className="flex flex-col items-center gap-4 border-t border-border/40 pt-10 text-[11px] md:flex-row md:justify-between">
           <p className="text-muted-foreground">{t.rightsReserved}</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col items-center gap-2 text-center md:flex-row md:flex-wrap md:justify-end md:gap-6">
             <Link href={privacyHref} className="transition-colors hover:text-foreground">
               {t.privacyLabel}
             </Link>
