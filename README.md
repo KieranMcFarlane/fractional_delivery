@@ -20,6 +20,9 @@ Copy `.env.example` to `.env.local` and set:
 - `MAILERLITE_API_KEY` (required for ebook signup form; `MAILERLITE_API` is supported as fallback)
 - `MAILERLITE_GROUP_DIAGNOSTIC` (group id for all diagnostic downloads; `MAILERLITE_GROUP_ID` fallback)
 - `MAILERLITE_GROUP_NEWSLETTER` (optional group id for users who opt into marketing emails)
+- `RESEND_API_KEY` (required for footer newsletter signup)
+- `RESEND_NEWSLETTER_SEGMENT_ID` (optional Resend segment id for footer newsletter signups)
+- `RESEND_NEWSLETTER_TOPIC_ID` (optional Resend topic id for footer newsletter signups)
 
 ## Local Development
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { localizePath } from "@/lib/i18n";
 import type { Locale, SiteSettings } from "@/lib/types";
-import { NewsletterEmbed } from "@/components/newsletter-embed";
+import { NewsletterSignup } from "@/components/newsletter-signup";
 
 type FooterProps = {
   locale: Locale;
@@ -165,29 +165,7 @@ export function Footer({ locale, settings }: FooterProps) {
 
           <div className="space-y-4">
             <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-foreground">{t.newsletterTitle}</h4>
-            <NewsletterEmbed />
-            <p className="text-xs leading-relaxed text-muted-foreground">
-              En vous inscrivant, vous acceptez de recevoir des emails de mise à jour de Fractional Delivery. Vous
-              pouvez vous désinscrire à tout moment. Consultez notre{" "}
-              <a
-                href="/privacy-policy"
-                className="underline transition-colors hover:text-foreground"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Politique de confidentialité
-              </a>{" "}
-              et la{" "}
-              <a
-                href="https://substack.com/privacy"
-                className="underline transition-colors hover:text-foreground"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Politique de confidentialité de Substack
-              </a>
-              .
-            </p>
+            <NewsletterSignup locale={locale} />
           </div>
         </div>
 
