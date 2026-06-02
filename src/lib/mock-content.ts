@@ -72,6 +72,7 @@ const hugeIconMap: Record<string, string> = {
   "book-open": "book-open-01",
   "calendar-x": "calendar-remove-01",
   check: "tick-01",
+  building: "building-03",
   "chevron-down": "arrow-down-01",
   clock: "clock-01",
   cpu: "chip-02",

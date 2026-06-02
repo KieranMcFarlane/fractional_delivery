@@ -15,7 +15,8 @@ const copy: Record<Locale, { badge: string; title: string; intro: string; cards:
   en: {
     badge: "THE CHALLENGES",
     title: "When teams usually call me",
-    intro: "When growth starts to feel like chaos, it's usually because the delivery systems haven't scaled with the headcount.",
+    intro:
+      "Whether you're a business with a big digital project and no tech team, or a team whose delivery has outgrown its systems, the symptoms tend to look familiar.",
     cards: [
       {
         title: "Stalling Velocity",

@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { getDynamicSlugs, getPosts } from "@/lib/directus";
 import { localizePath } from "@/lib/i18n";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://fractionaldelivery.com";
 
 function fullUrl(path: string): string {
   return new URL(path, siteUrl).toString();

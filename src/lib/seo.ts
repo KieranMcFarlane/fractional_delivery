@@ -4,7 +4,7 @@ import { localizePath } from "@/lib/i18n";
 import type { Locale, SeoFields } from "@/lib/types";
 
 export function siteUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  return process.env.NEXT_PUBLIC_SITE_URL ?? "https://fractionaldelivery.com";
 }
 
 function ogLocale(locale: Locale): string {

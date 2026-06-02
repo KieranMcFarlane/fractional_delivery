@@ -19,10 +19,10 @@ type AboutCopy = {
 const copy: Record<Locale, AboutCopy> = {
   en: {
     label: "About",
-    name: "Camille | Delivery & Operations Lead",
+    name: "Camille | Fractional Digital Delivery & Transformation Leadership",
     intro:
-      "I help product and engineering teams scale delivery without losing clarity or momentum. Not by adding more process, but by building the right operational foundations for where the team is heading next.",
-    bio: "I've spent the last 8 years working inside fast-growing digital, AI and tech teams. Agencies, international organisations, and high-growth startups. The contexts vary, but the challenge is usually the same: delivery that worked brilliantly at one size stops working at the next. I've sat in the delivery seat, not just advised from outside it.",
+      "I help organisations get digital done, whether that's leading a transformation for a business without an internal tech team, or bringing delivery structure to a scaling tech team that already has one.",
+    bio: "I've spent the last 8 years leading digital delivery across agencies, international organisations and high-growth teams, in the delivery seat rather than advising from outside it.",
     whyTitle: "Why teams choose me",
     bullets: [
       {

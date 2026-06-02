@@ -33,9 +33,9 @@ const copy: Record<Locale, FooterCopy> = {
     navigationTitle: "Navigation",
     focusAreasTitle: "Focus Areas",
     newsletterTitle: "Newsletter",
-    roleTitle: "Delivery & Operations Lead",
+    roleTitle: "Fractional Digital Delivery & Transformation Leadership",
     brandDescription:
-      "Providing senior delivery leadership and tech operations consultancy for high-growth product, AI and engineering teams.",
+      "Fractional senior digital delivery and transformation leadership for businesses going digital and for scaling tech teams.",
     navigationLinks: [
       { label: "Why work with me", href: "/#why-me" },
       { label: "How I work", href: "/#services" },
@@ -60,7 +60,7 @@ const copy: Record<Locale, FooterCopy> = {
     navigationTitle: "Navigation",
     focusAreasTitle: "Axes d'intervention",
     newsletterTitle: "Newsletter",
-    roleTitle: "Delivery & Operations Lead",
+    roleTitle: "Fractional Digital Delivery & Transformation Leadership",
     brandDescription:
       "Leadership senior en delivery et conseil en opérations tech pour les équipes produit, IA et engineering à forte croissance.",
     navigationLinks: [
