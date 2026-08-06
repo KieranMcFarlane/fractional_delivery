@@ -21,15 +21,26 @@ export async function POST(request: Request) {
   if (!apiKey) {
     return NextResponse.json({ error: "MailerLite is not configured." }, { status: 500 });
   }
-  if (!diagnosticGroupId) {
-    return NextResponse.json({ error: "MailerLite diagnostic group is not configured." }, { status: 500 });
-  }
-
-  let payload: { email?: string; locale?: string; termsAccepted?: boolean; marketingConsent?: boolean } = {};
+  let payload: { email?: string; locale?: string; termsAccepted?: boolean; marketingConsent?: boolean; source?: string } = {};
   try {
-    payload = (await request.json()) as { email?: string; locale?: string; termsAccepted?: boolean; marketingConsent?: boolean };
+    payload = (await request.json()) as {
+      email?: string;
+      locale?: string;
+      termsAccepted?: boolean;
+      marketingConsent?: boolean;
+      source?: string;
+    };
   } catch {
     return NextResponse.json({ error: "Invalid request payload." }, { status: 400 });
+  }
+
+  const isFooterNewsletter = payload.source === "footer_newsletter";
+
+  if (!diagnosticGroupId && !isFooterNewsletter) {
+    return NextResponse.json({ error: "MailerLite diagnostic group is not configured." }, { status: 500 });
+  }
+  if (isFooterNewsletter && !newsletterGroupId && !diagnosticGroupId) {
+    return NextResponse.json({ error: "MailerLite newsletter group is not configured." }, { status: 500 });
   }
 
   const email = (payload.email ?? "").trim().toLowerCase();
@@ -46,8 +57,19 @@ export async function POST(request: Request) {
   }
 
   const groups: string[] = [];
-  groups.push(diagnosticGroupId);
-  if (marketingConsent && newsletterGroupId) groups.push(newsletterGroupId);
+  if (isFooterNewsletter) {
+    const targetGroupId = newsletterGroupId ?? diagnosticGroupId;
+    if (!targetGroupId) {
+      return NextResponse.json({ error: "MailerLite newsletter group is not configured." }, { status: 500 });
+    }
+    groups.push(targetGroupId);
+  } else {
+    if (!diagnosticGroupId) {
+      return NextResponse.json({ error: "MailerLite diagnostic group is not configured." }, { status: 500 });
+    }
+    groups.push(diagnosticGroupId);
+    if (marketingConsent && newsletterGroupId) groups.push(newsletterGroupId);
+  }
 
   const body: {
     email: string;
@@ -56,7 +78,7 @@ export async function POST(request: Request) {
   } = {
     email,
     fields: {
-      source: "delivery_diagnostic_ebook",
+      source: isFooterNewsletter ? "footer_newsletter" : "delivery_diagnostic_ebook",
       locale,
       terms_accepted: termsAccepted ? "yes" : "no",
       marketing_consent: marketingConsent ? "yes" : "no",

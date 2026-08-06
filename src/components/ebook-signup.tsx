@@ -100,8 +100,8 @@ export function EbookSignup({ locale }: EbookSignupProps) {
   }
 
   return (
-    <section id="ebook" className="container border-t border-border/40 py-24 md:py-32">
-      <div className="relative mx-auto max-w-[1100px] overflow-hidden rounded-[3rem] bg-brand-blue shadow-2xl shadow-brand-blue/20">
+    <section id="ebook" className="container border-t border-border/40 py-20 md:py-28">
+      <div className="relative mx-auto max-w-[1080px] overflow-hidden rounded-[1.5rem] bg-brand-blue shadow-2xl shadow-brand-blue/20">
         <div className="pointer-events-none absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-white/5 to-transparent" />
 
         <div className="relative z-10 flex flex-col items-center gap-12 p-8 md:flex-row md:p-16">
@@ -109,15 +109,15 @@ export function EbookSignup({ locale }: EbookSignupProps) {
             <div className="mb-6 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
               {t.badge}
             </div>
-            <h2 className="mb-6 font-serif text-3xl leading-tight md:text-5xl">{t.heading}</h2>
-            <p className="mb-8 max-w-lg text-lg leading-relaxed text-white/80">{t.description}</p>
+            <h2 className="mb-4 font-sans text-[2.25rem] font-semibold leading-[1.12] tracking-[-0.02em] text-white md:text-[36px]">{t.heading}</h2>
+            <p className="mb-7 max-w-lg text-[17px] leading-[1.6] text-white/80">{t.description}</p>
 
             <form className="max-w-md" onSubmit={onSubmit}>
               <div className="flex flex-col gap-3 sm:flex-row">
               <input
                 type="email"
                 placeholder={t.placeholder}
-                className="h-12 w-full rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
+                className="h-12 w-full rounded-md border border-white/20 bg-white/10 px-4 py-2 text-[15px] text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
                 required
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
@@ -125,7 +125,7 @@ export function EbookSignup({ locale }: EbookSignupProps) {
               <button
                 type="submit"
                 disabled={!canSubmit}
-                className="inline-flex h-12 shrink-0 items-center justify-center rounded-md border border-transparent bg-white px-8 text-sm font-bold text-brand-blue transition-colors hover:border-white hover:bg-brand-blue/10 hover:text-white disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer"
+                className="inline-flex h-12 shrink-0 cursor-pointer items-center justify-center rounded-md border border-transparent bg-white px-8 text-[15px] font-bold text-brand-blue transition-colors hover:border-white hover:bg-brand-blue/10 hover:text-white disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {isSubmitting ? t.sending : t.cta}
               </button>
@@ -174,7 +174,7 @@ export function EbookSignup({ locale }: EbookSignupProps) {
               <div className="absolute inset-0 bg-white/20 opacity-50 blur-3xl transition-opacity group-hover:opacity-100" />
               <div className="relative flex h-64 w-48 -rotate-2 flex-col overflow-hidden rounded-lg border-r-4 border-brand-orange bg-white p-6 shadow-2xl transition-transform duration-500 group-hover:rotate-0 md:h-80 md:w-64">
                 <div className="mb-4 h-1 w-12 bg-brand-blue" />
-                <div className="mb-4 font-serif text-2xl text-brand-blue">{t.cardTitle}</div>
+                <div className="mb-4 font-serif text-[18px] leading-[1.25] text-brand-blue">{t.cardTitle}</div>
                 <div className="mt-auto">
                   <div className="mb-2 h-2 w-full bg-slate-100" />
                   <div className="h-2 w-2/3 bg-slate-100" />

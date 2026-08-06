@@ -22,18 +22,23 @@ function TestimonialItem({ quote, name, role, companyName, companyLogo, colorCla
   useEffect(() => {
     const el = textRef.current;
     if (!el) return;
-    if (el.scrollHeight > el.clientHeight) setShowButton(true);
+
+    const frame = window.requestAnimationFrame(() => {
+      setShowButton(el.scrollHeight > el.clientHeight);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, [quote]);
 
   return (
-    <div className="flex flex-col rounded-[2rem] border bg-card p-10 shadow-sm transition-all duration-300 hover:shadow-md">
-      <div className={`${colorClass} mb-6`}>
-        <Quote className="h-10 w-10 opacity-20" />
+    <div className="flex flex-col rounded-[1.1rem] border border-[#e6e9ef] bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-md">
+      <div className={`${colorClass} mb-4`}>
+        <Quote className="h-8 w-8 opacity-20" />
       </div>
-      <div className="mb-8 flex flex-grow flex-col items-start gap-2">
+      <div className="mb-6 flex flex-grow flex-col items-start gap-2">
         <p
           ref={textRef}
-          className={`testimonial-text text-xl leading-relaxed italic text-foreground transition-all duration-300 md:text-2xl ${
+          className={`testimonial-text text-[16px] leading-[1.62] text-[#3f4a59] transition-all duration-300 ${
             isClamped ? "line-clamp-6" : ""
           }`}
         >
@@ -42,14 +47,14 @@ function TestimonialItem({ quote, name, role, companyName, companyLogo, colorCla
         {showButton ? (
           <button
             onClick={() => setIsClamped((prev) => !prev)}
-            className="mt-2 text-sm font-semibold text-brand-blue transition-colors hover:text-brand-blue/80"
+            className="mt-2 cursor-pointer text-sm font-semibold text-brand-blue transition-colors hover:text-brand-blue/80"
           >
             {isClamped ? (locale === "fr" ? "Lire plus" : "Read more") : locale === "fr" ? "Lire moins" : "Read less"}
           </button>
         ) : null}
       </div>
       <div className="mt-auto flex flex-col gap-1">
-        <span className="font-semibold text-foreground">
+        <span className="text-[14.5px] font-bold text-[#15233b]">
           {name}, <span className="font-normal text-muted-foreground">{role}</span>
         </span>
         {companyLogo ? (
@@ -57,7 +62,7 @@ function TestimonialItem({ quote, name, role, companyName, companyLogo, colorCla
             <img src={companyLogo} alt={companyName} className="h-7 w-auto object-contain object-left opacity-70 grayscale mix-blend-multiply" />
           </div>
         ) : (
-          <span className="text-sm font-medium text-muted-foreground">{companyName}</span>
+          <span className="text-[13px] font-medium text-muted-foreground">{companyName}</span>
         )}
       </div>
     </div>
@@ -131,13 +136,13 @@ export function Testimonials({ locale }: { locale: Locale }) {
   const t = copy[locale];
 
   return (
-    <section id="testimonials" className="container border-t border-border/40 py-24 md:py-32">
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-16">
+    <section id="testimonials" className="container border-t border-border/40 bg-[#f5f6f9] py-20 md:py-28">
+      <div className="mx-auto flex max-w-[1180px] flex-col gap-14">
         <div className="flex flex-col items-center gap-4 text-center">
-          <div className="mb-4 inline-flex w-fit items-center rounded-full border border-transparent bg-brand-blue/20 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-brand-blue">
+          <div className="mb-0 inline-flex w-fit items-center rounded-full border border-transparent bg-[#fdece6] px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#e9694b]">
             {t.badge}
           </div>
-          <h2 className="text-balance text-3xl md:text-4xl lg:text-5xl">{t.title}</h2>
+          <h2 className="text-balance font-sans text-[2.45rem] font-semibold leading-[1.08] tracking-[-0.022em] text-[#15233b] md:text-[42px]">{t.title}</h2>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

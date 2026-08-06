@@ -249,12 +249,16 @@ export const mockContent = {
           href: locale === "fr" ? "/fr#how-i-help" : "/#how-i-help",
         },
         {
-          label: localizedLabel(locale, "How I work", "Méthode"),
+          label: localizedLabel(locale, "Ways to engage", "Méthode"),
           href: locale === "fr" ? "/fr#services" : "/#services",
         },
         {
-          label: localizedLabel(locale, "Who I work with", "Clients"),
+          label: localizedLabel(locale, "About", "À propos"),
           href: locale === "fr" ? "/fr#who-i-help" : "/#who-i-help",
+        },
+        {
+          label: localizedLabel(locale, "FAQ", "FAQ"),
+          href: locale === "fr" ? "/fr#faq" : "/#faq",
         },
         {
           label: localizedLabel(locale, "Insights", "Ressources"),

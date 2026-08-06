@@ -13,7 +13,7 @@ type HeaderProps = {
 };
 
 export function Header({ locale, pathname, settings, localeLinks }: HeaderProps) {
-  const navOrder = ["how-i-help", "who-i-help", "services", "blog"];
+  const navOrder = ["how-i-help", "services", "who-i-help", "faq", "blog"];
   const orderedNavItems = [...settings.navItems].sort((a, b) => {
     const getRank = (href: string) => {
       const idx = navOrder.findIndex((key) => href.includes(key));

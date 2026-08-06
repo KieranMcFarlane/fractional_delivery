@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import { DM_Sans, Instrument_Serif, Geist } from "next/font/google";
+import { Hanken_Grotesk, Newsreader } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const hankenGrotesk = Hanken_Grotesk({
+  variable: "--font-hanken-grotesk",
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  weight: "400",
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 
@@ -48,7 +47,7 @@ export default function RootLayout({
   const enableCookieYes = process.env.NODE_ENV === "production";
 
   return (
-    <html lang="en" className={cn("h-full", "antialiased", dmSans.variable, instrumentSerif.variable, "font-sans", geist.variable)}>
+    <html lang="en" className={cn("h-full", "antialiased", hankenGrotesk.variable, newsreader.variable, "font-sans")}>
       <head>
         {enableCookieYes ? (
           <Script

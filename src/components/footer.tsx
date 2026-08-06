@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { FooterNewsletterSignup } from "@/components/footer-newsletter-signup";
 import { localizePath } from "@/lib/i18n";
 import type { Locale, SiteSettings } from "@/lib/types";
-import { NewsletterSignup } from "@/components/newsletter-signup";
 
 type FooterProps = {
   locale: Locale;
@@ -26,6 +26,7 @@ type FooterCopy = {
   privacyLabel: string;
   cookieLabel: string;
   termsLabel: string;
+  newsletterConsent: string;
 };
 
 const copy: Record<Locale, FooterCopy> = {
@@ -55,6 +56,8 @@ const copy: Record<Locale, FooterCopy> = {
     privacyLabel: "Privacy Policy",
     cookieLabel: "Cookie Policy",
     termsLabel: "Terms of Service",
+    newsletterConsent:
+      "By subscribing, you agree to receive occasional emails from Fractional Delivery. You can unsubscribe at any time. See our",
   },
   fr: {
     navigationTitle: "Navigation",
@@ -82,6 +85,8 @@ const copy: Record<Locale, FooterCopy> = {
     privacyLabel: "Confidentialité",
     cookieLabel: "Politique de cookies",
     termsLabel: "Conditions",
+    newsletterConsent:
+      "En vous inscrivant, vous acceptez de recevoir des emails de mise à jour de Fractional Delivery. Vous pouvez vous désinscrire à tout moment. Consultez notre",
   },
 };
 
@@ -165,7 +170,19 @@ export function Footer({ locale, settings }: FooterProps) {
 
           <div className="space-y-4">
             <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-foreground">{t.newsletterTitle}</h4>
-            <NewsletterSignup locale={locale} />
+            <FooterNewsletterSignup locale={locale} />
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              {t.newsletterConsent}{" "}
+              <a
+                href={privacyHref}
+                className="underline transition-colors hover:text-foreground"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.privacyLabel}
+              </a>
+              .
+            </p>
           </div>
         </div>
 

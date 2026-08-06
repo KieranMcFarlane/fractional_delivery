@@ -4,6 +4,10 @@ import { useEffect } from "react";
 import { getCalApi } from "@calcom/embed-react";
 import { calNamespace, calOrigin } from "@/lib/cal";
 
+type CalApi = ((command: string, ...args: unknown[]) => void) & {
+  ns?: Record<string, (command: string, ...args: unknown[]) => void>;
+};
+
 export function CalInit() {
   useEffect(() => {
     let mounted = true;
@@ -11,7 +15,7 @@ export function CalInit() {
     const origin = calOrigin();
 
     (async () => {
-      const cal = (await getCalApi()) as any;
+      const cal = (await getCalApi()) as CalApi;
       if (!mounted) return;
 
       if (namespace) {
